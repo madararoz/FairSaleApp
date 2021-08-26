@@ -7,7 +7,7 @@
 
 <GridPane fx:controller="controller.StartController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <Text text="Welcome to SIA TINES Fair Sale Application" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="0"/>
+    <Text text="Welcome to SIA TINES Fair Sale Application" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="1"/>
 
     <Button text="Sold" GridPane.rowIndex="2" onAction="#registerSoldItem" GridPane.columnIndex="0"
             style="-fx-font-size: 20px; -fx-text-fill: white; -fx-background-color: green"/>
