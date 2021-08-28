@@ -6,14 +6,40 @@
 <?import javafx.scene.text.Text?>
 <GridPane fx:controller="controller.ItemController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <Text text="What you want to do?" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+    <Text text="Add an order" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
 
-    <Label text="Add sold item" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-    <TextField fx:id="soldItemField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <Label text="Product type" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="productTypeField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
-    <Button text="Back" GridPane.rowIndex="3" onAction="#handleBack" GridPane.columnIndex="0"
-            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: #502424"/>
-    <Button text="Exit" GridPane.rowIndex="3" onAction="#handleExit" GridPane.columnIndex="1"
+    <Label text="Price" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <TextField fx:id="priceField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <Label text="Count" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <TextField fx:id="countField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Label text="Gender" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+    <TextField fx:id="genderField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+    <Label text="Produce Type" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+    <TextField fx:id="produceField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+
+    <Label text="Size" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+    <TextField fx:id="sizeField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+    <Label text="Colour" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+    <TextField fx:id="colourField" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+    <Label text="Type name" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+    <TextField fx:id="typeNameField" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+
+    <Label text="Seller" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
+    <TextField fx:id="sellerField" GridPane.rowIndex="9" GridPane.columnIndex="1"/>
+
+    <Button text="Add" GridPane.rowIndex="11" onAction="#handleAdd" GridPane.columnIndex="0"
+            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
+    <Button text="Back" GridPane.rowIndex="11" onAction="#handleBack" GridPane.columnIndex="1"
+            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
+    <Button text="Exit" GridPane.rowIndex="11" onAction="#handleExit" GridPane.columnIndex="2"
             style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
 
 </GridPane>
