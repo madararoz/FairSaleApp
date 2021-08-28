@@ -23,14 +23,14 @@ public class SoldItemDBService {
         statement.setString(6, item.getTypeName());
         statement.setString(7, item.getMarkAsSold());
         statement.setInt(8, item.getProductId());
-        statement.setString(9, item.getProductId());
+        statement.setInt(9, item.getProductId());
 
         int result = statement.executeUpdate();
         DBHandler.close(result, statement, connection);
 
 
     }
-
 }
+
 
 

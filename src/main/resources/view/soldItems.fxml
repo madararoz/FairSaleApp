@@ -38,7 +38,7 @@
     <Button text="Add" GridPane.rowIndex="11" onAction="#handleAdd" GridPane.columnIndex="0"
             style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
     <Button text="Back" GridPane.rowIndex="11" onAction="#handleBack" GridPane.columnIndex="1"
-            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
+            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple; -fx-text-align: center;"/>
     <Button text="Exit" GridPane.rowIndex="11" onAction="#handleExit" GridPane.columnIndex="2"
             style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
 
