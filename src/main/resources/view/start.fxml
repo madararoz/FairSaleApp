@@ -5,12 +5,18 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <GridPane fx:controller="controller.StartController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <Text text="Welcome to SIA TINES Fair Sale Application" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="1"/>
-
+    <ImageView pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../view/logo.png" />
+        </image>
+    </ImageView>
     <Button text="Sold" GridPane.rowIndex="2" onAction="#registerSoldItem" GridPane.columnIndex="0"
-            style="-fx-font-size: 20px; -fx-text-fill: white; -fx-background-color: green"/>
+            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: green"/>
 
     <Button text="Ordered" GridPane.rowIndex="3" onAction="#registerOrderedItem" GridPane.columnIndex="0"
             style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: green"/>

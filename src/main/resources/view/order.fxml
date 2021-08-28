@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<GridPane fx:controller="controller.OrderController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <Text text="Add an order" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+
+    <Label text="Item" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="ItemNameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+    <Label text="Customer" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+    <TextField fx:id="CustomerNameField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Label text="DeliveryMethod" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+    <TextField fx:id="DeliveryMethodField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+
+    <Button text="Add" GridPane.rowIndex="10" onAction="#handleAddOrder" GridPane.columnIndex="0"
+            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
+
+    <Button text="Back" GridPane.rowIndex="10" onAction="#handleBack" GridPane.columnIndex="1" GridPane.columnSpan="1"
+            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
+
+    <Button text="Exit" GridPane.rowIndex="10" onAction="#handleExit" GridPane.columnIndex="1" GridPane.columnSpan="2"
+            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
+
+</GridPane>
+
