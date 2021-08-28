@@ -9,16 +9,17 @@
 <?import javafx.scene.image.Image?>
 <GridPane fx:controller="controller.StartController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <Text text="Welcome to SIA TINES Fair Sale Application" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="1"/>
-    <ImageView pickOnBounds="true" preserveRatio="true">
+    <Text text="Welcome to SIA TINES Fair Sale Application" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="1"/>
+    <ImageView pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="0" GridPane.columnIndex="0">
         <image>
-            <Image url="@../view/logo.png" />
+            <Image url="@../img/logo.png" />
         </image>
     </ImageView>
-    <Button text="Sold" GridPane.rowIndex="2" onAction="#registerSoldItem" GridPane.columnIndex="0"
+
+    <Button text="Sold" GridPane.rowIndex="3" onAction="#registerSoldItem" GridPane.columnIndex="0"
             style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: green"/>
 
-    <Button text="Ordered" GridPane.rowIndex="3" onAction="#registerOrderedItem" GridPane.columnIndex="0"
+    <Button text="Ordered" GridPane.rowIndex="4" onAction="#registerOrderedItem" GridPane.columnIndex="0"
             style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: green"/>
 
 </GridPane>
