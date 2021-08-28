@@ -62,4 +62,14 @@ public class DBHandler {
 
         }
 
+    public static void close( PreparedStatement preparedStatement, Connection connection) {
+        try {
+            preparedStatement.close();
+            connection.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

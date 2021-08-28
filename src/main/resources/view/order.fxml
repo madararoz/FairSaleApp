@@ -47,7 +47,6 @@
     <Label text="Delivery method" GridPane.rowIndex="12" GridPane.columnIndex="0"/>
     <TextField fx:id="DeliveryMethodField" GridPane.rowIndex="12" GridPane.columnIndex="1"/>
 
-
     <Button text="Add" GridPane.rowIndex="13" onAction="#handleAddOrder" GridPane.columnIndex="0"
             style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
 

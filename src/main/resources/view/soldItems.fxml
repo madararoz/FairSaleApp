@@ -21,7 +21,7 @@
     <TextField fx:id="genderField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
 
     <Label text="Produce Type" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-    <TextField fx:id="produceField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+    <TextField fx:id="produceTypeField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
 
     <Label text="Size" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
     <TextField fx:id="sizeField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
