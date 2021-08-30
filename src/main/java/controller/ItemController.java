@@ -22,7 +22,7 @@ public class ItemController extends ViewController {
 
 
     public void handleSoldItems(ActionEvent actionEvent) {
-        try {
+     /*  try {
             //Sarkans jo nav tāds Constructor, kas varētu uztaisīt jaunu Item. Šim jāsakrīt ar SoldItemsDBService metodes Itemu
             Item item = new Item(
                     productTypeField.getText(),
@@ -35,13 +35,21 @@ public class ItemController extends ViewController {
                     typeNameField.getText(),
                     sellerField.getText());
 
+
+
             showAlert("Success", "Adding successful", Alert.AlertType.CONFIRMATION);
             changeScene(actionEvent, "");
         } catch (Exception e) {
             showAlert("Register Failed", e.getMessage(), Alert.AlertType.ERROR);
             e.printStackTrace();
         }
+
+      */
+
+
     }
+
+
 
 
 

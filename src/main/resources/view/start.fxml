@@ -16,10 +16,11 @@
         </image>
     </ImageView>
 
+
     <Button text="Sold" GridPane.rowIndex="3" onAction="#registerSoldItem" GridPane.columnIndex="0"
-            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: green"/>
+            style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: green" prefHeight="40" prefWidth="80" />
 
     <Button text="Ordered" GridPane.rowIndex="4" onAction="#registerOrderedItem" GridPane.columnIndex="0"
-            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: green"/>
+            style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: green" prefHeight="40" prefWidth="80"/>
 
 </GridPane>

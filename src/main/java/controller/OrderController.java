@@ -5,7 +5,6 @@ import javafx.scene.control.TextField;
 
 public class OrderController extends ViewController {
 
-    public TextField ItemNameField;
     public TextField CustomerNameField;
     public TextField DeliveryMethodField;
     public TextField ProductTypeField;

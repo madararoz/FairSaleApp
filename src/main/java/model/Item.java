@@ -2,6 +2,10 @@ package model;
 
 public class Item {
 
+    int id;
+    String markAsSold;
+    int produceId;
+    int productId;
     ProductType productType;
     double price;
     Gender gender;
@@ -11,6 +15,18 @@ public class Item {
     String typeName;
     int count;
 
+
+    public Item( int id, double price, Gender gender, Size size, String colour, String typeName, String markAsSold, int produceId, int productId ) {
+        this.id = id;
+        this.price = price;
+        this.gender = gender;
+        this.size = size;
+        this.colour = colour;
+        this.typeName = typeName;
+        this.markAsSold = markAsSold;
+        this.produceId = produceId;
+        this.productId = productId;
+    }
 
 
     public Item(ProductType productType, double price, Gender gender, ProduceType produceType, Size size, String colour, String typeName, int count) {
@@ -23,22 +39,39 @@ public class Item {
         this.typeName = typeName;
         this.count = count;
     }
-/*
-    public Item( int id, double price, String gender, int size, String colour, String typeName, String markAsSold, int produceId, int productId ) {
-       this.id = id;
-       this.price = price;
-       this.gender = gender;
-       this.size = size;
-       this.colour = colour;
-       this.typeName = typeName;
-       this.markAsSold = markAsSold;
-       this.produceId = produceId;
-       this.productId = productId;
+
+
+    public int getId() {
+        return id;
     }
 
- */
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public String getMarkAsSold() {
+        return markAsSold;
+    }
 
+    public void setMarkAsSold(String markAsSold) {
+        this.markAsSold = markAsSold;
+    }
+
+    public int getProduceId() {
+        return produceId;
+    }
+
+    public void setProduceId(int produceId) {
+        this.produceId = produceId;
+    }
+
+    public int getProductId() {
+        return productId;
+    }
+
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
 
     public ProductType getProductType() {
         return productType;

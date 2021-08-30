@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,7 +23,10 @@ import java.util.Objects;
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(scenePath)));
             stage.setScene(new Scene(root, 800, 800));
+            Image icon = new Image(getClass().getResourceAsStream("icon.png"));//nestrādā whyyyy?
+            stage.getIcons().add(icon);
             stage.show();
+
 
         }
 
@@ -31,7 +35,6 @@ import java.util.Objects;
             alert.setTitle(title);
             alert.setContentText(message);
             alert.setHeaderText(null);
-
             alert.show();
         }
 }
