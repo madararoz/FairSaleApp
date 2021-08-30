@@ -6,15 +6,15 @@
 <?import javafx.scene.text.Text?>
 <GridPane fx:controller="controller.ItemController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <Text text="Add an order" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+    <Text text="Add sold item" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
 
     <Label text="Product Type" GridPane.rowIndex="1" GridPane.columnIndex="0" textAlignment="LEFT"/>
-    <VBox spacing="10.0"  GridPane.rowIndex="1" GridPane.columnIndex="1">
-        <ListView fx:id="ProductTypeListView" prefHeight="30" onMouseClicked="#handleProductTypeClick"/>
-    </VBox>
+    <!--    <VBox spacing="10.0"  GridPane.rowIndex="1" GridPane.columnIndex="1">-->
+    <!--  <ListView fx:id="ProductTypeListView" prefHeight="30" onMouseClicked="#handleProductTypeClick"/>-->
+        <!--    </VBox>-->
 
-<!--    <Label text="Product type" GridPane.rowIndex="1" GridPane.columnIndex="0"/>-->
-<!--    <TextField fx:id="productTypeField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>-->
+        <!--    <Label text="Product type" GridPane.rowIndex="1" GridPane.columnIndex="0"/>-->
+   <TextField fx:id="productTypeField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
 
     <Label text="Price" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
     <TextField fx:id="priceField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
@@ -37,10 +37,8 @@
     <Label text="Type name" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
     <TextField fx:id="typeNameField" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
 
-    <Label text="Seller" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
-    <TextField fx:id="sellerField" GridPane.rowIndex="9" GridPane.columnIndex="1"/>
 
-    <Button text="Add" GridPane.rowIndex="11" onAction="#handleAdd" GridPane.columnIndex="0"
+    <Button text="Add" GridPane.rowIndex="11" onAction="#handleSoldItems" GridPane.columnIndex="0"
             style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
     <Button text="Back" GridPane.rowIndex="11" onAction="#handleBack" GridPane.columnIndex="1"
             style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple; -fx-text-align: center;"/>

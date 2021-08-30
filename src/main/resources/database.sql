@@ -1,3 +1,19 @@
+
+use xFJDD16Wwk;
+
+create table if not exists items(
+	id int primary key auto_increment not null,
+    product_type text (50),
+    price int not null,
+    count int not null,
+    gender varchar(10) not null,
+    produce_type varchar(20) not null,
+    size varchar(10) not null,
+    colour varchar(30) not null,
+    type_name varchar(20) not null
+    );
+
+
 create database fairsales;
 
 use fairsales;

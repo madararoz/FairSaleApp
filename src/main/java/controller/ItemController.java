@@ -3,7 +3,9 @@ package controller;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import model.Item;
+import service.SoldItemDBService;
 
 import java.io.IOException;
 
@@ -18,42 +20,33 @@ public class ItemController extends ViewController {
     public TextField sizeField;
     public TextField colourField;
     public TextField typeNameField;
-    public TextField sellerField;
+    //public TextField sellerField;
+
+    SoldItemDBService soldItemDBService = new SoldItemDBService();
 
 
     public void handleSoldItems(ActionEvent actionEvent) {
-     /*  try {
+        try {
             //Sarkans jo nav tāds Constructor, kas varētu uztaisīt jaunu Item. Šim jāsakrīt ar SoldItemsDBService metodes Itemu
             Item item = new Item(
                     productTypeField.getText(),
-                    priceField.getText(),
-                    countField.getText(),
+                    Integer.parseInt(priceField.getText()),
+                    Integer.parseInt(countField.getText()),
                     genderField.getText(),
                     produceTypeField.getText(),
-                    sizeField.getText(),
+                    Integer.parseInt(sizeField.getText()),
                     colourField.getText(),
-                    typeNameField.getText(),
-                    sellerField.getText());
+                    typeNameField.getText());
 
-
+            soldItemDBService.addSoldItemToDB(item);
 
             showAlert("Success", "Adding successful", Alert.AlertType.CONFIRMATION);
-            changeScene(actionEvent, "");
+            changeScene(actionEvent, "start");
         } catch (Exception e) {
-            showAlert("Register Failed", e.getMessage(), Alert.AlertType.ERROR);
+            showAlert("Adding Sold Items Failed", e.getMessage(), Alert.AlertType.ERROR);
             e.printStackTrace();
         }
-
-      */
-
-
     }
-
-
-
-
-
-
 
     public void handleExit(ActionEvent actionEvent) {
         try {
@@ -71,12 +64,15 @@ public class ItemController extends ViewController {
         }
     }
 
-    public void handleAdd(ActionEvent actionEvent) {
-        try {
-            changeScene(actionEvent, "add");
-        } catch (IOException e) {
-            showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
-        }
+    public void handleProductTypeClick(MouseEvent mouseEvent) {
     }
+
+//    public void handleAdd(ActionEvent actionEvent) {
+//       try {
+//            changeScene(actionEvent, "start");
+//       } catch (IOException e) {
+//           showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
+//       }
+// }
 }
 

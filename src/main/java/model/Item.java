@@ -6,40 +6,55 @@ public class Item {
     String markAsSold;
     int produceId;
     int productId;
-    ProductType productType;
+    //ProductType productType;
+    String productType;
     double price;
-    Gender gender;
-    ProduceType produceType;
-    Size size;
+    //Gender gender;
+    String gender;
+    //ProduceType produceType;
+    String produceType;
+    //Size size;
+    int size;
     String colour;
     String typeName;
     int count;
 
 
-    public Item( int id, double price, Gender gender, Size size, String colour, String typeName, String markAsSold, int produceId, int productId ) {
-        this.id = id;
-        this.price = price;
-        this.gender = gender;
-        this.size = size;
-        this.colour = colour;
-        this.typeName = typeName;
-        this.markAsSold = markAsSold;
-        this.produceId = produceId;
-        this.productId = productId;
-    }
+//    public Item( int id, double price, Gender gender, Size size, String colour, String typeName, String markAsSold, int produceId, int productId ) {
+//        this.id = id;
+//        this.price = price;
+//        this.gender = gender;
+//        this.size = size;
+//        this.colour = colour;
+//        this.typeName = typeName;
+//        this.markAsSold = markAsSold;
+//        this.produceId = produceId;
+//        this.productId = productId;
+//    }
 
 
-    public Item(ProductType productType, double price, Gender gender, ProduceType produceType, Size size, String colour, String typeName, int count) {
+//    public Item(ProductType productType, double price, int count, Gender gender, ProduceType produceType, Size size, String colour, String typeName) {
+//        this.productType = productType;
+//        this.price = price;
+//        this.count = count;
+//        this.gender = gender;
+//        this.produceType = produceType;
+//        this.size = size;
+//        this.colour = colour;
+//        this.typeName = typeName;
+//
+//    }
+
+    public Item(String productType, double price, int count, String gender, String produceType, int size, String colour, String typeName) {
         this.productType = productType;
         this.price = price;
+        this.count = count;
         this.gender = gender;
         this.produceType = produceType;
         this.size = size;
         this.colour = colour;
         this.typeName = typeName;
-        this.count = count;
     }
-
 
     public int getId() {
         return id;
@@ -73,11 +88,17 @@ public class Item {
         this.productId = productId;
     }
 
-    public ProductType getProductType() {
+//    public ProductType getProductType() {
+//        return productType;
+//    }
+    public String getProductType() {
         return productType;
     }
 
-    public void setProductType(ProductType productType) {
+//    public void setProductType(ProductType productType) {
+//        this.productType = productType;
+//    }
+    public void setProductType(String productType) {
         this.productType = productType;
     }
 
@@ -89,27 +110,45 @@ public class Item {
         this.price = price;
     }
 
-    public Gender getGender() {
+//    public Gender getGender() {
+//        return gender;
+//    }
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+//    public void setGender(Gender gender) {
+//        this.gender = gender;
+//    }
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
-    public ProduceType getProduceType() {
+//    public ProduceType getProduceType() {
+//        return produceType;
+//    }
+    public String getProduceType() {
         return produceType;
     }
 
-    public void setProduceType(ProduceType produceType) {
+//    public void setProduceType(ProduceType produceType) {
+//        this.produceType = produceType;
+//    }
+    public void setProduceType(String produceType) {
         this.produceType = produceType;
     }
 
-    public Size getSize() {
+//    public Size getSize() {
+//        return size;
+//    }
+    public int getSize() {
         return size;
     }
 
-    public void setSize(Size size) {
+//    public void setSize(Size size) {
+//        this.size = size;
+//    }
+    public void setSize(int size) {
         this.size = size;
     }
 
