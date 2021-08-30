@@ -8,8 +8,13 @@
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <Text text="Add an order" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
 
-    <Label text="Product type" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-    <TextField fx:id="productTypeField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <Label text="Product Type" GridPane.rowIndex="1" GridPane.columnIndex="0" textAlignment="LEFT"/>
+    <VBox spacing="10.0"  GridPane.rowIndex="1" GridPane.columnIndex="1">
+        <ListView fx:id="ProductTypeListView" prefHeight="30" onMouseClicked="#handleProductTypeClick"/>
+    </VBox>
+
+<!--    <Label text="Product type" GridPane.rowIndex="1" GridPane.columnIndex="0"/>-->
+<!--    <TextField fx:id="productTypeField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>-->
 
     <Label text="Price" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
     <TextField fx:id="priceField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>

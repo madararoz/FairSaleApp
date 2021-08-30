@@ -2,6 +2,7 @@ package model;
 
 public class Item {
 
+    int id;
     ProductType productType;
     double price;
     Gender gender;
@@ -11,9 +12,10 @@ public class Item {
     String typeName;
     int count;
 
+    //ko darīt ar ProductId? un ProduceId?
 
-
-    public Item(ProductType productType, double price, Gender gender, ProduceType produceType, Size size, String colour, String typeName, int count) {
+    public Item(int id, ProductType productType, double price, Gender gender, ProduceType produceType, Size size, String colour, String typeName, int count) {
+        this.id = id;
         this.productType = productType;
         this.price = price;
         this.gender = gender;
@@ -23,22 +25,14 @@ public class Item {
         this.typeName = typeName;
         this.count = count;
     }
-/*
-    public Item( int id, double price, String gender, int size, String colour, String typeName, String markAsSold, int produceId, int productId ) {
-       this.id = id;
-       this.price = price;
-       this.gender = gender;
-       this.size = size;
-       this.colour = colour;
-       this.typeName = typeName;
-       this.markAsSold = markAsSold;
-       this.produceId = produceId;
-       this.productId = productId;
+
+    public int getId() {
+        return id;
     }
 
- */
-
-
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public ProductType getProductType() {
         return productType;
@@ -103,4 +97,21 @@ public class Item {
     public void setCount(int count) {
         this.count = count;
     }
+
+/*
+    public Item( int id, double price, String gender, int size, String colour, String typeName, String markAsSold, int produceId, int productId ) {
+       this.id = id;
+       this.price = price;
+       this.gender = gender;
+       this.size = size;
+       this.colour = colour;
+       this.typeName = typeName;
+       this.markAsSold = markAsSold;
+       this.produceId = produceId;
+       this.productId = productId;
+    }
+
+ */
+
 }
+
