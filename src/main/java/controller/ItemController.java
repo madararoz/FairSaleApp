@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -49,16 +50,20 @@ public class ItemController extends ViewController {
     }
 
     public void handleExit(ActionEvent actionEvent) {
+        Platform.exit();
+        /*
         try {
             changeScene(actionEvent, "exit");
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }
+
+         */
     }
 
     public void handleBack(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "back");
+            changeScene(actionEvent, "start");
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }

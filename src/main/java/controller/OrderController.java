@@ -1,7 +1,12 @@
 package controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class OrderController extends ViewController {
 
@@ -19,14 +24,29 @@ public class OrderController extends ViewController {
     public TextField CustomerPhoneField;
 
     public void handleAddOrder(ActionEvent actionEvent) {
+
+
     }
 
     public void handleBack(ActionEvent actionEvent) {
+        try{
+            changeScene(actionEvent, "start");
+        } catch (IOException ex) {
+            showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     public void handleExit(ActionEvent actionEvent) {
+        Platform.exit();
+
     }
 
 
 
-}
+
+    }
+
+
+
+
+
