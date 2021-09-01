@@ -1,8 +1,14 @@
 package controller;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import model.Gender;
@@ -12,6 +18,8 @@ import model.ProductType;
 import service.SoldItemDBService;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class ItemController extends ViewController {
 
@@ -25,6 +33,11 @@ public class ItemController extends ViewController {
     public TextField colourField;
     public TextField typeNameField;
 
+    @FXML
+   public ComboBox productTypeComboBox;
+    public ComboBox genderComboBox;
+    public ComboBox ProduceTypeComboBox;
+
 
     SoldItemDBService soldItemDBService = new SoldItemDBService();
 
@@ -33,11 +46,14 @@ public class ItemController extends ViewController {
         try {
 
             Item item = new Item(
+             //       ProductType.valueOf(productTypeComboBox.getItems().toString().toUpperCase());
                     ProductType.valueOf(productTypeField.getText().toUpperCase()),
                     Double.parseDouble(priceField.getText()),
                     Integer.parseInt(countField.getText()),
                     Gender.valueOf(genderField.getText().toUpperCase()),
+                 //   Gender.valueOf(genderComboBox.getAccessibleText()),
                     ProduceType.valueOf(produceTypeField.getText().toUpperCase()),
+             //       ProduceType.valueOf(productTypeComboBox.getItems().toString().toUpperCase()),
                     sizeField.getText(),
                     colourField.getText(),
                     typeNameField.getText());
@@ -74,6 +90,13 @@ public class ItemController extends ViewController {
 
     public void handleProductTypeClick(MouseEvent mouseEvent) {
     }
+
+//    @Override
+//    public void initialize(URL location, ResourceBundle resources) {
+//        ObservableList<ProductType> options =
+//        FXCollections.observableArrayList(ProductType.GLOVES);
+//        final ComboBox comboBox = new ComboBox(options);
+//    }
 
 //    public void handleAdd(ActionEvent actionEvent) {
 //       try {
