@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class ItemController extends ViewController {
 
-    public TextField soldItemField;
+
     public TextField productTypeField;
     public TextField priceField;
     public TextField countField;
@@ -21,14 +21,14 @@ public class ItemController extends ViewController {
     public TextField sizeField;
     public TextField colourField;
     public TextField typeNameField;
-    //public TextField sellerField;
+
 
     SoldItemDBService soldItemDBService = new SoldItemDBService();
 
 
     public void handleSoldItems(ActionEvent actionEvent) {
         try {
-            //Sarkans jo nav tāds Constructor, kas varētu uztaisīt jaunu Item. Šim jāsakrīt ar SoldItemsDBService metodes Itemu
+
             Item item = new Item(
                     productTypeField.getText(),
                     Integer.parseInt(priceField.getText()),

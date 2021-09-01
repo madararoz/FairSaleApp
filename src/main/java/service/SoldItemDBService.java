@@ -5,15 +5,13 @@ import repository.DBHandler;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
+
 
 public class SoldItemDBService {
     private Connection connection = DBHandler.getConnection();
 
 
     public void addSoldItemToDB(Item item) throws Exception {
-        //Sarkani getId, getMarkAsSold, getProductId, getProduceId jo Item nav šādi parametri. Jāizdomā kā ProductType_Id savienot ar Product_Type
 
         String query = "INSERT INTO items (id, product_type, price, count, gender, produce_type, size, colour, type_name) VALUES (?,?,?,?,?,?,?,?,?)";
         PreparedStatement statement = connection.prepareStatement(query);
