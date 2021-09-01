@@ -23,8 +23,9 @@ import java.util.Objects;
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(scenePath)));
             stage.setScene(new Scene(root, 800, 800));
-           // Image icon = new Image(getClass().getResourceAsStream("../view/icon.png"));//nestrādā whyyyy?
-           // stage.getIcons().add(icon);
+            stage.getIcons().add(new Image("./img/icon.png"));
+         // Image icon = new Image(getClass().getResourceAsStream("./view/icon.png"));//nestrādā whyyyy?
+         // stage.getIcons().add(icon);
             stage.show();
 
 
