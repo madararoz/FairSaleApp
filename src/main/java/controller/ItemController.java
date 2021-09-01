@@ -5,7 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import model.Gender;
 import model.Item;
+import model.ProduceType;
+import model.ProductType;
 import service.SoldItemDBService;
 
 import java.io.IOException;
@@ -30,12 +33,12 @@ public class ItemController extends ViewController {
         try {
 
             Item item = new Item(
-                    productTypeField.getText(),
-                    Integer.parseInt(priceField.getText()),
+                    ProductType.valueOf(productTypeField.getText().toUpperCase()),
+                    Double.parseDouble(priceField.getText()),
                     Integer.parseInt(countField.getText()),
-                    genderField.getText(),
-                    produceTypeField.getText(),
-                    Integer.parseInt(sizeField.getText()),
+                    Gender.valueOf(genderField.getText().toUpperCase()),
+                    ProduceType.valueOf(produceTypeField.getText().toUpperCase()),
+                    sizeField.getText(),
                     colourField.getText(),
                     typeNameField.getText());
 

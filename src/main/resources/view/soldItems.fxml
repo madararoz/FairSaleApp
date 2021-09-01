@@ -6,15 +6,17 @@
 <?import javafx.scene.text.Text?>
 <GridPane fx:controller="controller.ItemController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <Text text="Add sold item" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+    <Text text="Add sold item" style="-fx-font-weight: bold" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
 
-    <Label text="Product Type" GridPane.rowIndex="1" GridPane.columnIndex="0" textAlignment="LEFT"/>
+    <Label text="Product type" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+    <TextField fx:id="productTypeField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
     <!--    <VBox spacing="10.0"  GridPane.rowIndex="1" GridPane.columnIndex="1">-->
     <!--  <ListView fx:id="ProductTypeListView" prefHeight="30" onMouseClicked="#handleProductTypeClick"/>-->
-        <!--    </VBox>-->
+    <!--    </VBox>-->
 
-        <!--    <Label text="Product type" GridPane.rowIndex="1" GridPane.columnIndex="0"/>-->
-   <TextField fx:id="productTypeField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+    <!--    <Label text="Product type" GridPane.rowIndex="1" GridPane.columnIndex="0"/>-->
+
 
     <Label text="Price" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
     <TextField fx:id="priceField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
@@ -25,7 +27,7 @@
     <Label text="Gender" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
     <TextField fx:id="genderField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
 
-    <Label text="Produce Type" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+    <Label text="Produce type" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
     <TextField fx:id="produceTypeField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
 
     <Label text="Size" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
@@ -37,12 +39,12 @@
     <Label text="Type name" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
     <TextField fx:id="typeNameField" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
 
+ <HBox spacing="95.0"  GridPane.rowIndex="10" GridPane.columnSpan="2">
 
-    <Button text="Add" GridPane.rowIndex="11" onAction="#handleSoldItems" GridPane.columnIndex="0"
-            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
-    <Button text="Back" GridPane.rowIndex="11" onAction="#handleBack" GridPane.columnIndex="1"
-            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple; -fx-text-align: center;"/>
-    <Button text="Exit" GridPane.rowIndex="11" onAction="#handleExit" GridPane.columnIndex="2"
-            style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
+  <Button text="Add" onAction="#handleSoldItems" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
+  <Button text="Back" onAction="#handleBack" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
+  <Button text="Exit" onAction="#handleExit" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
+ </HBox>
+
 
 </GridPane>
