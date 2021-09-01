@@ -36,7 +36,7 @@ public class ItemController extends ViewController {
     @FXML
    public ComboBox productTypeComboBox;
     public ComboBox genderComboBox;
-    public ComboBox ProduceTypeComboBox;
+    public ComboBox produceTypeComboBox;
 
 
     SoldItemDBService soldItemDBService = new SoldItemDBService();
@@ -46,14 +46,14 @@ public class ItemController extends ViewController {
         try {
 
             Item item = new Item(
-             //       ProductType.valueOf(productTypeComboBox.getItems().toString().toUpperCase());
-                    ProductType.valueOf(productTypeField.getText().toUpperCase()),
+                    ProductType.valueOf(productTypeComboBox.getValue().toString().toUpperCase()),
+                    //ProductType.valueOf(productTypeField.getText().toUpperCase()),
                     Double.parseDouble(priceField.getText()),
                     Integer.parseInt(countField.getText()),
-                    Gender.valueOf(genderField.getText().toUpperCase()),
-                 //   Gender.valueOf(genderComboBox.getAccessibleText()),
-                    ProduceType.valueOf(produceTypeField.getText().toUpperCase()),
-             //       ProduceType.valueOf(productTypeComboBox.getItems().toString().toUpperCase()),
+                    //Gender.valueOf(genderField.getText().toUpperCase()),
+                    Gender.valueOf(genderComboBox.getValue().toString().toUpperCase()),
+                    //ProduceType.valueOf(produceTypeField.getText().toUpperCase()),
+                    ProduceType.valueOf(produceTypeComboBox.getValue().toString().toUpperCase()),
                     sizeField.getText(),
                     colourField.getText(),
                     typeNameField.getText());

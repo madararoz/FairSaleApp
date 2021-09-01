@@ -11,24 +11,24 @@
     <Text text="Add sold item:" style="-fx-font-weight: bold" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
 
  <Label text="Product type" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-   <TextField fx:id="productTypeField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+<!--   <TextField fx:id="productTypeField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>-->
 
-<!--    <ComboBox fx:id="productTypeComboBox"  GridPane.rowIndex="1" GridPane.columnIndex="1"  promptText="Choose">-->
-<!--        <items>-->
-<!--            <FXCollections fx:factory="observableArrayList">-->
-<!--                <String fx:value="Mittens" />-->
-<!--                <String fx:value="Gloves" />-->
-<!--                <String fx:value="Mauchi" />-->
-<!--                <String fx:value="Socks" />-->
-<!--                <String fx:value="Caps" />-->
-<!--                <String fx:value="Scarves" />-->
-<!--                <String fx:value="Sweaters" />-->
-<!--                <String fx:value="Jackets" />-->
-<!--                <String fx:value="Vests" />-->
-<!--                <String fx:value="Cardigans" />-->
-<!--            </FXCollections>-->
-<!--        </items>-->
-<!--    </ComboBox>-->
+    <ComboBox fx:id="productTypeComboBox"  GridPane.rowIndex="1" GridPane.columnIndex="1"  promptText="Choose">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Mittens" />
+                <String fx:value="Gloves" />
+                <String fx:value="Mauchi" />
+                <String fx:value="Socks" />
+                <String fx:value="Caps" />
+                <String fx:value="Scarves" />
+                <String fx:value="Sweaters" />
+                <String fx:value="Jackets" />
+                <String fx:value="Vests" />
+                <String fx:value="Cardigans" />
+            </FXCollections>
+        </items>
+    </ComboBox>
 
 
     <Label text="Price" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
@@ -38,28 +38,28 @@
     <TextField fx:id="countField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
     <Label text="Gender" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-<!--    <ComboBox fx:id="genderComboBox"  GridPane.rowIndex="4" GridPane.columnIndex="1" layoutX="15.0" layoutY="33.0" prefWidth="90.0" promptText="Choose">-->
-<!--        <items>-->
-<!--            <FXCollections fx:factory="observableArrayList">-->
-<!--                <String fx:value="Male" />-->
-<!--                <String fx:value="Female" />-->
-<!--                <String fx:value="Kids" />-->
-<!--            </FXCollections>-->
-<!--        </items>-->
-<!--    </ComboBox>-->
+    <ComboBox fx:id="genderComboBox"  GridPane.rowIndex="4" GridPane.columnIndex="1" layoutX="15.0" layoutY="33.0" prefWidth="90.0" promptText="Choose">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Male" />
+                <String fx:value="Female" />
+                <String fx:value="Kids" />
+            </FXCollections>
+        </items>
+    </ComboBox>
 
-  <TextField fx:id="genderField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+<!--  <TextField fx:id="genderField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>-->
 
     <Label text="Produce type" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-<!--    <ComboBox fx:id="ProduceTypeComboBox"  GridPane.rowIndex="5" GridPane.columnIndex="1" layoutX="15.0" layoutY="33.0" prefWidth="90.0" promptText="Choose">-->
-<!--        <items>-->
-<!--            <FXCollections fx:factory="observableArrayList">-->
-<!--                <String fx:value="Handmade" />-->
-<!--                <String fx:value="Machinemade" />-->
-<!--            </FXCollections>-->
-<!--        </items>-->
-<!--    </ComboBox>-->
-    <TextField fx:id="produceTypeField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+    <ComboBox fx:id="produceTypeComboBox"  GridPane.rowIndex="5" GridPane.columnIndex="1" layoutX="15.0" layoutY="33.0" prefWidth="90.0" promptText="Choose">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Handmade" />
+                <String fx:value="Machinemade" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+<!--    <TextField fx:id="produceTypeField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>-->
 
     <Label text="Size" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
     <TextField fx:id="sizeField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
