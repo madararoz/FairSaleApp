@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+
+<GridPane fx:controller="controller.StartController"
+            xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <Text text="Ordered item report of the day" style="—fx-font-weight: bold" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+
+    <HBox spacing="95.0"  GridPane.rowIndex="14" GridPane.columnSpan="2">
+
+        <Button text="Back" onAction="#handleBack" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: grey"/>
+
+    </HBox>
+</GridPane>
