@@ -38,11 +38,5 @@ public class StartController extends ViewController {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }
     }
-    public void handleBack(ActionEvent actionEvent) {
-        try {
-            changeScene(actionEvent, "start");
-        } catch (IOException ex) {
-            showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
-        }
-    }
+
 }

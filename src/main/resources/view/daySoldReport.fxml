@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:controller="controller.StartController"
+<GridPane fx:controller="controller.ReportController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 
     <Text text="Sold item report of the day" style="—fx-font-weight: bold" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
