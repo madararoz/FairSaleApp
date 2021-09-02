@@ -1,6 +1,29 @@
 
 use xFJDD16Wwk;
 
+drop table orders;
+
+SET GLOBAL time_zone = '+3:00';
+
+create table if not exists orders(
+	id int primary key auto_increment not null,
+    product_type text (50) not null,
+    price int not null,
+    count int not null,
+    gender varchar(10) not null,
+    produce_type varchar(20) not null,
+    size varchar(10) not null,
+    colour varchar(30) not null,
+    type_name varchar(20) not null,
+    customer_name varchar(50) not null,
+    customer_email varchar(50) not null,
+    customer_phone int not null,
+    delivery_method varchar(20) not null,
+    created_at timestamp default current_timestamp,
+    );
+
+
+
 create table if not exists items(
 	id int primary key auto_increment not null,
     product_type text (50),
@@ -60,3 +83,4 @@ create table if not exists customer(
     orderId int not null,
 	foreign key(orderId) references items(id)
     );
+

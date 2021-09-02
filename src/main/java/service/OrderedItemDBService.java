@@ -12,8 +12,8 @@ public class OrderedItemDBService {
 
     public void addOrderedItemToDBService(Item item) throws Exception{
 
-        String query = "INSERT INTO items (product_type, price, count, gender, produce_type, size, colour, type_name, name, " +
-                "email, phone, delivery_method) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO orders(product_type, price, count, gender, produce_type, size, colour, type_name, customer_name, " +
+                "customer_email, customer_phone, delivery_method) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, item.getProductType().toString());
         statement.setDouble(2, item.getPrice());
@@ -25,7 +25,7 @@ public class OrderedItemDBService {
         statement.setString(8, item.getTypeName());
         statement.setString(9,item.getCustomerName());
         statement.setString(10, item.getCustomerEmail());
-        statement.setInt(11,item.getCustomerPhone() );
+        statement.setInt(11,item.getCustomerPhone());
         statement.setString(12, item.getDeliveryMethod());
 
 

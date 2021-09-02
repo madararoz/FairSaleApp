@@ -34,6 +34,7 @@ public class OrderController extends ViewController {
     public ComboBox productTypeComboBox;
     public ComboBox genderComboBox;
     public ComboBox produceTypeComboBox;
+    public ComboBox deliveryMethodComboBox;
 
 
     OrderedItemDBService orderedItemDBService = new OrderedItemDBService();
@@ -52,7 +53,7 @@ public class OrderController extends ViewController {
                     CustomerNameField.getText(),
                     CustomerEmailField.getText(),
                     Integer.parseInt(CustomerPhoneField.getText()),
-                    DeliveryMethodField.getText());
+                    deliveryMethodComboBox.getValue().toString());
 
             orderedItemDBService.addOrderedItemToDBService(item);
             showAlert("Success", "Adding successful", Alert.AlertType.CONFIRMATION);

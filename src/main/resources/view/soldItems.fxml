@@ -13,7 +13,7 @@
  <Label text="Product type" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
 <!--   <TextField fx:id="productTypeField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>-->
 
-    <ComboBox fx:id="productTypeComboBox"  GridPane.rowIndex="1" GridPane.columnIndex="1"  promptText="Choose">
+    <ComboBox fx:id="productTypeComboBox" prefWidth="240" GridPane.rowIndex="1" GridPane.columnIndex="1"  promptText="Choose">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="Mittens" />
@@ -38,7 +38,7 @@
     <TextField fx:id="countField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
 
     <Label text="Gender" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-    <ComboBox fx:id="genderComboBox"  GridPane.rowIndex="4" GridPane.columnIndex="1" layoutX="15.0" layoutY="33.0" prefWidth="90.0" promptText="Choose">
+    <ComboBox fx:id="genderComboBox" prefWidth="240"  GridPane.rowIndex="4" GridPane.columnIndex="1" layoutX="15.0" layoutY="33.0" promptText="Choose">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="Male" />
@@ -51,7 +51,7 @@
 <!--  <TextField fx:id="genderField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>-->
 
     <Label text="Produce type" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-    <ComboBox fx:id="produceTypeComboBox"  GridPane.rowIndex="5" GridPane.columnIndex="1" layoutX="15.0" layoutY="33.0" prefWidth="90.0" promptText="Choose">
+    <ComboBox fx:id="ProduceTypeComboBox" prefWidth="240"  GridPane.rowIndex="5" GridPane.columnIndex="1" layoutX="15.0" layoutY="33.0"  promptText="Choose">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="Handmade" />
