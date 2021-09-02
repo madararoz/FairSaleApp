@@ -7,6 +7,7 @@
 
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.control.ComboBox?>
 <GridPane fx:controller="controller.StartController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 
@@ -17,6 +18,7 @@
             <Image url="@../img/logo.png" />
         </image>
     </ImageView>
+
 
 
     <Button text="Sold" GridPane.rowIndex="3" onAction="#registerSoldItem" GridPane.columnIndex="0"

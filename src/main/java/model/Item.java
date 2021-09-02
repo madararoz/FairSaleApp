@@ -14,9 +14,10 @@ public class Item {
     String colour;
     String typeName;
     int count;
-
-
-
+    String customerName;
+    String customerEmail;
+    int customerPhone;
+    String deliveryMethod;
 
     public Item(ProductType productType, double price, int count, Gender gender, ProduceType produceType, String size, String colour, String typeName) {
         this.productType = productType;
@@ -28,6 +29,41 @@ public class Item {
         this.colour = colour;
         this.typeName = typeName;
     }
+
+/*
+    public Item(ProductType productType, double price, int count, Gender gender, ProduceType produceType, String size, String colour, String typeName, String customerName, String customerEmail, int customerPhone, String deliveryMethod) {
+        this.productType = productType;
+        this.price = price;
+        this.count = count;
+        this.gender = gender;
+        this.produceType = produceType;
+        this.size = size;
+        this.colour = colour;
+        this.typeName = typeName;
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
+        this.customerPhone = customerPhone;
+        this.deliveryMethod = deliveryMethod;
+    }
+
+ */
+
+
+         public Item(ProductType productType, double price, int count, Gender gender, ProduceType produceType, String size, String colour, String typeName, String customerName, String customerEmail, int customerPhone, String deliveryMethod) {
+            this.productType = productType;
+            this.price = price;
+            this.count = count;
+            this.gender = gender;
+            this.produceType = produceType;
+            this.size = size;
+            this.colour = colour;
+            this.typeName = typeName;
+            this.customerName = customerName;
+            this.customerEmail = customerEmail;
+            this.customerPhone = customerPhone;
+            this.deliveryMethod = deliveryMethod;
+        }
+
 
     public int getId() {
         return id;
@@ -141,5 +177,37 @@ public class Item {
 
     public void setCount(int count) {
         this.count = count;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getCustomerEmail() {
+        return customerEmail;
+    }
+
+    public void setCustomerEmail(String customerEmail) {
+        this.customerEmail = customerEmail;
+    }
+
+    public int getCustomerPhone() {
+        return customerPhone;
+    }
+
+    public void setCustomerPhone(int customerPhone) {
+        this.customerPhone = customerPhone;
+    }
+
+    public String getDeliveryMethod() {
+        return deliveryMethod;
+    }
+
+    public void setDeliveryMethod(String deliveryMethod) {
+        this.deliveryMethod = deliveryMethod;
     }
 }
