@@ -50,7 +50,7 @@ public class TableViewController extends ViewController implements Initializable
         sizeTableColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("size"));
         colourTableColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("colour"));
         typeNameTableColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("typeName"));
-        dateTableColumn.setCellValueFactory(new PropertyValueFactory<Item, LocalDate>("date"));
+      //  dateTableColumn.setCellValueFactory(new PropertyValueFactory<Item, LocalDate>("date"));
 
 //load data
         try {
