@@ -55,6 +55,7 @@ public class TableViewController extends ViewController implements Initializable
 //load data
         try {
             tableView.setItems(reportDBService.getSoldItems());
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -67,6 +68,8 @@ public class TableViewController extends ViewController implements Initializable
             showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
         }
     }
+
+
 
 //    public ObservableList<Item> getSoldItems() {
 //        ObservableList<Item> items = FXCollections.observableArrayList();

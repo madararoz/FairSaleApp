@@ -21,7 +21,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-public class ReportDBService {
+public class ReportDBService extends ViewController {
     public TableColumn actionCol;
     public Connection connection = DBHandler.getConnection();
 
@@ -51,5 +51,12 @@ public class ReportDBService {
     public void getOrderedItems(ActionEvent actionEvent) {
     }
 
+    public void handleBack(ActionEvent actionEvent) {
+        try {
+            changeScene(actionEvent, "start");
+        } catch (IOException ex) {
+            showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
 
 }

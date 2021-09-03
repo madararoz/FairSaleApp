@@ -13,7 +13,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("./view/start.fxml"));
         primaryStage.getIcons().add(new Image("./img/icon.png"));
         primaryStage.setTitle("SIA Tīnes");
-        primaryStage.setScene(new Scene(root, 500, 500));
+        primaryStage.setScene(new Scene(root, 800, 800));
         primaryStage.show();
 
     }
