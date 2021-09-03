@@ -1,21 +1,21 @@
 package model;
 
 import javafx.beans.property.SimpleStringProperty;
-import sun.java2d.pipe.SpanShapeRenderer;
+
 
 public class Item {
 
     int id;
-    String markAsSold;
-    int produceId;
-    int productId;
+//    String markAsSold;
+//    int produceId;
+//    int productId;
     ProductType productType;
     double price;
     Gender gender;
     ProduceType produceType;
-    String size;
-    String colour;
-    String typeName;
+    SimpleStringProperty size;
+    SimpleStringProperty colour;
+    SimpleStringProperty typeName;
     int count;
     String customerName;
     String customerEmail;
@@ -31,9 +31,9 @@ public class Item {
         this.count = count;
         this.gender = gender;
         this.produceType = produceType;
-        this.size = size;
-        this.colour = colour;
-        this.typeName = typeName;
+        this.size = new SimpleStringProperty(size);
+        this.colour = new SimpleStringProperty(colour);
+        this.typeName = new SimpleStringProperty(typeName);
     }
 
 
@@ -43,9 +43,9 @@ public class Item {
             this.count = count;
             this.gender = gender;
             this.produceType = produceType;
-            this.size = size;
-            this.colour = colour;
-            this.typeName = typeName;
+            this.size = new SimpleStringProperty(size);
+            this.colour = new SimpleStringProperty(colour);
+            this.typeName = new SimpleStringProperty(typeName);
             this.customerName = customerName;
             this.customerEmail = customerEmail;
             this.customerPhone = customerPhone;
@@ -61,29 +61,29 @@ public class Item {
         this.id = id;
     }
 
-    public String getMarkAsSold() {
-        return markAsSold;
-    }
-
-    public void setMarkAsSold(String markAsSold) {
-        this.markAsSold = markAsSold;
-    }
-
-    public int getProduceId() {
-        return produceId;
-    }
-
-    public void setProduceId(int produceId) {
-        this.produceId = produceId;
-    }
-
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
-    }
+//    public String getMarkAsSold() {
+//        return markAsSold;
+//    }
+//
+//    public void setMarkAsSold(String markAsSold) {
+//        this.markAsSold = markAsSold;
+//    }
+//
+//    public int getProduceId() {
+//        return produceId;
+//    }
+//
+//    public void setProduceId(int produceId) {
+//        this.produceId = produceId;
+//    }
+//
+//    public int getProductId() {
+//        return productId;
+//    }
+//
+//    public void setProductId(int productId) {
+//        this.productId = productId;
+//    }
 
 //    public ProductType getProductType() {
 //        return productType;
@@ -107,16 +107,12 @@ public class Item {
         this.price = price;
     }
 
-//    public Gender getGender() {
-//        return gender;
-//    }
+
     public Gender getGender() {
         return gender;
     }
 
-//    public void setGender(Gender gender) {
-//        this.gender = gender;
-//    }
+
     public void setGender(Gender gender) {
         this.gender = gender;
     }
@@ -135,28 +131,28 @@ public class Item {
 
 
     public String getSize() {
-        return size;
+        return size.get();
     }
 
 
     public void setSize(String size) {
-        this.size = size;
+        this.size = new SimpleStringProperty(size);
     }
 
     public String getColour() {
-        return colour;
+        return colour.get();
     }
 
     public void setColour(String colour) {
-        this.colour = colour;
+        this.colour = new SimpleStringProperty(colour);
     }
 
     public String getTypeName() {
-        return typeName;
+        return typeName.get();
     }
 
     public void setTypeName(String typeName) {
-        this.typeName = typeName;
+        this.typeName = new SimpleStringProperty(typeName);
     }
 
     public int getCount() {

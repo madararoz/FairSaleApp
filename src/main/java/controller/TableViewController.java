@@ -25,7 +25,7 @@ public class TableViewController extends ViewController implements Initializable
 
     ReportDBService reportDBService = new ReportDBService();
     @FXML
-    private TableView<Item> tableView;
+    public TableView<Item> tableView;
 
     @FXML private TableColumn<Item, ProductType> productTypeTableColumn;
     @FXML private TableColumn<Item, Double> priceTableColumn;
@@ -36,29 +36,29 @@ public class TableViewController extends ViewController implements Initializable
     @FXML private TableColumn<Item, String> colourTableColumn;
     @FXML private TableColumn<Item, String> typeNameTableColumn;
     @FXML private TableColumn<Item, LocalDate> dateTableColumn;
-    private Item item;
+    public Item item;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 // setup columns in the table
-        productTypeTableColumn.setCellValueFactory(new PropertyValueFactory<Item, ProductType>("productType"));
-        priceTableColumn.setCellValueFactory(new PropertyValueFactory<Item, Double>("price"));
-        countTableColumn.setCellValueFactory(new PropertyValueFactory<Item, Integer>("count"));
-        genderTableColumn.setCellValueFactory(new PropertyValueFactory<Item, Gender>("gender"));
-        produceTypeTableColumn.setCellValueFactory(new PropertyValueFactory<Item, ProduceType>("produceType"));
-        sizeTableColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("size"));
-        colourTableColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("colour"));
-        typeNameTableColumn.setCellValueFactory(new PropertyValueFactory<Item, String>("typeName"));
+        productTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("productType"));
+        priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        countTableColumn.setCellValueFactory(new PropertyValueFactory<>("count"));
+        genderTableColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        produceTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("produceType"));
+        sizeTableColumn.setCellValueFactory(new PropertyValueFactory<>("size"));
+        colourTableColumn.setCellValueFactory(new PropertyValueFactory<>("colour"));
+        typeNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("typeName"));
       //  dateTableColumn.setCellValueFactory(new PropertyValueFactory<Item, LocalDate>("date"));
 
 //load data
-        try {
-            tableView.setItems(reportDBService.getSoldItems());
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+           tableView.setItems(getSoldItems()); //šajā klasē zemāk metode
+//        try {
+//            tableView.setItems(reportDBService.getSoldItems());
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
     }
 
     public void handleBack(ActionEvent actionEvent) {
@@ -70,17 +70,17 @@ public class TableViewController extends ViewController implements Initializable
     }
 
 
-
-//    public ObservableList<Item> getSoldItems() {
-//        ObservableList<Item> items = FXCollections.observableArrayList();
-//        items.add(new Item(ProductType.JACKETS,15,1,Gender.FEMALE,ProduceType.HANDMADE,"38","blue", "non"));
-//        items.add(new Item(ProductType.GLOVES,15,1,Gender.FEMALE,ProduceType.HANDMADE,"38","blue", "non"));
-////        for(Item item: items ) {
-////            items.add(new Item(item.getProductType(), item.getPrice(), item.getCount(), item.getGender(), item.getProduceType(),
-////                    item.getSize(), item.getColour(), item.getTypeName()));
-////        }
-//        return items;
-//    }
+//just to try if method works add new item, but it doesn't
+    public ObservableList<Item> getSoldItems() {
+        ObservableList<Item> items = FXCollections.observableArrayList();
+        items.add(new Item(ProductType.JACKETS,15,1,Gender.FEMALE,ProduceType.HANDMADE,"38","blue", "non"));
+        items.add(new Item(ProductType.GLOVES,15,1,Gender.FEMALE,ProduceType.HANDMADE,"38","blue", "non"));
+//        for(Item item: items ) {
+//            items.add(new Item(item.getProductType(), item.getPrice(), item.getCount(), item.getGender(), item.getProduceType(),
+//                    item.getSize(), item.getColour(), item.getTypeName()));
+//        }
+        return items;
+    }
 
 
 }
