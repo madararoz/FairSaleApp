@@ -2,6 +2,7 @@ package service;
 import controller.ViewController;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
 import model.Item;
 import repository.DBHandler;
 import repository.Queries;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 
 
 public class ReportDBService extends ViewController {
+    public TableColumn actionCol;
     private Connection connection = DBHandler.getConnection();
 
     public ArrayList<Item> getSoldItems(ActionEvent actionEvent) throws SQLException {

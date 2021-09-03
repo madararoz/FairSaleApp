@@ -8,24 +8,26 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.HBox?>
 <GridPane fx:controller="controller.StartController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
 
 
-    <Text text="Welcome to SIA TINES Fair Sale Application" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
-    <ImageView pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="0" GridPane.columnIndex="0">
+    <Text text="Welcome to SIA TINES Fair Sale Application" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="2" />
+    <ImageView pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.halignment="CENTER" >
         <image>
             <Image url="@../img/logo.png" />
         </image>
     </ImageView>
 
 
+    <HBox spacing="95.0" GridPane.rowIndex="3" GridPane.columnSpan="2">
+        <Button text="Sold" GridPane.rowIndex="3" onAction="#registerSoldItem" GridPane.columnIndex="0"
+                style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: grey" prefHeight="40" prefWidth="80" />
 
-    <Button text="Sold" GridPane.rowIndex="3" onAction="#registerSoldItem" GridPane.columnIndex="0"
-            style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: grey" prefHeight="40" prefWidth="80" />
-
-    <Button text="Ordered" GridPane.rowIndex="3" onAction="#registerOrderedItem" GridPane.columnIndex="1"
-            style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: grey" prefHeight="40" prefWidth="80"/>
+        <Button text="Ordered" GridPane.rowIndex="3" onAction="#registerOrderedItem" GridPane.columnIndex="1"
+                style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: grey" prefHeight="40" prefWidth="80"/>
+    </HBox>
 
     <Button text="Sold item day Report" GridPane.rowIndex="8" onAction="#viewSoldItemDayReport" GridPane.columnIndex="0"
             style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: grey" prefHeight="40" prefWidth="260"/>

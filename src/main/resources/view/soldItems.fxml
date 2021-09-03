@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.text.Text?>
-<?import javafx.collections.FXCollections?>
-<?import java.lang.String?>
-<GridPane fx:controller="controller.ItemController"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-    <Text text="Add sold item:" style="-fx-font-weight: bold" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+<GridPane alignment="center" hgap="10" vgap="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.2" fx:controller="controller.ItemController">
+    <Text style="-fx-font-weight: bold" text="Add sold item:" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" />
 
- <Label text="Product type" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+ <Label text="Product type" GridPane.columnIndex="0" GridPane.rowIndex="1" />
 <!--   <TextField fx:id="productTypeField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>-->
 
-    <ComboBox fx:id="productTypeComboBox" prefWidth="240" GridPane.rowIndex="1" GridPane.columnIndex="1"  promptText="Choose">
+    <ComboBox fx:id="productTypeComboBox" prefWidth="240" promptText="Choose" GridPane.columnIndex="1" GridPane.rowIndex="1">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="Mittens" />
@@ -31,14 +30,14 @@
     </ComboBox>
 
 
-    <Label text="Price" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-    <TextField fx:id="priceField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    <Label text="Price" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+    <TextField fx:id="priceField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-    <Label text="Count" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-    <TextField fx:id="countField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+    <Label text="Count" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+    <TextField fx:id="countField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-    <Label text="Gender" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-    <ComboBox fx:id="genderComboBox" prefWidth="240"  GridPane.rowIndex="4" GridPane.columnIndex="1" layoutX="15.0" layoutY="33.0" promptText="Choose">
+    <Label text="Gender" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+    <ComboBox fx:id="genderComboBox" layoutX="15.0" layoutY="33.0" prefWidth="240" promptText="Choose" GridPane.columnIndex="1" GridPane.rowIndex="4">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="Male" />
@@ -50,8 +49,8 @@
 
 <!--  <TextField fx:id="genderField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>-->
 
-    <Label text="Produce type" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
-    <ComboBox fx:id="produceTypeComboBox" prefWidth="240"  GridPane.rowIndex="5" GridPane.columnIndex="1" layoutX="15.0" layoutY="33.0"  promptText="Choose">
+    <Label text="Produce type" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+    <ComboBox fx:id="produceTypeComboBox" layoutX="15.0" layoutY="33.0" prefWidth="240" promptText="Choose" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <items>
             <FXCollections fx:factory="observableArrayList">
                 <String fx:value="Handmade" />
@@ -61,21 +60,38 @@
     </ComboBox>
 <!--    <TextField fx:id="produceTypeField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>-->
 
-    <Label text="Size" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
-    <TextField fx:id="sizeField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+    <Label text="Size" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+    <TextField fx:id="sizeField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
 
-    <Label text="Colour" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
-    <TextField fx:id="colourField" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+    <Label text="Colour" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+    <TextField fx:id="colourField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
 
-    <Label text="Type name" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
-    <TextField fx:id="typeNameField" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+    <Label text="Type name" GridPane.columnIndex="0" GridPane.rowIndex="8" />
+    <TextField fx:id="typeNameField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
 
- <HBox spacing="95.0"  GridPane.rowIndex="10" GridPane.columnSpan="2">
+ <HBox spacing="95.0" GridPane.columnSpan="2" GridPane.rowIndex="10">
 
-  <Button text="Add" onAction="#handleSoldItems" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
-  <Button text="Back" onAction="#handleBack" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
-  <Button text="Exit" onAction="#handleExit" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: purple"/>
+  <Button onAction="#handleSoldItems" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: grey" text="Add" />
+  <Button onAction="#handleBack" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: grey" text="Back" />
+  <Button onAction="#handleExit" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: grey" text="Exit" />
  </HBox>
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
 
 
 </GridPane>
