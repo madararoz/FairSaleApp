@@ -88,22 +88,6 @@ public class ItemController extends ViewController {
         }
     }
 
-    public void handleProductTypeClick(MouseEvent mouseEvent) {
-    }
 
-//    @Override
-//    public void initialize(URL location, ResourceBundle resources) {
-//        ObservableList<ProductType> options =
-//        FXCollections.observableArrayList(ProductType.GLOVES);
-//        final ComboBox comboBox = new ComboBox(options);
-//    }
-
-//    public void handleAdd(ActionEvent actionEvent) {
-//       try {
-//            changeScene(actionEvent, "start");
-//       } catch (IOException e) {
-//           showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
-//       }
-// }
 }
 

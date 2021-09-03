@@ -1,9 +1,14 @@
 package service;
 import controller.ViewController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
+import model.Gender;
 import model.Item;
+import model.ProduceType;
+import model.ProductType;
 import repository.DBHandler;
 import repository.Queries;
 
@@ -16,35 +21,35 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-public class ReportDBService extends ViewController {
+public class ReportDBService {
     public TableColumn actionCol;
-    private Connection connection = DBHandler.getConnection();
+    public Connection connection = DBHandler.getConnection();
 
-    public ArrayList<Item> getSoldItems(ActionEvent actionEvent) throws SQLException {
+    public ObservableList<Item> getSoldItems() throws SQLException {
 
-        ArrayList<Item> soldItems = new ArrayList<>();
+        ObservableList<Item> soldItems = FXCollections.observableArrayList();
+      //  ArrayList<Item> soldItems = new ArrayList<>();
         PreparedStatement statement = connection.prepareStatement(Queries.SELECT_ITEMS);
         ResultSet result = statement.executeQuery();
 
-//            while (result.next()) {
-//                Item item = new Item(
-//                        result.getInt("id"),
-//                        new Item(result.getInt("product_type"), result.getString("owner_name")),
-//
-//                );
-//                soldItems.add(item);
-//            }
+            while (result.next()) {
+                Item item = new Item(
+                        ProductType.valueOf(result.getString("product_type")),
+                        result.getDouble("price"),
+                        result.getInt("count"),
+                        Gender.valueOf(result.getString("gender")),
+                        ProduceType.valueOf(result.getString("produce_type")),
+                        result.getString("size"),
+                        result.getString("colour"),
+                        result.getString("type_name"));
+
+                soldItems.add(item);
+            }
         return soldItems;
     }
 
     public void getOrderedItems(ActionEvent actionEvent) {
     }
 
-    public void handleBack(ActionEvent actionEvent) {
-        try {
-            changeScene(actionEvent, "start");
-        } catch (IOException ex) {
-            showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
-        }
-    }
+
 }

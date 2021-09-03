@@ -1,5 +1,8 @@
 package model;
 
+import javafx.beans.property.SimpleStringProperty;
+import sun.java2d.pipe.SpanShapeRenderer;
+
 public class Item {
 
     int id;
@@ -19,6 +22,9 @@ public class Item {
     int customerPhone;
     String deliveryMethod;
 
+
+
+
     public Item(ProductType productType, double price, int count, Gender gender, ProduceType produceType, String size, String colour, String typeName) {
         this.productType = productType;
         this.price = price;
@@ -30,26 +36,8 @@ public class Item {
         this.typeName = typeName;
     }
 
-/*
+
     public Item(ProductType productType, double price, int count, Gender gender, ProduceType produceType, String size, String colour, String typeName, String customerName, String customerEmail, int customerPhone, String deliveryMethod) {
-        this.productType = productType;
-        this.price = price;
-        this.count = count;
-        this.gender = gender;
-        this.produceType = produceType;
-        this.size = size;
-        this.colour = colour;
-        this.typeName = typeName;
-        this.customerName = customerName;
-        this.customerEmail = customerEmail;
-        this.customerPhone = customerPhone;
-        this.deliveryMethod = deliveryMethod;
-    }
-
- */
-
-
-         public Item(ProductType productType, double price, int count, Gender gender, ProduceType produceType, String size, String colour, String typeName, String customerName, String customerEmail, int customerPhone, String deliveryMethod) {
             this.productType = productType;
             this.price = price;
             this.count = count;
@@ -62,7 +50,7 @@ public class Item {
             this.customerEmail = customerEmail;
             this.customerPhone = customerPhone;
             this.deliveryMethod = deliveryMethod;
-        }
+    }
 
 
     public int getId() {
