@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 
 public class ReportDBService extends ViewController {
-    public TableColumn actionCol;
+
     public Connection connection = DBHandler.getConnection();
 
     public ObservableList<Item> getSoldItems() throws SQLException {

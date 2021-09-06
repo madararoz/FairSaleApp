@@ -6,9 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 public class Item {
 
     int id;
-//    String markAsSold;
-//    int produceId;
-//    int productId;
+
     ProductType productType;
     double price;
     Gender gender;
@@ -61,32 +59,7 @@ public class Item {
         this.id = id;
     }
 
-//    public String getMarkAsSold() {
-//        return markAsSold;
-//    }
-//
-//    public void setMarkAsSold(String markAsSold) {
-//        this.markAsSold = markAsSold;
-//    }
-//
-//    public int getProduceId() {
-//        return produceId;
-//    }
-//
-//    public void setProduceId(int produceId) {
-//        this.produceId = produceId;
-//    }
-//
-//    public int getProductId() {
-//        return productId;
-//    }
-//
-//    public void setProductId(int productId) {
-//        this.productId = productId;
-//    }
 
-//    public ProductType getProductType() {
-//        return productType;
 //    }
     public ProductType getProductType() {
         return productType;

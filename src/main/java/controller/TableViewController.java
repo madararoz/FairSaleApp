@@ -53,12 +53,14 @@ public class TableViewController extends ViewController implements Initializable
       //  dateTableColumn.setCellValueFactory(new PropertyValueFactory<Item, LocalDate>("date"));
 
 //load data
-           tableView.setItems(getSoldItems()); //šajā klasē zemāk metode
-//        try {
-//            tableView.setItems(reportDBService.getSoldItems());
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
+
+    //    tableView.setItems(getSoldItems());
+
+        try {
+            tableView.setItems(reportDBService.getSoldItems());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void handleBack(ActionEvent actionEvent) {
@@ -70,17 +72,17 @@ public class TableViewController extends ViewController implements Initializable
     }
 
 
-//just to try if method works add new item, but it doesn't
-    public ObservableList<Item> getSoldItems() {
-        ObservableList<Item> items = FXCollections.observableArrayList();
-        items.add(new Item(ProductType.JACKETS,15,1,Gender.FEMALE,ProduceType.HANDMADE,"38","blue", "non"));
-        items.add(new Item(ProductType.GLOVES,15,1,Gender.FEMALE,ProduceType.HANDMADE,"38","blue", "non"));
+
+//    public ObservableList<Item> getSoldItems() {
+//        ObservableList<Item> items = FXCollections.observableArrayList();
+////        items.add(new Item(ProductType.JACKETS,15,1,Gender.FEMALE,ProduceType.HANDMADE,"38","blue", "non"));
+////        items.add(new Item(ProductType.GLOVES,15,1,Gender.FEMALE,ProduceType.HANDMADE,"38","blue", "non"));
 //        for(Item item: items ) {
 //            items.add(new Item(item.getProductType(), item.getPrice(), item.getCount(), item.getGender(), item.getProduceType(),
 //                    item.getSize(), item.getColour(), item.getTypeName()));
 //        }
-        return items;
-    }
+//        return items;
+//    }
 
 
 }
