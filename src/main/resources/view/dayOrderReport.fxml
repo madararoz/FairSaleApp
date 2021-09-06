@@ -10,7 +10,7 @@
          <font>
             <Font size="15.0" />
          </font></Label>
-       <TableView layoutX="18.0" layoutY="71.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="814.0" style="-fx-border-color: grey;">
+       <TableView fx:id= "tableView" layoutX="18.0" layoutY="71.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="814.0" style="-fx-border-color: grey;">
            <columns>
                <TableColumn prefWidth="119.20000648498535" text="Product type" />
                <TableColumn prefWidth="31.199981689453125" text="Price" />

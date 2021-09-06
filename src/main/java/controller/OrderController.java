@@ -7,10 +7,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import model.Gender;
-import model.Item;
-import model.ProduceType;
-import model.ProductType;
+import model.*;
 import service.OrderedItemDBService;
 
 import java.io.IOException;
@@ -18,12 +15,8 @@ import java.io.IOException;
 public class OrderController extends ViewController {
 
     public TextField CustomerNameField;
-    public TextField DeliveryMethodField;
-    public TextField ProductTypeField;
     public TextField PriceField;
     public TextField CountField;
-    public TextField GenderField;
-    public TextField ProduceTypeField;
     public TextField SizeField;
     public TextField ColorField;
     public TextField TypeNameField;
@@ -41,23 +34,23 @@ public class OrderController extends ViewController {
 
     public void handleAddOrder(ActionEvent actionEvent) {
         try {
-            Item item = new Item(
-                    ProductType.valueOf(productTypeComboBox.getValue().toString().toUpperCase()),
+            Order order = new Order(
+                    productTypeComboBox.getValue().toString(),
                     Double.parseDouble(PriceField.getText()),
                     Integer.parseInt(CountField.getText()),
-                    Gender.valueOf(genderComboBox.getValue().toString().toUpperCase()),
-                    ProduceType.valueOf(produceTypeComboBox.getValue().toString().toUpperCase()),
+                    genderComboBox.getValue().toString(),
+                    produceTypeComboBox.getValue().toString(),
                     SizeField.getText(),
                     ColorField.getText(),
                     TypeNameField.getText(),
                     CustomerNameField.getText(),
                     CustomerEmailField.getText(),
-                    Integer.parseInt(CustomerPhoneField.getText()),
+                    CustomerPhoneField.getText(),
                     deliveryMethodComboBox.getValue().toString());
 
-            orderedItemDBService.addOrderedItemToDBService(item);
+            orderedItemDBService.addOrderedItemToDBService(order);
             showAlert("Success", "Adding successful", Alert.AlertType.CONFIRMATION);
-            changeScene(actionEvent, "start");
+            changeScene(actionEvent, "start",600,600);
         } catch (Exception e) {
             showAlert("Adding Ordered Items Failed", e.getMessage(), Alert.AlertType.ERROR);
             e.printStackTrace();
@@ -68,7 +61,7 @@ public class OrderController extends ViewController {
 
     public void handleBack(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "start");
+            changeScene(actionEvent, "start", 600, 600);
         } catch (IOException ex) {
             showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
         }

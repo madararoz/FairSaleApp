@@ -2,6 +2,7 @@ package service;
 
 import model.Gender;
 import model.Item;
+import model.ProductType;
 import repository.DBHandler;
 
 import java.sql.Connection;
@@ -17,11 +18,11 @@ public class SoldItemDBService {
         String query = "INSERT INTO items (id, product_type, price, count, gender, produce_type, size, colour, type_name) VALUES (?,?,?,?,?,?,?,?,?)";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setInt(1, item.getId());
-        statement.setString(2, item.getProductType().toString());
+        statement.setString(2, item.getProductType());
         statement.setDouble(3, item.getPrice());
         statement.setInt(4, item.getCount());
-        statement.setString(5, item.getGender().toString());
-        statement.setString(6, item.getProduceType().toString());
+        statement.setString(5, item.getGender());
+        statement.setString(6, item.getProduceType());
         statement.setString(7, item.getSize());
         statement.setString(8, item.getColour());
         statement.setString(9, item.getTypeName());

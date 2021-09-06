@@ -1,55 +1,30 @@
 package model;
 
-import javafx.beans.property.SimpleStringProperty;
-
 
 public class Item {
 
     int id;
-
-    ProductType productType;
+    String productType;
     double price;
-    Gender gender;
-    ProduceType produceType;
-    SimpleStringProperty size;
-    SimpleStringProperty colour;
-    SimpleStringProperty typeName;
     int count;
-    String customerName;
-    String customerEmail;
-    int customerPhone;
-    String deliveryMethod;
+    String gender;
+    String produceType;
+    String size;
+    String colour;
+    String typeName;
 
 
 
-
-    public Item(ProductType productType, double price, int count, Gender gender, ProduceType produceType, String size, String colour, String typeName) {
+    public Item(String productType, double price, int count, String gender, String produceType, String size, String colour, String typeName) {
         this.productType = productType;
         this.price = price;
         this.count = count;
         this.gender = gender;
         this.produceType = produceType;
-        this.size = new SimpleStringProperty(size);
-        this.colour = new SimpleStringProperty(colour);
-        this.typeName = new SimpleStringProperty(typeName);
+        this.size = size;
+        this.colour = colour;
+        this.typeName = typeName;
     }
-
-
-    public Item(ProductType productType, double price, int count, Gender gender, ProduceType produceType, String size, String colour, String typeName, String customerName, String customerEmail, int customerPhone, String deliveryMethod) {
-            this.productType = productType;
-            this.price = price;
-            this.count = count;
-            this.gender = gender;
-            this.produceType = produceType;
-            this.size = new SimpleStringProperty(size);
-            this.colour = new SimpleStringProperty(colour);
-            this.typeName = new SimpleStringProperty(typeName);
-            this.customerName = customerName;
-            this.customerEmail = customerEmail;
-            this.customerPhone = customerPhone;
-            this.deliveryMethod = deliveryMethod;
-    }
-
 
     public int getId() {
         return id;
@@ -59,16 +34,11 @@ public class Item {
         this.id = id;
     }
 
-
-//    }
-    public ProductType getProductType() {
+    public String getProductType() {
         return productType;
     }
 
-//    public void setProductType(ProductType productType) {
-//        this.productType = productType;
-//    }
-    public void setProductType(ProductType productType) {
+    public void setProductType(String productType) {
         this.productType = productType;
     }
 
@@ -80,54 +50,6 @@ public class Item {
         this.price = price;
     }
 
-
-    public Gender getGender() {
-        return gender;
-    }
-
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public ProduceType getProduceType() {
-        return produceType;
-    }
-
-
-    public void setProduceType(ProduceType produceType) {
-        this.produceType = produceType;
-    }
-//    public void setProduceType(String produceType) {
-//        this.produceType = produceType;
-//    }
-
-
-    public String getSize() {
-        return size.get();
-    }
-
-
-    public void setSize(String size) {
-        this.size = new SimpleStringProperty(size);
-    }
-
-    public String getColour() {
-        return colour.get();
-    }
-
-    public void setColour(String colour) {
-        this.colour = new SimpleStringProperty(colour);
-    }
-
-    public String getTypeName() {
-        return typeName.get();
-    }
-
-    public void setTypeName(String typeName) {
-        this.typeName = new SimpleStringProperty(typeName);
-    }
-
     public int getCount() {
         return count;
     }
@@ -136,35 +58,45 @@ public class Item {
         this.count = count;
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public String getGender() {
+        return gender;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public String getCustomerEmail() {
-        return customerEmail;
+    public String getProduceType() {
+        return produceType;
     }
 
-    public void setCustomerEmail(String customerEmail) {
-        this.customerEmail = customerEmail;
+    public void setProduceType(String produceType) {
+        this.produceType = produceType;
     }
 
-    public int getCustomerPhone() {
-        return customerPhone;
+    public String getSize() {
+        return size;
     }
 
-    public void setCustomerPhone(int customerPhone) {
-        this.customerPhone = customerPhone;
+    public void setSize(String size) {
+        this.size = size;
     }
 
-    public String getDeliveryMethod() {
-        return deliveryMethod;
+    public String getColour() {
+        return colour;
     }
 
-    public void setDeliveryMethod(String deliveryMethod) {
-        this.deliveryMethod = deliveryMethod;
+    public void setColour(String colour) {
+        this.colour = colour;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 }
+
+

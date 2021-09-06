@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import model.Gender;
 import model.Item;
 import model.ProduceType;
@@ -24,8 +25,11 @@ import java.util.ArrayList;
 public class ReportDBService extends ViewController {
 
     public Connection connection = DBHandler.getConnection();
+    public TableView tableView;
 
     public ObservableList<Item> getSoldItems() throws SQLException {
+
+
 
         ObservableList<Item> soldItems = FXCollections.observableArrayList();
       //  ArrayList<Item> soldItems = new ArrayList<>();
@@ -34,11 +38,11 @@ public class ReportDBService extends ViewController {
 
             while (result.next()) {
                 Item item = new Item(
-                        ProductType.valueOf(result.getString("product_type")),
+                        result.getString("product_type"),
                         result.getDouble("price"),
                         result.getInt("count"),
-                        Gender.valueOf(result.getString("gender")),
-                        ProduceType.valueOf(result.getString("produce_type")),
+                        result.getString("gender"),
+                        result.getString("produce_type"),
                         result.getString("size"),
                         result.getString("colour"),
                         result.getString("type_name"));
@@ -53,7 +57,7 @@ public class ReportDBService extends ViewController {
 
     public void handleBack(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "start");
+            changeScene(actionEvent, "start", 600, 600);
         } catch (IOException ex) {
             showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
         }

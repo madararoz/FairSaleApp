@@ -46,14 +46,14 @@ public class ItemController extends ViewController {
         try {
 
             Item item = new Item(
-                    ProductType.valueOf(productTypeComboBox.getValue().toString().toUpperCase()),
+                    productTypeComboBox.getValue().toString(),
                     //ProductType.valueOf(productTypeField.getText().toUpperCase()),
                     Double.parseDouble(priceField.getText()),
                     Integer.parseInt(countField.getText()),
                     //Gender.valueOf(genderField.getText().toUpperCase()),
-                    Gender.valueOf(genderComboBox.getValue().toString().toUpperCase()),
+                    genderComboBox.getValue().toString(),
                     //ProduceType.valueOf(produceTypeField.getText().toUpperCase()),
-                    ProduceType.valueOf(produceTypeComboBox.getValue().toString().toUpperCase()),
+                    produceTypeComboBox.getValue().toString(),
                     sizeField.getText(),
                     colourField.getText(),
                     typeNameField.getText());
@@ -61,7 +61,7 @@ public class ItemController extends ViewController {
             soldItemDBService.addSoldItemToDB(item);
 
             showAlert("Success", "Adding successful", Alert.AlertType.CONFIRMATION);
-            changeScene(actionEvent, "start");
+            changeScene(actionEvent, "start", 800,800);
         } catch (Exception e) {
             showAlert("Adding Sold Items Failed", e.getMessage(), Alert.AlertType.ERROR);
             e.printStackTrace();
@@ -82,7 +82,7 @@ public class ItemController extends ViewController {
 
     public void handleBack(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "start");
+            changeScene(actionEvent, "start", 600,600);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }

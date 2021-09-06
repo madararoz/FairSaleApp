@@ -9,7 +9,7 @@ public class StartController extends ViewController {
     
     public void registerSoldItem(ActionEvent actionEvent) {
             try {
-                changeScene(actionEvent, "soldItems");
+                changeScene(actionEvent, "soldItems", 800, 700);
             } catch (IOException e) {
                 showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
             }
@@ -17,7 +17,7 @@ public class StartController extends ViewController {
 
     public void registerOrderedItem(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "order");
+            changeScene(actionEvent, "order", 800, 500);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }
@@ -25,7 +25,7 @@ public class StartController extends ViewController {
 
     public void viewSoldItemDayReport(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "daySoldReport");
+            changeScene(actionEvent, "daySoldReport", 1000, 500);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }
@@ -33,7 +33,7 @@ public class StartController extends ViewController {
 
     public void viewOrderItemDayReport(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "dayOrderReport");
+            changeScene(actionEvent, "dayOrderReport", 1000, 600);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }
