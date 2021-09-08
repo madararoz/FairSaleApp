@@ -49,14 +49,6 @@ public class TableViewController extends ViewController implements Initializable
         typeNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("typeName"));
 
 
-
-
-
-        //  dateTableColumn.setCellValueFactory(new PropertyValueFactory<Item, LocalDate>("date"));
-
-
-        //    tableView.setItems(getSoldItems());
-
         try {
             tableView.setItems(reportDBService.getSoldItems());
         } catch (SQLException e) {

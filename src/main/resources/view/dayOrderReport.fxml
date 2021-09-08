@@ -20,7 +20,6 @@
                <TableColumn fx:id="sizeTableColumn" prefWidth="48.800018310546875" text="Size" />
                <TableColumn fx:id="colourTableColumn" prefWidth="48.800018310546875" text="Colour" />
                <TableColumn fx:id="typeNameTableColumn" prefWidth="48.800018310546875" text="Type name" />
-               <TableColumn fx:id="totalPriceTableColumn" prefWidth="48.800018310546875" text="Total price" />
                <TableColumn fx:id="customerNameTableColumn" prefWidth="48.800018310546875" text="Customer name" />
                <TableColumn fx:id="customerEmailTableColumn" prefWidth="48.800018310546875" text="Customer email" />
                <TableColumn fx:id="customerPhoneTableColumn" prefWidth="48.800018310546875" text="Customer phone" />

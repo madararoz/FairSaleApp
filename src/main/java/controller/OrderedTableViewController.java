@@ -34,7 +34,6 @@ public class OrderedTableViewController extends ViewController implements Initia
     @FXML public TableColumn<Item, String> sizeTableColumn;
     @FXML public TableColumn<Item, String> colourTableColumn;
     @FXML public TableColumn<Item, String> typeNameTableColumn;
-    @FXML public TableColumn<Item, Double> totalPriceTableColumn;
     @FXML public TableColumn<Item, String> customerNameTableColumn;
     @FXML public TableColumn<Item, String> customerEmailTableColumn;
     @FXML public TableColumn<Item, String> customerPhoneTableColumn;
@@ -51,7 +50,6 @@ public class OrderedTableViewController extends ViewController implements Initia
         sizeTableColumn.setCellValueFactory(new PropertyValueFactory<>("size"));
         colourTableColumn.setCellValueFactory(new PropertyValueFactory<>("colour"));
         typeNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("typeName"));
-        totalPriceTableColumn.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
         customerNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("customerName"));
         customerEmailTableColumn.setCellValueFactory(new PropertyValueFactory<>("customerEmail"));
         customerPhoneTableColumn.setCellValueFactory(new PropertyValueFactory<>("customerPhone"));
@@ -78,13 +76,13 @@ public class OrderedTableViewController extends ViewController implements Initia
         PrintOrderedReportController printOrderedReportController = new PrintOrderedReportController();
         try {
             printOrderedReportController.printDocument();
-        } catch (DocumentException e) {
-            e.printStackTrace();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (DocumentException e) {
             e.printStackTrace();
         }
     }

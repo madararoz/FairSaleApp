@@ -28,6 +28,7 @@ public class PrintOrderedReportController {
     public void printDocument() throws IOException, DocumentException, SQLException {
         Document document = new Document();
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Report.pdf"));
+        document.setPageSize(PageSize.A4.rotate());
         document.open();
 
 

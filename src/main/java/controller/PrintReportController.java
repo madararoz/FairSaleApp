@@ -2,53 +2,62 @@ package controller;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.sun.javafx.font.FontConstants;
 import model.Item;
 import repository.DBHandler;
 import repository.Queries;
+import service.ReportDBService;
 
 import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Date;
 import java.util.stream.Stream;
 
-public class PrintReportController  {
+public class PrintReportController {
 
     private Connection connection = DBHandler.getConnection();
-    TableViewController tableViewController = new TableViewController();
+
+    ReportDBService reportDBService = new ReportDBService();
+
 
 
     public void printDocument() throws IOException, DocumentException, SQLException {
         Document document = new Document();
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Report.pdf"));
+        document.setPageSize(PageSize.A4.rotate());
         document.open();
 
+//        Image image1 = Image.getInstance("../img/logo.png");
+//        image1.setAlignment(Element.ALIGN_LEFT);
+//        image1.scaleAbsolute(40, 40);
+//
+//        document.add(image1);
 
-        Paragraph paragraph = new Paragraph("Report of sold items");
+
+        Paragraph paragraph = new Paragraph();
         Font f = new Font(Font.FontFamily.TIMES_ROMAN, 25.0f, Font.BOLD, BaseColor.BLACK);
         paragraph.setFont(f);
-
+        paragraph.add("Report of sold items");
 
 
         document.add(paragraph);
 
+
         Paragraph paragraph1 = new Paragraph(new Date().toString());
+        Font dateFont = new Font(Font.FontFamily.TIMES_ROMAN, 14.0f, Font.ITALIC, BaseColor.BLACK);
         paragraph1.setAlignment(Element.ALIGN_RIGHT);
+        paragraph1.setFont(dateFont);
         document.add(paragraph1);
         paragraph1.setSpacingAfter(20f);
         paragraph1.setSpacingBefore(20f);
 
-        Font dateFont = new Font(Font.FontFamily.TIMES_ROMAN, 25.0f, Font.BOLD, BaseColor.BLACK);
-        paragraph.setFont(dateFont);
+
 
 
         PdfPTable table = new PdfPTable(8);
@@ -99,11 +108,15 @@ public class PrintReportController  {
         }
         document.add(table);
 
-        Paragraph paragraph2 = new Paragraph("Total revenue of today - " + showTotal());
+        Paragraph paragraph2 = new Paragraph();
+        Font totalFont = new Font(Font.FontFamily.TIMES_ROMAN, 16.0f, Font.BOLDITALIC, BaseColor.BLACK);
+        paragraph2.setFont(totalFont);
+        paragraph2.add("Total revenues of the day  - ");
+        paragraph2.add(String.valueOf(showTotalReport()));
+        paragraph2.add(" Eur");
         document.add(paragraph2);
 
-
-            openReport();
+       openReport();
 
         document.close();
         writer.close();
@@ -119,18 +132,17 @@ public class PrintReportController  {
         }
     }
 
-    public String showTotal(){
-        TableViewController tableViewController = new TableViewController();
+
+
+    public int showTotalReport() throws SQLException {
         int total = 0 ;
-        for (Item item : tableViewController.tableView.getItems()) {
+            for (Item item : reportDBService.getSoldItems()) {
             total = (int) (total + (item.getCount()* item.getPrice()));
 
         }
-        tableViewController.sumTotalLabel.setText(String.valueOf(total));
-
-        return String.valueOf(total);
+        System.out.println(total);
+        return total;
     }
-
 
 
 
