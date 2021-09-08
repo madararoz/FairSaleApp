@@ -1,0 +1,135 @@
+package controller;
+
+import com.itextpdf.text.*;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import model.Item;
+import repository.DBHandler;
+import repository.Queries;
+
+import java.awt.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.stream.Stream;
+
+public class PrintReportController  {
+
+    private Connection connection = DBHandler.getConnection();
+
+
+
+    public void printDocument() throws IOException, DocumentException, SQLException {
+        Document document = new Document();
+        PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Report.pdf"));
+        document.open();
+
+
+        Paragraph paragraph = new Paragraph("Report of sold items");
+        paragraph.setFont(new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.ITALIC));
+//        Font style = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.UNDERLINE);
+       // paragraph.setFont(style);
+
+        document.add(new Paragraph(""));
+
+        document.add(paragraph);
+
+        Paragraph paragraph1 = new Paragraph(new Date().toString());
+        paragraph1.setAlignment(Element.ALIGN_RIGHT);
+        document.add(paragraph1);
+
+
+
+        PdfPTable table = new PdfPTable(9);
+        Stream.of("Product Type", "Price", "Count", "Gender", "Produce Type", "Size", "Colour", "Type name", "Total").forEach(table::addCell);
+        table.setWidthPercentage(100);
+        table.setSpacingBefore(10f);
+        table.setSpacingAfter(10f);
+
+        float[] columnwidths = {1.2f, 1f, 1f, 1f, 2f, 0.7f, 1f, 1f, 1f};
+        table.setWidths(columnwidths);
+
+        PdfPCell table_cell;
+        PreparedStatement statement = connection.prepareStatement(Queries.SELECT_ITEMS);
+        ResultSet result = statement.executeQuery();
+
+        while (result.next()) {
+            String product_type = result.getString("product_type");
+            table_cell = new PdfPCell(new Phrase(product_type));
+            table.addCell(table_cell);
+            Double price = result.getDouble("price");
+            table_cell = new PdfPCell(new Phrase(String.valueOf(price)));
+            table.addCell(table_cell);
+
+            int count = result.getInt("count");
+            table_cell = new PdfPCell(new Phrase(String.valueOf(count)));
+            table.addCell(table_cell);
+
+            String gender = result.getString("gender");
+            table_cell = new PdfPCell(new Phrase(gender));
+            table.addCell(table_cell);
+
+            String produce_type = result.getString("produce_type");
+            table_cell = new PdfPCell(new Phrase(produce_type));
+            table.addCell(table_cell);
+
+            String size = result.getString("size");
+            table_cell = new PdfPCell(new Phrase(size));
+            table.addCell(table_cell);
+
+            String colour = result.getString("colour");
+            table_cell = new PdfPCell(new Phrase(colour));
+            table.addCell(table_cell);
+
+            String type_name = result.getString("type_name");
+            table_cell = new PdfPCell(new Phrase(type_name));
+            table.addCell(table_cell);
+
+            Double total_price = result.getDouble("total_price");
+            table_cell = new PdfPCell(new Phrase(String.valueOf(total_price)));
+            table.addCell(table_cell);
+
+        }
+        document.add(table);
+
+        Paragraph paragraph2 = new Paragraph("Total revenue of today - " + sum());
+        document.add(paragraph2);
+
+
+            openReport();
+
+        document.close();
+        writer.close();
+    }
+
+    public void openReport() throws IOException {
+        File file = new File("Report.pdf");
+        if (file.toString().endsWith(".pdf"))
+            Runtime.getRuntime().exec("rundll32 url.dll,FileProtocolHandler " + file);
+        else {
+            Desktop desktop = Desktop.getDesktop();
+            desktop.open(file);
+        }
+    }
+
+    public double sum() {
+        Item item = null;
+        double sumOfTheReport = 0;
+        for (int i = 0; i > 0; i++) {
+            sumOfTheReport = sumOfTheReport + (item.getPrice() * item.getCount());
+        }
+        return sumOfTheReport;
+    }
+
+
+
+
+
+}

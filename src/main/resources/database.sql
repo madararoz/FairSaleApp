@@ -1,5 +1,19 @@
 
-use xFJDD16Wwk;
+
+
+
+
+ SELECT id, product_type, price, count, gender, produce_type, size, colour, type_name from items;
+
+ DELETE from items where id=1;
+
+
+ SELECT product_type, price, count, (price*count) AS total_price from items;
+
+ alter table items add total_price double;
+
+ alter table items ADD [total] as (price * count);
+ UPDATE items set total_price = price * count;
 
 drop table orders;
 

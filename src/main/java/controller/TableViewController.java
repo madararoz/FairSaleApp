@@ -1,5 +1,6 @@
 package controller;
 
+import com.itextpdf.text.DocumentException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,6 +16,7 @@ import model.ProduceType;
 import model.ProductType;
 import service.ReportDBService;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -24,6 +26,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class TableViewController extends ViewController implements Initializable{
+
 
     ReportDBService reportDBService = new ReportDBService();
     @FXML public TableView<Item> tableView;
@@ -36,7 +39,7 @@ public class TableViewController extends ViewController implements Initializable
     @FXML private TableColumn<Item, String> sizeTableColumn;
     @FXML private TableColumn<Item, String> colourTableColumn;
     @FXML private TableColumn<Item, String> typeNameTableColumn;
-    @FXML private TableColumn<Item, LocalDate> dateTableColumn;
+    @FXML public TableColumn<Item, Double> totalPriceTableColumn;
     public Item item;
 
 
@@ -50,6 +53,7 @@ public class TableViewController extends ViewController implements Initializable
         sizeTableColumn.setCellValueFactory(new PropertyValueFactory<>("size"));
         colourTableColumn.setCellValueFactory(new PropertyValueFactory<>("colour"));
         typeNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("typeName"));
+        totalPriceTableColumn.setCellValueFactory(new PropertyValueFactory<>("totalPrice"));
 
         //  dateTableColumn.setCellValueFactory(new PropertyValueFactory<Item, LocalDate>("date"));
 
@@ -71,9 +75,20 @@ public class TableViewController extends ViewController implements Initializable
         }
     }
 
-
-
-
+    public void showTable(ActionEvent actionEvent) {
+        PrintReportController printReportController = new PrintReportController();
+        try {
+            printReportController.printDocument();
+        } catch (DocumentException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 //    public ObservableList<Item> getSoldItems() {
