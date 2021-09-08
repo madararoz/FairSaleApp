@@ -15,6 +15,7 @@ public class Item {
 
 
 
+
     public Item(String productType, double price, int count, String gender, String produceType, String size, String colour, String typeName) {
         this.productType = productType;
         this.price = price;

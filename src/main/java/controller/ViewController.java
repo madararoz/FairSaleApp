@@ -18,8 +18,8 @@ import java.util.Objects;
 
         public void changeScene(ActionEvent event, String sceneName, int width, int height) throws IOException {
             String scenePath = "../view/" + sceneName + ".fxml";
-            Node node = (Node) event.getSource(); //finding previous table "Chat application"
-            Stage stage = (Stage) node.getScene().getWindow(); //using previous stage for new message //on existing stage
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
 
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource(scenePath)));
             stage.setScene(new Scene(root, width, height));

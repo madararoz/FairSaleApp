@@ -12,7 +12,7 @@
 
  alter table items add total_price double;
 
- alter table items ADD [total] as (price * count);
+ //alter table items ADD [total] as (price * count);
  UPDATE items set total_price = price * count;
 
 drop table orders;

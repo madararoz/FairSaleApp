@@ -47,12 +47,9 @@ public class ItemController extends ViewController {
 
             Item item = new Item(
                     productTypeComboBox.getValue().toString(),
-                    //ProductType.valueOf(productTypeField.getText().toUpperCase()),
                     Double.parseDouble(priceField.getText()),
                     Integer.parseInt(countField.getText()),
-                    //Gender.valueOf(genderField.getText().toUpperCase()),
                     genderComboBox.getValue().toString(),
-                    //ProduceType.valueOf(produceTypeField.getText().toUpperCase()),
                     produceTypeComboBox.getValue().toString(),
                     sizeField.getText(),
                     colourField.getText(),
@@ -70,14 +67,6 @@ public class ItemController extends ViewController {
 
     public void handleExit(ActionEvent actionEvent) {
         Platform.exit();
-        /*
-        try {
-            changeScene(actionEvent, "exit");
-        } catch (IOException e) {
-            showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
-        }
-
-         */
     }
 
     public void handleBack(ActionEvent actionEvent) {

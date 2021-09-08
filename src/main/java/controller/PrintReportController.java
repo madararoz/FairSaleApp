@@ -5,6 +5,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.sun.javafx.font.FontConstants;
 import model.Item;
 import repository.DBHandler;
 import repository.Queries;
@@ -25,7 +26,6 @@ public class PrintReportController  {
     private Connection connection = DBHandler.getConnection();
 
 
-
     public void printDocument() throws IOException, DocumentException, SQLException {
         Document document = new Document();
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Report.pdf"));
@@ -33,18 +33,21 @@ public class PrintReportController  {
 
 
         Paragraph paragraph = new Paragraph("Report of sold items");
-        paragraph.setFont(new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.ITALIC));
-//        Font style = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.UNDERLINE);
-       // paragraph.setFont(style);
+        Font f = new Font(Font.FontFamily.TIMES_ROMAN, 25.0f, Font.BOLD, BaseColor.BLACK);
+        paragraph.setFont(f);
 
-        document.add(new Paragraph(""));
+
 
         document.add(paragraph);
 
         Paragraph paragraph1 = new Paragraph(new Date().toString());
         paragraph1.setAlignment(Element.ALIGN_RIGHT);
         document.add(paragraph1);
+        paragraph1.setSpacingAfter(20f);
+        paragraph1.setSpacingBefore(20f);
 
+        Font dateFont = new Font(Font.FontFamily.TIMES_ROMAN, 25.0f, Font.BOLD, BaseColor.BLACK);
+        paragraph.setFont(dateFont);
 
 
         PdfPTable table = new PdfPTable(9);
@@ -53,8 +56,8 @@ public class PrintReportController  {
         table.setSpacingBefore(10f);
         table.setSpacingAfter(10f);
 
-        float[] columnwidths = {1.2f, 1f, 1f, 1f, 2f, 0.7f, 1f, 1f, 1f};
-        table.setWidths(columnwidths);
+        float[] columnWidths = {1.2f, 1f, 1f, 1f, 2f, 0.7f, 1f, 1f, 1f};
+        table.setWidths(columnWidths);
 
         PdfPCell table_cell;
         PreparedStatement statement = connection.prepareStatement(Queries.SELECT_ITEMS);
