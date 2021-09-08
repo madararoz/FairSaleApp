@@ -22,6 +22,7 @@ public class ReportDBService extends ViewController {
 
     public Connection connection = DBHandler.getConnection();
     public TableView tableView;
+    public TableView tableViewOrder;
 
     public ObservableList<Item> getSoldItems() throws SQLException {
 
@@ -68,9 +69,6 @@ public class ReportDBService extends ViewController {
         return soldItems;
     }
 
-
-    public void getOrderedItems(ActionEvent actionEvent) {
-    }
 
     public void handleBack(ActionEvent actionEvent) {
         try {

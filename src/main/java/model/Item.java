@@ -26,6 +26,7 @@ public class Item {
         this.typeName = typeName;
     }
 
+
     public int getId() {
         return id;
     }
