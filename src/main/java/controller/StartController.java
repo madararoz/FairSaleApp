@@ -17,7 +17,7 @@ public class StartController extends ViewController {
 
     public void registerOrderedItem(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "order", 800, 500);
+            changeScene(actionEvent, "order", 800, 700);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }

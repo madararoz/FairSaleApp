@@ -1,6 +1,8 @@
 package model;
 
 
+import javafx.scene.control.DatePicker;
+
 public class Item {
 
     int id;
@@ -12,6 +14,11 @@ public class Item {
     String size;
     String colour;
     String typeName;
+    DatePicker date;
+    //for second scene
+    //date = new datePicket();
+    //date.setPromptText("Date of Sales");
+    //date.setMaxWidth(300)
 
 
 

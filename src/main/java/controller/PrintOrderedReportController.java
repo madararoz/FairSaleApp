@@ -46,14 +46,14 @@ public class PrintOrderedReportController {
 
 
 
-        PdfPTable table = new PdfPTable(9);
-        Stream.of("Product Type", "Price", "Count", "Gender", "Produce Type", "Size", "Colour", "Type name", "Total", "Customer Name",
+        PdfPTable table = new PdfPTable(12);
+        Stream.of("Product Type", "Price", "Count", "Gender", "Produce Type", "Size", "Colour", "Type name", "Customer Name",
                 "Customer Email", "Customer Phone", "Delivery Method").forEach(table::addCell);
         table.setWidthPercentage(100);
         table.setSpacingBefore(10f);
         table.setSpacingAfter(10f);
 
-        float[] columnwidths = {1.2f, 1f, 1f, 1f, 2f, 0.7f, 1f, 1f, 1f};
+        float[] columnwidths = {1.2f, 1f, 1f, 1f, 2f, 0.7f, 1f, 1f, 1f, 1f, 1f, 1f};
         table.setWidths(columnwidths);
 
         PdfPCell table_cell;
@@ -91,10 +91,6 @@ public class PrintOrderedReportController {
 
             String type_name = result.getString("type_name");
             table_cell = new PdfPCell(new Phrase(type_name));
-            table.addCell(table_cell);
-
-            Double total_price = result.getDouble("total_price");
-            table_cell = new PdfPCell(new Phrase(String.valueOf(total_price)));
             table.addCell(table_cell);
 
             String customer_name = result.getString("customer_name");

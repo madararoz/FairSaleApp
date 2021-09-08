@@ -20,7 +20,6 @@
                 <TableColumn fx:id="sizeTableColumn" prefWidth="48.800018310546875" text="Size" />
                 <TableColumn fx:id="colourTableColumn" prefWidth="48.800018310546875" text="Colour" />
                 <TableColumn fx:id="typeNameTableColumn" prefWidth="48.800018310546875" text="Type name" />
-                <TableColumn fx:id="totalPriceTableColumn" prefWidth="48.800018310546875" text="Total price" />
             </columns>
             <columnResizePolicy>
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
