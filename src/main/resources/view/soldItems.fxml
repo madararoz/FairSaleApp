@@ -53,8 +53,8 @@
     <ComboBox fx:id="produceTypeComboBox" layoutX="15.0" layoutY="33.0" prefWidth="240" promptText="Choose" GridPane.columnIndex="1" GridPane.rowIndex="5">
         <items>
             <FXCollections fx:factory="observableArrayList">
-                <String fx:value="Handmade" />
-                <String fx:value="Machinemade" />
+                <String fx:value="H-made" />
+                <String fx:value="M-made" />
             </FXCollections>
         </items>
     </ComboBox>

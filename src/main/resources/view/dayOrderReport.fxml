@@ -32,7 +32,14 @@
        </TableView>
 
        <Button layoutX="7.0" layoutY="297.0" mnemonicParsing="false" onAction="#showTable" text="Print report" />
-       <Button layoutX="932.0" layoutY="297.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+       <Button layoutX="681.0" layoutY="295.0" mnemonicParsing="false" onAction="#showTotal" prefHeight="26.0" prefWidth="150.0" text="Calculate total" textOverrun="CLIP" />
+       <Button layoutX="141.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+
+       <Label fx:id="sumTotalLabel" layoutX="861.0" layoutY="295.0" prefHeight="26.0" prefWidth="69.0">
+           <font>
+               <Font size="14.0" />
+           </font></Label>
+
        <!--        <Button layoutX="318.0" layoutY="297.0" mnemonicParsing="false" text="Print report" />-->
    </children>
 </AnchorPane>

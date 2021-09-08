@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -21,6 +22,7 @@ import java.util.ResourceBundle;
 
 public class OrderedTableViewController extends ViewController implements Initializable {
 
+    public Label sumTotalLabel;
     OrderedReportDBService OrderedReportDBService = new OrderedReportDBService();
     @FXML public TableView<Order> tableView;
 
@@ -85,5 +87,13 @@ public class OrderedTableViewController extends ViewController implements Initia
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void showTotal(){
+        int total = 0 ;
+        for (Item item : tableView.getItems()) {
+            total = (int) (total + (item.getCount()* item.getPrice()));
+        }
+        sumTotalLabel.setText(String.valueOf(total));
     }
 }
