@@ -34,7 +34,6 @@ public class TableViewController extends ViewController implements Initializable
     @FXML private TableColumn<Item, String> sizeTableColumn;
     @FXML private TableColumn<Item, String> colourTableColumn;
     @FXML private TableColumn<Item, String> typeNameTableColumn;
-
     public Item item;
 
 
@@ -48,6 +47,7 @@ public class TableViewController extends ViewController implements Initializable
         sizeTableColumn.setCellValueFactory(new PropertyValueFactory<>("size"));
         colourTableColumn.setCellValueFactory(new PropertyValueFactory<>("colour"));
         typeNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("typeName"));
+
 
 
 
@@ -91,6 +91,7 @@ public class TableViewController extends ViewController implements Initializable
         int total = 0 ;
         for (Item item : tableView.getItems()) {
             total = (int) (total + (item.getCount()* item.getPrice()));
+
         }
         sumTotalLabel.setText(String.valueOf(total));
     }

@@ -24,6 +24,7 @@ import java.util.stream.Stream;
 public class PrintReportController  {
 
     private Connection connection = DBHandler.getConnection();
+    TableViewController tableViewController = new TableViewController();
 
 
     public void printDocument() throws IOException, DocumentException, SQLException {
@@ -98,7 +99,7 @@ public class PrintReportController  {
         }
         document.add(table);
 
-        Paragraph paragraph2 = new Paragraph("Total revenue of today - " + sum());
+        Paragraph paragraph2 = new Paragraph("Total revenue of today - " + showTotal());
         document.add(paragraph2);
 
 
@@ -118,15 +119,17 @@ public class PrintReportController  {
         }
     }
 
-    public double sum() {
-        Item item = null;
-        double sumOfTheReport = 0;
-        for (int i = 0; i > 0; i++) {
-            sumOfTheReport = sumOfTheReport + (item.getPrice() * item.getCount());
-        }
-        return sumOfTheReport;
-    }
+    public String showTotal(){
+        TableViewController tableViewController = new TableViewController();
+        int total = 0 ;
+        for (Item item : tableViewController.tableView.getItems()) {
+            total = (int) (total + (item.getCount()* item.getPrice()));
 
+        }
+        tableViewController.sumTotalLabel.setText(String.valueOf(total));
+
+        return String.valueOf(total);
+    }
 
 
 
