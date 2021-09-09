@@ -1,25 +1,15 @@
 package controller;
 
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import model.Gender;
 import model.Item;
-import model.ProduceType;
-import model.ProductType;
-import service.SoldItemDBService;
+import service.ItemDBService;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class ItemController extends ViewController {
 
@@ -39,7 +29,7 @@ public class ItemController extends ViewController {
     public ComboBox produceTypeComboBox;
 
 
-    SoldItemDBService soldItemDBService = new SoldItemDBService();
+    ItemDBService soldItemDBService = new ItemDBService();
 
 
     public void handleSoldItems(ActionEvent actionEvent) {

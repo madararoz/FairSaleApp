@@ -33,11 +33,11 @@ public class PrintReportController {
         document.setPageSize(PageSize.A4.rotate());
         document.open();
 
-//        Image image1 = Image.getInstance("../img/logo.png");
+//        Image image1 = Image.getInstance("logo.png");
 //        image1.setAlignment(Element.ALIGN_LEFT);
 //        image1.scaleAbsolute(40, 40);
-//
 //        document.add(image1);
+
 
 
         Paragraph paragraph = new Paragraph();
@@ -133,14 +133,12 @@ public class PrintReportController {
     }
 
 
-
     public int showTotalReport() throws SQLException {
         int total = 0 ;
             for (Item item : reportDBService.getSoldItems()) {
             total = (int) (total + (item.getCount()* item.getPrice()));
 
         }
-        System.out.println(total);
         return total;
     }
 

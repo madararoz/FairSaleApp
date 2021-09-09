@@ -8,7 +8,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.*;
-import service.OrderedItemDBService;
+import service.ItemDBService;
 
 import java.io.IOException;
 
@@ -30,7 +30,7 @@ public class OrderController extends ViewController {
     public ComboBox deliveryMethodComboBox;
 
 
-    OrderedItemDBService orderedItemDBService = new OrderedItemDBService();
+ ItemDBService itemDBService = new ItemDBService();
 
     public void handleAddOrder(ActionEvent actionEvent) {
         try {
@@ -48,7 +48,7 @@ public class OrderController extends ViewController {
                     CustomerPhoneField.getText(),
                     deliveryMethodComboBox.getValue().toString());
 
-            orderedItemDBService.addOrderedItemToDBService(order);
+            itemDBService.addOrderedItemToDBService(order);
             showAlert("Success", "Adding successful", Alert.AlertType.CONFIRMATION);
             changeScene(actionEvent, "start",600,600);
         } catch (Exception e) {

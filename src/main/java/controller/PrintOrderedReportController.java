@@ -8,6 +8,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import model.Item;
 import repository.DBHandler;
 import repository.Queries;
+import service.ReportDBService;
 
 import java.awt.*;
 import java.io.File;
@@ -22,6 +23,7 @@ import java.util.stream.Stream;
 
 public class PrintOrderedReportController {
     private Connection connection = DBHandler.getConnection();
+    ReportDBService reportDBService = new ReportDBService();
 
 
 
@@ -32,12 +34,11 @@ public class PrintOrderedReportController {
         document.open();
 
 
-        Paragraph paragraph = new Paragraph("Report of ordered items");
-        paragraph.setFont(new Font(Font.FontFamily.TIMES_ROMAN, 16, Font.ITALIC));
-//        Font style = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.UNDERLINE);
-        // paragraph.setFont(style);
+        Paragraph paragraph = new Paragraph();
+        Font f = new Font(Font.FontFamily.TIMES_ROMAN, 25.0f, Font.BOLD, BaseColor.BLACK);
+        paragraph.setFont(f);
+        paragraph.add("Report of ordered items");
 
-        document.add(new Paragraph(""));
 
         document.add(paragraph);
 
@@ -112,14 +113,26 @@ public class PrintOrderedReportController {
         }
         document.add(table);
 
-        Paragraph paragraph2 = new Paragraph("Total revenue of today - " + sum());
+        Paragraph paragraph2 = new Paragraph();
+        Font totalFont = new Font(Font.FontFamily.TIMES_ROMAN, 16.0f, Font.BOLDITALIC, BaseColor.BLACK);
+        paragraph2.setFont(totalFont);
+        paragraph2.add("Total revenues of the day  - ");
+        paragraph2.add(String.valueOf(showTotalReport()));
+        paragraph2.add(" Eur");
         document.add(paragraph2);
-
 
         openReport();
 
         document.close();
         writer.close();
+    }
+
+    public int showTotalReport() throws SQLException {
+        int total = 0 ;
+        for (Item item : reportDBService.getOrderedItems()) {
+            total = (int) (total + (item.getCount()* item.getPrice()));
+        }
+        return total;
     }
 
     public void openReport() throws IOException {
@@ -132,14 +145,6 @@ public class PrintOrderedReportController {
         }
     }
 
-    public double sum() {
-        Item item = null;
-        double sumOfTheReport = 0;
-        for (int i = 0; i > 0; i++) {
-            sumOfTheReport = sumOfTheReport + (item.getPrice() * item.getCount());
-        }
-        return sumOfTheReport;
-    }
 
 
 

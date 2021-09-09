@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 import model.Item;
+import model.Order;
 import repository.DBHandler;
 import repository.Queries;
 
@@ -27,7 +28,6 @@ public class ReportDBService extends ViewController {
     public ObservableList<Item> getSoldItems() throws SQLException {
 
         ObservableList<Item> soldItems = FXCollections.observableArrayList();
-      //  ArrayList<Item> soldItems = new ArrayList<>();
         PreparedStatement statement = connection.prepareStatement(Queries.SELECT_ITEMS);
         ResultSet result = statement.executeQuery();
 
@@ -47,14 +47,14 @@ public class ReportDBService extends ViewController {
         return soldItems;
     }
 
+    public ObservableList<Order> getOrderedItems() throws SQLException {
 
-    public ArrayList<Item> getSoldItemsArray() throws SQLException {
-        ArrayList<Item> soldItems = new ArrayList<>();
-        PreparedStatement statement = connection.prepareStatement(Queries.SELECT_ITEMS);
+        ObservableList<Order> orderedItems = FXCollections.observableArrayList();
+        PreparedStatement statement = connection.prepareStatement(Queries.SELECT_ORDERS);
         ResultSet result = statement.executeQuery();
 
         while (result.next()) {
-            Item item = new Item(
+            Order order = new Order(
                     result.getString("product_type"),
                     result.getDouble("price"),
                     result.getInt("count"),
@@ -62,12 +62,17 @@ public class ReportDBService extends ViewController {
                     result.getString("produce_type"),
                     result.getString("size"),
                     result.getString("colour"),
-                    result.getString("type_name"));
+                    result.getString("type_name"),
+                    result.getString("customer_name"),
+                    result.getString("customer_email"),
+                    result.getString("customer_phone"),
+                    result.getString("delivery_method"));
 
-            soldItems.add(item);
+            orderedItems.add(order);
         }
-        return soldItems;
+        return orderedItems;
     }
+
 
 
     public void handleBack(ActionEvent actionEvent) {

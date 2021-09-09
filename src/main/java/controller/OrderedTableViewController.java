@@ -11,7 +11,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Item;
 import model.Order;
-import service.OrderedReportDBService;
 import service.ReportDBService;
 
 import java.io.FileNotFoundException;
@@ -23,7 +22,9 @@ import java.util.ResourceBundle;
 public class OrderedTableViewController extends ViewController implements Initializable {
 
     public Label sumTotalLabel;
-    OrderedReportDBService OrderedReportDBService = new OrderedReportDBService();
+
+    ReportDBService reportDBService = new ReportDBService();
+
     @FXML public TableView<Order> tableView;
 
     @FXML public TableColumn<Item, String> productTypeTableColumn;
@@ -57,7 +58,7 @@ public class OrderedTableViewController extends ViewController implements Initia
 
 
         try {
-            tableView.setItems(OrderedReportDBService.getOrderedItems());
+            tableView.setItems(reportDBService.getOrderedItems());
         } catch (SQLException e) {
             e.printStackTrace();
         }
