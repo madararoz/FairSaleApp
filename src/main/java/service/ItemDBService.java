@@ -1,13 +1,20 @@
 package service;
 
+import controller.TableViewController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import model.Gender;
 import model.Item;
 import model.Order;
 import model.ProductType;
 import repository.DBHandler;
+import repository.Queries;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class ItemDBService {
@@ -16,8 +23,8 @@ public class ItemDBService {
 
     public void addSoldItemToDB(Item item) throws Exception {
 
-        String query = "INSERT INTO items (id, product_type, price, count, gender, produce_type, size, colour, type_name) VALUES (?,?,?,?,?,?,?,?,?)";
-        PreparedStatement statement = connection.prepareStatement(query);
+
+        PreparedStatement statement = connection.prepareStatement(Queries.INSERT_ITEMS);
         statement.setInt(1, item.getId());
         statement.setString(2, item.getProductType());
         statement.setDouble(3, item.getPrice());
@@ -38,9 +45,7 @@ public class ItemDBService {
 
     public void addOrderedItemToDBService(Order order) throws Exception{
 
-        String query = "INSERT INTO orders(product_type, price, count, gender, produce_type, size, colour, type_name, customer_name, " +
-                "customer_email, customer_phone, delivery_method) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-        PreparedStatement statement = connection.prepareStatement(query);
+        PreparedStatement statement = connection.prepareStatement(Queries.INSERT_ORDERS);
         statement.setString(1, order.getProductType());
         statement.setDouble(2, order.getPrice());
         statement.setInt(3, order.getCount());
@@ -57,11 +62,32 @@ public class ItemDBService {
 
         statement.executeUpdate();
         DBHandler.close(statement, connection);
+    }
 
+    public ObservableList<Item> getByProductType(String productType) throws SQLException {
+        ObservableList<Item> productTypeItems = FXCollections.observableArrayList();
+        PreparedStatement statement = connection.prepareStatement(Queries.SEARCH_BY_PRODUCT_TYPE);
+        statement.setString(1, productType);
+        ResultSet result = statement.executeQuery();
 
+        while (result.next()){
+            Item item = new Item(
+                    result.getString("product_type"),
+                    result.getDouble("price"),
+                    result.getInt("count"),
+                    result.getString("gender"),
+                    result.getString("produce_type"),
+                    result.getString("size"),
+                    result.getString("colour"),
+                    result.getString("type_name"));
 
+            productTypeItems.add(item);
+        }
+
+        return productTypeItems;
 
     }
+
 }
 
 

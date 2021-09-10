@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProductTypeController">
+    <children>
+        <Label layoutX="7.0" layoutY="30.0" prefHeight="26.0" prefWidth="224.0" text="Product type report">
+            <font>
+                <Font size="15.0" />
+            </font></Label>
+
+        <TableView fx:id="tableView" layoutX="7.0" layoutY="71.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="972.0" style="-fx-border-color: grey;">
+            <columns>
+                <TableColumn fx:id="productTypeTableColumn" prefWidth="75.0" text="Product type" />
+                <TableColumn fx:id="priceTableColumn" prefWidth="75.0" resizable="false" text="Price" />
+                <TableColumn fx:id="countTableColumn" prefWidth="52.199981689453125" text="Count" />
+                <TableColumn fx:id="genderTableColumn" prefWidth="50.20001220703125" text="Gender" />
+                <TableColumn fx:id="produceTypeTableColumn" prefWidth="48.800018310546875" text="Produce Type" />
+                <TableColumn fx:id="sizeTableColumn" prefWidth="48.800018310546875" text="Size" />
+                <TableColumn fx:id="colourTableColumn" prefWidth="48.800018310546875" text="Colour" />
+                <TableColumn fx:id="typeNameTableColumn" prefWidth="48.800018310546875" text="Type name" />
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+        </TableView>
+
+        <ComboBox fx:id="searchProductTypeComboBox" layoutX="21.0" layoutY="295.0" prefHeight="26.0" prefWidth="258.0" promptText="Choose product type to show" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Mittens" />
+                    <String fx:value="Gloves" />
+                    <String fx:value="Mauchi" />
+                    <String fx:value="Socks" />
+                    <String fx:value="Caps" />
+                    <String fx:value="Scarves" />
+                    <String fx:value="Sweaters" />
+                    <String fx:value="Jackets" />
+                    <String fx:value="Vests" />
+                    <String fx:value="Cardigans" />
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+
+        <Button layoutX="21.0" layoutY="340.0" mnemonicParsing="false" onAction="#showTable" text="Print report" />
+        <Button layoutX="343.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+      <Button layoutX="288.0" layoutY="295.0" mnemonicParsing="false" onAction="#showProductTable" text="Show" />
+
+
+    </children>
+</AnchorPane>

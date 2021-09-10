@@ -22,8 +22,7 @@ import java.util.ArrayList;
 public class ReportDBService extends ViewController {
 
     public Connection connection = DBHandler.getConnection();
-    public TableView tableView;
-    public TableView tableViewOrder;
+
 
     public ObservableList<Item> getSoldItems() throws SQLException {
 

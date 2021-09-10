@@ -133,10 +133,10 @@ public class PrintReportController {
     }
 
 
-    public int showTotalReport() throws SQLException {
-        int total = 0 ;
+    public double showTotalReport() throws SQLException {
+        double total = 0 ;
             for (Item item : reportDBService.getSoldItems()) {
-            total = (int) (total + (item.getCount()* item.getPrice()));
+            total = total + (item.getCount()* item.getPrice());
 
         }
         return total;

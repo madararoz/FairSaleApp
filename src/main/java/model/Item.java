@@ -34,6 +34,9 @@ public class Item {
         this.typeName = typeName;
     }
 
+    public Item(String productType) {
+    }
+
 
     public int getId() {
         return id;

@@ -1,18 +1,17 @@
 package controller;
 
 import com.itextpdf.text.DocumentException;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Item;
+import service.ItemDBService;
 import service.ReportDBService;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -20,9 +19,15 @@ import java.util.ResourceBundle;
 
 public class TableViewController extends ViewController implements Initializable{
 
+    public TableView productTypeTableView;
+    public TextField productTypeSearchField;
+    ItemDBService itemDBService = new ItemDBService();
 
+    ObservableList<Item> productTypeSearch = FXCollections.observableArrayList();
 
     public Label sumTotalLabel;
+    public Label Eurlabel;
+    public ComboBox<Item> searchProductTypeComboBox;
     ReportDBService reportDBService = new ReportDBService();
     @FXML public TableView<Item> tableView;
 
@@ -35,6 +40,8 @@ public class TableViewController extends ViewController implements Initializable
     @FXML private TableColumn<Item, String> colourTableColumn;
     @FXML private TableColumn<Item, String> typeNameTableColumn;
     public Item item;
+
+
 
 
     @Override
@@ -56,6 +63,7 @@ public class TableViewController extends ViewController implements Initializable
         }
     }
 
+
     public void handleBack(ActionEvent actionEvent) {
         try {
             changeScene(actionEvent, "start", 600,600);
@@ -68,25 +76,38 @@ public class TableViewController extends ViewController implements Initializable
         PrintReportController printReportController = new PrintReportController();
         try {
             printReportController.printDocument();
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (IOException e) {
+        } catch (DocumentException | SQLException | IOException e) {
             e.printStackTrace();
         }
     }
 
     public void showTotal(){
-        int total = 0 ;
+        double total = 0 ;
         for (Item item : tableView.getItems()) {
-            total = (int) (total + (item.getCount()* item.getPrice()));
+            total = total + (item.getCount()* item.getPrice());
 
         }
         sumTotalLabel.setText(String.valueOf(total));
+        Eurlabel.setText("Eur");
     }
+
+    public void handleSearchByProductType(ActionEvent actionEvent) {
+        try {
+            changeScene(actionEvent, "productTypeReport", 1000, 600);
+        } catch (IOException e) {
+            showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+
+
+//    @SneakyThrows
+//    public void showProductType(ActionEvent actionEvent) {
+//            changeScene(actionEvent, "productTypeReport", 1000, 500);
+//            itemDBService.getByProductType(searchProductTypeComboBox.getValue().toString(), item);
+//
+//    }
+
+
 
 
 
