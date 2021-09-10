@@ -1,5 +1,6 @@
 package controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 
@@ -23,9 +24,25 @@ public class StartController extends ViewController {
         }
     }
 
+    public void viewSoldItemAllReport(ActionEvent actionEvent) {
+        try {
+            changeScene(actionEvent, "allSoldReport", 1000, 500);
+        } catch (IOException e) {
+            showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+
+    public void viewOrderItemAllReport(ActionEvent actionEvent) {
+        try {
+            changeScene(actionEvent, "allOrderReport", 1000, 600);
+        } catch (IOException e) {
+            showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
+        }
+    }
+
     public void viewSoldItemDayReport(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "daySoldReport", 1000, 500);
+            changeScene(actionEvent, "daySoldReport", 1000, 600);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }
@@ -33,10 +50,15 @@ public class StartController extends ViewController {
 
     public void viewOrderItemDayReport(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "dayOrderReport", 1000, 600);
+            changeScene(actionEvent, "allOrderReport", 1000, 600);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
+
+    public void handleExit(ActionEvent actionEvent) {
+        Platform.exit();
+
+    }
 }
