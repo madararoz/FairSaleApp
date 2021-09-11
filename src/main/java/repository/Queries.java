@@ -10,10 +10,12 @@ public class Queries {
     public static final String SELECT_ORDERS = "SELECT id, product_type, price, count, gender, produce_type, size, colour, type_name, customer_name, customer_email, customer_phone, delivery_method from orders;";
 
     public static final String SEARCH_BY_PRODUCT_TYPE = "SELECT id, product_type, price, count, gender, produce_type, size, colour, type_name from items WHERE product_type = ?;";
+    public static final String SEARCH_ORDERS_BY_PRODUCT_TYPE = "SELECT id, product_type, price, count, gender, produce_type, size, colour, type_name, customer_name, customer_email, customer_phone, delivery_method from orders WHERE product_type = ?;";
+
     public static final String DELETE_ITEM = "DELETE from items WHERE id = ?;";
     public static final String DELETE_ORDER = "DELETE from orders WHERE id = ?;";
 
-    public static final String UPDATE_ITEM = "UPDATE items SET ? = ? WHERE id = ?;";
+
     public static final String UPDATE_PRODUCT_TYPE = "UPDATE items SET product_type = ? WHERE id = ?;";
     public static final String UPDATE_PRICE = "UPDATE items SET price = ? WHERE id = ?;";
     public static final String UPDATE_COUNT = "UPDATE items SET count = ? WHERE id = ?;";

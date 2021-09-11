@@ -8,7 +8,7 @@
 <?import java.lang.String?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="863.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderedTableViewController">
    <children>
-       <Label layoutX="7.0" layoutY="30.0" prefHeight="26.0" prefWidth="224.0" text="Ordered item report of the day">
+       <Label layoutX="7.0" layoutY="30.0" prefHeight="26.0" prefWidth="224.0" text="Ordered item report">
            <font>
                <Font size="15.0" />
            </font></Label>

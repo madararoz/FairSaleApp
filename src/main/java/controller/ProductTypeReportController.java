@@ -2,6 +2,7 @@ package controller;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -28,6 +29,7 @@ public class ProductTypeReportController {
 
     ItemDBService itemDBService = new ItemDBService();
 ProductTypeController productTypeController = new ProductTypeController();
+ReportDBService reportDBService = new ReportDBService();
 
 
     public void printDocument() throws IOException, DocumentException, SQLException {
@@ -43,6 +45,7 @@ ProductTypeController productTypeController = new ProductTypeController();
 
 
 
+
         Paragraph paragraph = new Paragraph();
         Font f = new Font(Font.FontFamily.TIMES_ROMAN, 25.0f, Font.BOLD, BaseColor.BLACK);
         paragraph.setFont(f);
@@ -51,6 +54,12 @@ ProductTypeController productTypeController = new ProductTypeController();
 
         document.add(paragraph);
 
+        Paragraph paragraph3 = new Paragraph();
+        Font f20 = new Font(Font.FontFamily.TIMES_ROMAN, 20.0f, Font.NORMAL, BaseColor.BLACK);
+        paragraph3.setFont(f20);
+        paragraph3.setSpacingBefore(20f);
+        paragraph3.add("Product type - "+ AppData.getInstance().getComboBoxValue());
+        document.add(paragraph3);
 
         Paragraph paragraph1 = new Paragraph(new Date().toString());
         Font dateFont = new Font(Font.FontFamily.TIMES_ROMAN, 14.0f, Font.ITALIC, BaseColor.BLACK);
@@ -117,13 +126,13 @@ ProductTypeController productTypeController = new ProductTypeController();
         }
         document.add(table);
 
-//        Paragraph paragraph2 = new Paragraph();
-//        Font totalFont = new Font(Font.FontFamily.TIMES_ROMAN, 16.0f, Font.BOLDITALIC, BaseColor.BLACK);
-//        paragraph2.setFont(totalFont);
-//        paragraph2.add("Total revenues of the day  - ");
-//        paragraph2.add(String.valueOf(showTotalReport()));
-//        paragraph2.add(" Eur");
-//        document.add(paragraph2);
+        Paragraph paragraph2 = new Paragraph();
+        Font totalFont = new Font(Font.FontFamily.TIMES_ROMAN, 16.0f, Font.BOLDITALIC, BaseColor.BLACK);
+        paragraph2.setFont(totalFont);
+        paragraph2.add("Total revenue of this product (" + AppData.getInstance().getComboBoxValue() + ") is ");
+        paragraph2.add(String.valueOf(showTotalReport()));
+        paragraph2.add(" Eur");
+        document.add(paragraph2);
 
         openReport();
 
@@ -141,15 +150,16 @@ ProductTypeController productTypeController = new ProductTypeController();
         }
     }
 
-//
-//    public double showTotalReport() throws SQLException {
-//        double total = 0 ;
-//        for (Item item : reportDBService.getSoldItems()) {
-//            total = total + (item.getCount()* item.getPrice());
-//
-//        }
-//        return total;
-//    }
+
+    public double showTotalReport() throws SQLException {
+        double total = 0 ;
+
+        for (Item item : itemDBService.getByProductType(AppData.getInstance().getComboBoxValue())) {
+            total = total + (item.getCount()* item.getPrice());
+
+        }
+        return total;
+    }
 
 
 

@@ -15,6 +15,7 @@
 
         <TableView fx:id="tableView" layoutX="7.0" layoutY="71.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="972.0" style="-fx-border-color: grey;">
             <columns>
+                <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="Id" />
                 <TableColumn fx:id="productTypeTableColumn" prefWidth="75.0" text="Product type" />
                 <TableColumn fx:id="priceTableColumn" prefWidth="75.0" resizable="false" text="Price" />
                 <TableColumn fx:id="countTableColumn" prefWidth="52.199981689453125" text="Count" />

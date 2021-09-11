@@ -58,6 +58,7 @@ public class ReportDBService extends ViewController {
 
         while (result.next()) {
             Order order = new Order(
+                    result.getInt("id"),
                     result.getString("product_type"),
                     result.getDouble("price"),
                     result.getInt("count"),

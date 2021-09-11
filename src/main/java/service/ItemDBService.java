@@ -71,7 +71,7 @@ public class ItemDBService {
 
         while (result.next()){
             Item item = new Item(
-                    result.getInt("count"),
+                    result.getInt("id"),
                     result.getString("product_type"),
                     result.getDouble("price"),
                     result.getInt("count"),
@@ -87,6 +87,40 @@ public class ItemDBService {
         return productTypeItems;
 
     }
+
+
+    public ObservableList<Order> getOrderByProductType(String productType) throws SQLException {
+        ObservableList<Order> productTypeOrders = FXCollections.observableArrayList();
+        PreparedStatement statement = connection.prepareStatement(Queries.SEARCH_ORDERS_BY_PRODUCT_TYPE);
+        statement.setString(1, productType);
+        ResultSet result = statement.executeQuery();
+
+        while (result.next()){
+            Order order = new Order(
+                    result.getInt("id"),
+                    result.getString("product_type"),
+                    result.getDouble("price"),
+                    result.getInt("count"),
+                    result.getString("gender"),
+                    result.getString("produce_type"),
+                    result.getString("size"),
+                    result.getString("colour"),
+                    result.getString("type_name"),
+                    result.getString("customer_name"),
+                    result.getString("customer_email"),
+                    result.getString("customer_phone"),
+                    result.getString("delivery_method"));
+
+
+            productTypeOrders.add(order);
+        }
+
+        return productTypeOrders;
+
+    }
+
+
+
 
     public void deleteItem(int id) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(Queries.DELETE_ITEM);

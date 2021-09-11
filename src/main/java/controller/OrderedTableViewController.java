@@ -99,7 +99,7 @@ public class OrderedTableViewController extends ViewController implements Initia
 
     public void handleSearchByProductType(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "productTypeOrderReport", 1000, 600);
+            changeScene(actionEvent, "orderPrTypeReport", 1000, 600);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }
@@ -109,7 +109,7 @@ public class OrderedTableViewController extends ViewController implements Initia
         try {
             itemDBService.deleteOrder(Integer.parseInt(idField.getText()));
             showAlert("Success", "Removing successful", Alert.AlertType.CONFIRMATION);
-            changeScene(actionEvent, "allSoldReport", 1000,500);
+            changeScene(actionEvent, "allOrderReport", 1100,600);
         } catch (SQLException | IOException e) {
             e.printStackTrace();
         }

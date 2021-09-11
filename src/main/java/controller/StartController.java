@@ -34,7 +34,7 @@ public class StartController extends ViewController {
 
     public void viewOrderItemAllReport(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "allOrderReport", 1000, 600);
+            changeScene(actionEvent, "allOrderReport", 1100, 600);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }

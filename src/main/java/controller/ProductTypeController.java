@@ -22,7 +22,7 @@ public class ProductTypeController extends ViewController implements Initializab
     ItemDBService itemDBService = new ItemDBService();
     TableViewController tableViewController = new TableViewController();
 
-
+        @FXML private TableColumn<Item, Integer> idTableColumn;
         @FXML private TableColumn<Item, String> productTypeTableColumn;
         @FXML private TableColumn<Item, Double> priceTableColumn;
         @FXML private TableColumn<Item, Integer> countTableColumn;
@@ -40,6 +40,7 @@ public class ProductTypeController extends ViewController implements Initializab
    }
 
    public void showProductTable(){
+       idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
        productTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("productType"));
        priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
        countTableColumn.setCellValueFactory(new PropertyValueFactory<>("count"));
