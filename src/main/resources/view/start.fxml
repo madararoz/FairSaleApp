@@ -5,30 +5,30 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controller.StartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="600.0"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StartController">
    <children>
       <ImageView layoutX="223.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
            <image>
                <Image url="@../img/logo.png" />
            </image>
        </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="180.0" layoutY="111.0" style="-fx-alignment: center;" text="Welcome to SIA TINES Fair Sale Application" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="111.0" prefHeight="26.0" prefWidth="390.0" style="-fx-alignment: center;" text="Welcome to SIA TINES Fair Sale Application" textAlignment="CENTER">
          <font>
-            <Font size="14.0" />
+            <Font name="System Bold" size="16.0" />
          </font></Label>
-      <Button layoutX="210.0" layoutY="154.0" mnemonicParsing="false" onAction="#registerSoldItem" prefHeight="30.0" prefWidth="69.0" style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: grey" text="SOLD" />
-      <Button layoutX="314.0" layoutY="154.0" mnemonicParsing="false" onAction="#registerOrderedItem" prefHeight="30.0" prefWidth="90.0" style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: grey" text="ORDERED" />
+      <Button layoutX="210.0" layoutY="154.0" mnemonicParsing="false" onAction="#registerSoldItem" prefHeight="30.0" prefWidth="69.0" style="-fx-font-size: 15px; -fx-text-fill: grey;" text="SOLD" />
+      <Button layoutX="314.0" layoutY="154.0" mnemonicParsing="false" onAction="#registerOrderedItem" prefHeight="30.0" prefWidth="90.0" style="-fx-font-size: 15px; -fx-text-fill: grey; " text="ORDERED" />
       <Button layoutX="174.0" layoutY="235.0" mnemonicParsing="false" onAction="#viewSoldItemAllReport" prefHeight="40" prefWidth="260" style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: grey" text="Sold item Total Report" />
       <Button layoutX="174.0" layoutY="284.0" mnemonicParsing="false" onAction="#viewOrderItemAllReport" prefHeight="40" prefWidth="260" style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: grey" text="Ordered item Total Report" />
-      <Button layoutX="32.0" layoutY="389.0" mnemonicParsing="false" onAction="#viewSoldItemDayReport" prefHeight="42.0" prefWidth="389.0" style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: grey" text="Sold item Day Report">
+      <Button layoutX="32.0" layoutY="389.0" mnemonicParsing="false" onAction="#viewSoldItemDayReport" prefHeight="42.0" prefWidth="414.0" style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: grey" text="Sold item Day Report" textAlignment="RIGHT">
          <graphic>
-            <DatePicker />
+            <DatePicker prefHeight="31.0" prefWidth="217.0" />
          </graphic></Button>
 
       <Button layoutX="32.0" layoutY="443.0" mnemonicParsing="false" onAction="#viewOrderItemDayReport" prefHeight="42.0" prefWidth="413.0" style="-fx-font-size: 15px; -fx-text-fill: white; -fx-background-color: grey" text="Ordered item Day Report">
          <graphic>
 
-                  <DatePicker />
+                  <DatePicker prefHeight="31.0" prefWidth="217.0" />
          </graphic></Button>
       <Button layoutX="520.0" layoutY="511.0" mnemonicParsing="false" onAction="#handleExit" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: grey" text="Exit" />
    </children>

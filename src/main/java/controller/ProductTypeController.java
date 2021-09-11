@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.AppData;
 import model.Item;
 import service.ItemDBService;
 
@@ -20,10 +21,6 @@ public class ProductTypeController extends ViewController implements Initializab
     public ComboBox searchProductTypeComboBox;
     ItemDBService itemDBService = new ItemDBService();
     TableViewController tableViewController = new TableViewController();
-
-
-        public Label sumTotalLabel;
-        public Label Eurlabel;
 
 
         @FXML private TableColumn<Item, String> productTypeTableColumn;
@@ -55,19 +52,15 @@ public class ProductTypeController extends ViewController implements Initializab
 
        try {
            tableView.setItems(itemDBService.getByProductType(searchProductTypeComboBox.getValue().toString()));
+           AppData.getInstance().setComboBoxValue(searchProductTypeComboBox.getValue().toString());
        } catch (SQLException e) {
            e.printStackTrace();
        }
    }
 
-   public String getSearchProductTypeComboBox(){
-       return searchProductTypeComboBox.getValue().toString();
-
-   }
-
         public void handleBack(ActionEvent actionEvent) {
             try {
-                changeScene(actionEvent, "start", 600,600);
+                changeScene(actionEvent, "allSoldReport", 1000,500);
             } catch (IOException ex) {
                 showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
             }
@@ -82,9 +75,7 @@ public class ProductTypeController extends ViewController implements Initializab
             }
         }
 
-    public void handleSearchByProductType(ActionEvent actionEvent) {
 
-    }
 
 //        public void showTotal(){
 //            double total = 0 ;

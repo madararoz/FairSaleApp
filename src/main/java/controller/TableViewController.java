@@ -1,6 +1,7 @@
 package controller;
 
 import com.itextpdf.text.DocumentException;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -19,18 +20,20 @@ import java.util.ResourceBundle;
 
 public class TableViewController extends ViewController implements Initializable{
 
-    public TableView productTypeTableView;
-    public TextField productTypeSearchField;
+    public TextField idField;
+    public ComboBox editDataType;
+    public TextField idFieldUpdate;
+    public TextField newValue;
+
     ItemDBService itemDBService = new ItemDBService();
 
-    ObservableList<Item> productTypeSearch = FXCollections.observableArrayList();
-
-    public Label sumTotalLabel;
+   public Label sumTotalLabel;
     public Label Eurlabel;
     public ComboBox<Item> searchProductTypeComboBox;
     ReportDBService reportDBService = new ReportDBService();
     @FXML public TableView<Item> tableView;
 
+    @FXML private TableColumn<Item, Integer> idTableColumn;
     @FXML private TableColumn<Item, String> productTypeTableColumn;
     @FXML private TableColumn<Item, Double> priceTableColumn;
     @FXML private TableColumn<Item, Integer> countTableColumn;
@@ -46,6 +49,7 @@ public class TableViewController extends ViewController implements Initializable
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         productTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("productType"));
         priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
         countTableColumn.setCellValueFactory(new PropertyValueFactory<>("count"));
@@ -100,16 +104,53 @@ public class TableViewController extends ViewController implements Initializable
     }
 
 
-//    @SneakyThrows
-//    public void showProductType(ActionEvent actionEvent) {
-//            changeScene(actionEvent, "productTypeReport", 1000, 500);
-//            itemDBService.getByProductType(searchProductTypeComboBox.getValue().toString(), item);
-//
-//    }
+
+    public void deleteItem(ActionEvent actionEvent) {
+        try {
+            itemDBService.deleteItem(Integer.parseInt(idField.getText()));
+            showAlert("Success", "Removing successful", Alert.AlertType.CONFIRMATION);
+            changeScene(actionEvent, "allSoldReport", 1000,500);
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void handleExit(ActionEvent actionEvent) {
+        Platform.exit();
+    }
+
+    public void updateItem(ActionEvent actionEvent) throws SQLException, IOException {
+        String userChoice = editDataType.getValue().toString();
+        switch(userChoice){
+            case"Product type":
+                itemDBService.updateProductType(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));
+                break;
+            case "Price":
+                itemDBService.updatePrice(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));
+                break;
+            case "Count":
+                itemDBService.updateCount(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));
+                break;
+            case "Gender":
+                itemDBService.updateGender(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));
+                break;
+            case "Produce type":
+                itemDBService.updateProduceType(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));
+                break;
+            case "Size":
+                itemDBService.updateSize(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));
+                break;
+            case "Type name":
+                itemDBService.updateTypeName(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));
+                break;
+            default:
+                showAlert("Back failed", "Updating failed", Alert.AlertType.ERROR);
+        }
+            showAlert("Success", "Updating successful", Alert.AlertType.CONFIRMATION);
+            changeScene(actionEvent, "allSoldReport", 1000, 600);
+    }
 
 
 
-
-
-}
+    }
 

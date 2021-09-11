@@ -5,6 +5,7 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import model.AppData;
 import model.Item;
 import repository.DBHandler;
 import repository.Queries;
@@ -62,21 +63,26 @@ ProductTypeController productTypeController = new ProductTypeController();
 
 
 
-        PdfPTable table = new PdfPTable(8);
-        Stream.of("Product Type", "Price", "Count", "Gender", "Produce Type", "Size", "Colour", "Type name").forEach(table::addCell);
+        PdfPTable table = new PdfPTable(9);
+        Stream.of( "Id", "Product Type", "Price", "Count", "Gender", "Produce Type", "Size", "Colour", "Type name").forEach(table::addCell);
         table.setWidthPercentage(100);
         table.setSpacingBefore(10f);
         table.setSpacingAfter(10f);
 
-        float[] columnWidths = {1.2f, 1f, 1f, 1f, 2f, 0.7f, 1f, 1f};
+        float[] columnWidths = {0.5f, 1.2f, 1f, 1f, 1f, 2f, 0.7f, 1f, 1f};
         table.setWidths(columnWidths);
 
         PdfPCell table_cell;
         PreparedStatement statement = connection.prepareStatement(Queries.SEARCH_BY_PRODUCT_TYPE);
-        statement.setString(1, String.valueOf(productTypeController.getSearchProductTypeComboBox()));
+        statement.setString(1, AppData.getInstance().getComboBoxValue());
+
         ResultSet result = statement.executeQuery();
 
         while (result.next()) {
+            int id = result.getInt("id");
+            table_cell = new PdfPCell(new Phrase(String.valueOf(id)));
+            table.addCell(table_cell);
+
             String product_type = result.getString("product_type");
             table_cell = new PdfPCell(new Phrase(product_type));
             table.addCell(table_cell);
