@@ -51,6 +51,38 @@ public class ReportDBService extends ViewController {
         ObservableList<Order> orderedItems = FXCollections.observableArrayList();
         PreparedStatement statement = connection.prepareStatement(Queries.SELECT_ORDERS);
         ResultSet result = statement.executeQuery();
+//        PreparedStatement statement = connection.prepareStatement(Queries.SEARCH_BY_PRODUCT_TYPE);
+//        statement.setString(1, String.valueOf(productTypeController.getSearchProductTypeComboBox()));
+//        ResultSet result = statement.executeQuery();
+
+        while (result.next()) {
+            Order order = new Order(
+                    result.getString("product_type"),
+                    result.getDouble("price"),
+                    result.getInt("count"),
+                    result.getString("gender"),
+                    result.getString("produce_type"),
+                    result.getString("size"),
+                    result.getString("colour"),
+                    result.getString("type_name"),
+                    result.getString("customer_name"),
+                    result.getString("customer_email"),
+                    result.getString("customer_phone"),
+                    result.getString("delivery_method"));
+
+            orderedItems.add(order);
+        }
+        return orderedItems;
+    }
+
+    public ObservableList<Order> getOrderedItemsByDate() throws SQLException {
+
+        ObservableList<Order> orderedItems = FXCollections.observableArrayList();
+        PreparedStatement statement = connection.prepareStatement(Queries.SELECT_ORDERS);
+        ResultSet result = statement.executeQuery();
+//        PreparedStatement statement = connection.prepareStatement(Queries.SEARCH_BY_PRODUCT_TYPE);
+//        statement.setString(1, String.valueOf(productTypeController.getSearchProductTypeComboBox()));
+//        ResultSet result = statement.executeQuery();
 
         while (result.next()) {
             Order order = new Order(
