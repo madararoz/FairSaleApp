@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.collections.FXCollections?>
+<GridPane fx:controller="controller.OrderController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <Text text="Add an order" style="-fx-font-weight: bold" GridPane.rowIndex="0" GridPane.columnIndex="0" GridPane.columnSpan="2"/>
+
+    <Label text="Product type" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+<!--    <TextField fx:id="ProductTypeField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>-->
+
+    <ComboBox fx:id="productTypeComboBox" prefWidth="240"  GridPane.rowIndex="1" GridPane.columnIndex="1"  promptText="Choose">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Mittens" />
+                <String fx:value="Gloves" />
+                <String fx:value="Mauchi" />
+                <String fx:value="Socks" />
+                <String fx:value="Caps" />
+                <String fx:value="Scarves" />
+                <String fx:value="Sweaters" />
+                <String fx:value="Jackets" />
+                <String fx:value="Vests" />
+                <String fx:value="Cardigans" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <Label text="Price" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <TextField fx:id="PriceField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+    <Label text="Count" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+       <TextField fx:id="CountField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+    <Label text="Gender" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+<!--    <TextField fx:id="GenderField" GridPane.rowIndex="4" GridPane.columnIndex="1"/>-->
+    <ComboBox fx:id="genderComboBox" prefWidth="240" GridPane.rowIndex="4" GridPane.columnIndex="1" layoutX="15.0" layoutY="33.0"  promptText="Choose">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Male" />
+                <String fx:value="Female" />
+                <String fx:value="Kids" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+
+    <Label text="Produce type" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+<!--    <TextField fx:id="ProduceTypeField" GridPane.rowIndex="5" GridPane.columnIndex="1"/>-->
+
+    <ComboBox fx:id="produceTypeComboBox" prefWidth="240" GridPane.rowIndex="5" GridPane.columnIndex="1" layoutX="15.0" layoutY="33.0"  promptText="Choose">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="H-made" />
+                <String fx:value="M-made" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+
+    <Label text="Size" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+    <TextField fx:id="SizeField" GridPane.rowIndex="6" GridPane.columnIndex="1"/>
+
+    <Label text="Color" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+    <TextField fx:id="ColorField" GridPane.rowIndex="7" GridPane.columnIndex="1"/>
+
+    <Label text="Type name" GridPane.rowIndex="8" GridPane.columnIndex="0"/>
+    <TextField fx:id="TypeNameField" GridPane.rowIndex="8" GridPane.columnIndex="1"/>
+
+    <Label text="Customer name" GridPane.rowIndex="9" GridPane.columnIndex="0"/>
+    <TextField fx:id="CustomerNameField" GridPane.rowIndex="9" GridPane.columnIndex="1"/>
+
+    <Label text="Customer email" GridPane.rowIndex="10" GridPane.columnIndex="0"/>
+    <TextField fx:id="CustomerEmailField" GridPane.rowIndex="10" GridPane.columnIndex="1"/>
+
+    <Label text="Customer phone" GridPane.rowIndex="11" GridPane.columnIndex="0"/>
+    <TextField fx:id="CustomerPhoneField" GridPane.rowIndex="11" GridPane.columnIndex="1"/>
+
+    <Label text="Delivery method" GridPane.rowIndex="12" GridPane.columnIndex="0"/>
+<!--    <TextField fx:id="DeliveryMethodField" GridPane.rowIndex="12" GridPane.columnIndex="1"/>-->
+    <ComboBox fx:id="deliveryMethodComboBox" prefWidth="240" GridPane.rowIndex="12" GridPane.columnIndex="1" layoutX="15.0" layoutY="33.0"  promptText="Choose">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="In person" />
+                <String fx:value="Omniva" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+<HBox spacing="95.0"  GridPane.rowIndex="14" GridPane.columnSpan="2">
+
+    <Button text="Add" onAction="#handleAddOrder" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: grey"/>
+
+    <Button text="Back" onAction="#handleBack" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: grey"/>
+
+    <Button text="Exit" onAction="#handleExit" style="-fx-font-size: 14px; -fx-text-fill: white; -fx-background-color: grey"/>
+</HBox>
+</GridPane>
+
