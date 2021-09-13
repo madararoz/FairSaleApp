@@ -1,20 +1,16 @@
 package service;
 
-import controller.TableViewController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import model.Gender;
 import model.Item;
 import model.Order;
-import model.ProductType;
 import repository.DBHandler;
 import repository.Queries;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+
 
 
 public class ItemDBService {
@@ -56,7 +52,7 @@ public class ItemDBService {
         statement.setString(9, order.getCustomerName());
         statement.setString(10, order.getCustomerEmail());
         statement.setString(11, order.getCustomerPhone());
-        statement.setString(11, order.getDeliveryMethod());
+        statement.setString(12, order.getDeliveryMethod());
 
 
         statement.executeUpdate();

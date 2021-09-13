@@ -89,9 +89,9 @@ public class OrderedTableViewController extends ViewController implements Initia
     }
 
     public void showTotal(){
-        int total = 0 ;
+        double total = 0 ;
         for (Item item : tableView.getItems()) {
-            total = (int) (total + (item.getCount()* item.getPrice()));
+            total = total + (item.getCount()* item.getPrice());
         }
         sumTotalLabel.setText(String.valueOf(total));
         Eurlabel.setText("Eur");
@@ -99,7 +99,7 @@ public class OrderedTableViewController extends ViewController implements Initia
 
     public void handleSearchByProductType(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "orderPrTypeReport", 1000, 600);
+            changeScene(actionEvent, "orderPrTypeReport", 1100, 600);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }
@@ -157,7 +157,7 @@ public class OrderedTableViewController extends ViewController implements Initia
                 showAlert("Back failed", "Updating failed", Alert.AlertType.ERROR);
         }
         showAlert("Success", "Updating successful", Alert.AlertType.CONFIRMATION);
-        changeScene(actionEvent, "allOrderReport", 1000, 600);
+        changeScene(actionEvent, "allOrderReport", 1100, 600);
     }
 }
 

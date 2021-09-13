@@ -97,7 +97,7 @@ public class TableViewController extends ViewController implements Initializable
 
     public void handleSearchByProductType(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "productTypeReport", 1000, 600);
+            changeScene(actionEvent, "productTypeReport", 1000, 500);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }
@@ -147,7 +147,7 @@ public class TableViewController extends ViewController implements Initializable
                 showAlert("Back failed", "Updating failed", Alert.AlertType.ERROR);
         }
             showAlert("Success", "Updating successful", Alert.AlertType.CONFIRMATION);
-            changeScene(actionEvent, "allSoldReport", 1000, 600);
+            changeScene(actionEvent, "allSoldReport", 1000, 500);
     }
 
 

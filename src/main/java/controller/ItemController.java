@@ -48,7 +48,7 @@ public class ItemController extends ViewController {
             soldItemDBService.addSoldItemToDB(item);
 
             showAlert("Success", "Adding successful", Alert.AlertType.CONFIRMATION);
-            changeScene(actionEvent, "start", 800,800);
+            changeScene(actionEvent, "start", 600,600);
         } catch (Exception e) {
             showAlert("Adding Sold Items Failed", e.getMessage(), Alert.AlertType.ERROR);
             e.printStackTrace();

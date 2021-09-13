@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1006.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TableViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1006.0"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TableViewController">
     <children>
-        <Label layoutX="7.0" layoutY="30.0" prefHeight="26.0" prefWidth="224.0" text="Sold item Total Report">
+        <Label layoutX="7.0" layoutY="30.0" prefHeight="26.0" prefWidth="224.0" text="Sold item total report">
             <font>
-                <Font size="15.0" />
+                <Font name="System Bold" size="15.0" />
             </font></Label>
 
         <TableView fx:id="tableView" layoutX="7.0" layoutY="71.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="972.0" style="-fx-border-color: grey;">
@@ -31,26 +31,26 @@
         </TableView>
 
       <Button layoutX="22.0" layoutY="296.0" mnemonicParsing="false" onAction="#showTable" text="Print report" />
-      <Button layoutX="556.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+      <Button layoutX="873.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
 
-        <Label fx:id="sumTotalLabel" layoutX="846.0" layoutY="295.0" prefHeight="26.0" prefWidth="41.0">
+        <Label fx:id="sumTotalLabel" layoutX="503.0" layoutY="295.0" prefHeight="26.0" prefWidth="41.0">
             <font>
                 <Font size="16.0" />
             </font></Label>
-        <Label fx:id="Eurlabel" layoutX="888.0" layoutY="295.0" prefHeight="26.0" prefWidth="41.0" textAlignment="RIGHT">
+        <Label fx:id="Eurlabel" layoutX="545.0" layoutY="295.0" prefHeight="26.0" prefWidth="41.0" textAlignment="RIGHT">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
-        <Button layoutX="681.0" layoutY="295.0" mnemonicParsing="false" onAction="#showTotal" prefHeight="26.0" prefWidth="150.0" text="Calculate total" textOverrun="CLIP" />
-        <Button layoutX="143.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleSearchByProductType" text="Search results by product type" />
+        <Button layoutX="342.0" layoutY="295.0" mnemonicParsing="false" onAction="#showTotal" prefHeight="26.0" prefWidth="150.0" text="Calculate total" textOverrun="CLIP" />
+        <Button layoutX="130.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleSearchByProductType" text="Filter data by product type" />
       <Button layoutX="248.0" layoutY="338.0" mnemonicParsing="false" onAction="#deleteItem" text="Remove" />
       <Label layoutX="23.0" layoutY="339.0" prefHeight="18.0" prefWidth="150.0" text="Enter item id to remove:">
          <font>
             <Font size="16.0" />
          </font></Label>
       <TextField fx:id="idField" layoutX="179.0" layoutY="338.0" prefHeight="26.0" prefWidth="59.0" promptText="Id" />
-      <Button layoutX="623.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+      <Button layoutX="931.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
       <Label layoutX="22.0" layoutY="386.0" prefHeight="18.0" prefWidth="224.0" text="EDIT report - enter item id to edit">
         <font>
             <Font size="16.0" />
