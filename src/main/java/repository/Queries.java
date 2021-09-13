@@ -12,6 +12,8 @@ public class Queries {
     public static final String SEARCH_ORDERS_BY_DATE = "SELECT product_type, price, count, gender, produce_type, size, colour, type_name, customer_name, customer_email, customer_phone, delivery_method from orders WHERE date(created_at) = ?;";
     public static final String SEARCH_SOLD_ITEMS_BY_DATE = "SELECT product_type, price, count, gender, produce_type, size, colour, type_name from items WHERE date(created_at) = ?;";
 
+    //public static final String SEARCH_SOLD_ITEMS_TO_PRINT_DATE = "SELECT product_type, price, count, gender, produce_type, size, colour, type_name from items;";
+    //public static final String SEARCH_ORDERS_TO_PRINT_DATE = "SELECT product_type, price, count, gender, produce_type, size, colour, type_name, customer_name, customer_email, customer_phone, delivery_method from orders";
 
     public static final String SEARCH_BY_PRODUCT_TYPE = "SELECT id, product_type, price, count, gender, produce_type, size, colour, type_name from items WHERE product_type = ?;";
     public static final String SEARCH_ORDERS_BY_PRODUCT_TYPE = "SELECT id, product_type, price, count, gender, produce_type, size, colour, type_name, customer_name, customer_email, customer_phone, delivery_method from orders WHERE product_type = ?;";

@@ -116,7 +116,7 @@ public class PrintReportController {
         Paragraph paragraph2 = new Paragraph();
         Font totalFont = new Font(Font.FontFamily.TIMES_ROMAN, 16.0f, Font.BOLDITALIC, BaseColor.BLACK);
         paragraph2.setFont(totalFont);
-        paragraph2.add("Total revenue of the day  - ");
+        paragraph2.add("Total revenue  - ");
         paragraph2.add(String.valueOf(showTotalReport()));
         paragraph2.add(" Eur");
         document.add(paragraph2);

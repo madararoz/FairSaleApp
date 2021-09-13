@@ -58,9 +58,9 @@ public class DayTableViewController extends ViewController implements Initializa
     }
 
     public void showTable(ActionEvent actionEvent) {
-        PrintOrderedReportController printOrderedReportController = new PrintOrderedReportController();
+        PrintDayReportController printDayReportController = new PrintDayReportController();
         try {
-            printOrderedReportController.printDocument();
+            printDayReportController.printDocument();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException throwables) {
@@ -73,9 +73,9 @@ public class DayTableViewController extends ViewController implements Initializa
     }
 
     public void showTotal(ActionEvent actionEvent) {
-        int total = 0 ;
+        double total = 0 ;
         for (Item item : tableView.getItems()) {
-            total = (int) (total + (item.getCount()* item.getPrice()));
+            total = total + (item.getCount()* item.getPrice());
         }
         sumTotalLabel.setText(String.valueOf(total));
         Eurlabel.setText("Eur");

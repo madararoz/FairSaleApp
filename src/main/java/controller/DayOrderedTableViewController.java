@@ -77,9 +77,9 @@ public class DayOrderedTableViewController extends ViewController implements Ini
     }
 
     public void showTable(ActionEvent actionEvent) {
-        PrintOrderedReportController printOrderedReportController = new PrintOrderedReportController();
+        PrintDayOrderedReportController printDayOrderedReportController = new PrintDayOrderedReportController();
         try {
-            printOrderedReportController.printDocument();
+            printDayOrderedReportController.printDocument();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException throwables) {

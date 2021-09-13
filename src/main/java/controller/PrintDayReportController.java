@@ -5,8 +5,8 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import model.AppData;
 import model.Item;
-import model.Order;
 import repository.DBHandler;
 import repository.Queries;
 import service.ReportDBService;
@@ -22,52 +22,53 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.stream.Stream;
 
-public class PrintOrderedReportController {
+public class PrintDayReportController {
+
     private Connection connection = DBHandler.getConnection();
+
     ReportDBService reportDBService = new ReportDBService();
 
-
-
-    public void printDocument() throws IOException, DocumentException, SQLException {
+    public void printDocument() throws IOException, DocumentException, SQLException{
         Document document = new Document();
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Report.pdf"));
         document.setPageSize(PageSize.A4.rotate());
         document.open();
 
-
         Paragraph paragraph = new Paragraph();
         Font f = new Font(Font.FontFamily.TIMES_ROMAN, 25.0f, Font.BOLD, BaseColor.BLACK);
         paragraph.setFont(f);
-        paragraph.add("Report of ordered items");
+        paragraph.add("Report of sold items of selected day ");
 
 
         document.add(paragraph);
 
+
         Paragraph paragraph1 = new Paragraph(new Date().toString());
+        Font dateFont = new Font(Font.FontFamily.TIMES_ROMAN, 14.0f, Font.ITALIC, BaseColor.BLACK);
         paragraph1.setAlignment(Element.ALIGN_RIGHT);
+        paragraph1.setFont(dateFont);
         document.add(paragraph1);
+        paragraph1.setSpacingAfter(20f);
+        paragraph1.setSpacingBefore(20f);
 
 
 
-        PdfPTable table = new PdfPTable(13);
-        Stream.of("Id","Product Type", "Price", "Count", "Gender", "Produce Type", "Size", "Colour", "Type name", "Customer Name",
-                "Customer Email", "Customer Phone", "Delivery Method").forEach(table::addCell);
+
+        PdfPTable table = new PdfPTable(8);
+        Stream.of("Product Type", "Price", "Count", "Gender", "Produce Type", "Size", "Colour", "Type name").forEach(table::addCell);
         table.setWidthPercentage(100);
         table.setSpacingBefore(10f);
         table.setSpacingAfter(10f);
 
-        float[] columnWidths = {0.5f, 1.2f, 1f, 1f, 1f, 2f, 0.7f, 1f, 1f, 1f, 1f, 1f, 1f};
+        float[] columnWidths = {1.2f, 1f, 1f, 1f, 2f, 0.7f, 1f, 1f};
         table.setWidths(columnWidths);
 
         PdfPCell table_cell;
-        PreparedStatement statement = connection.prepareStatement(Queries.SELECT_ORDERS);
+        PreparedStatement statement = connection.prepareStatement(Queries.SEARCH_SOLD_ITEMS_BY_DATE);
+        //statement.setObject(1, soldDate(AppData.getInstance().getSoldDate()));
         ResultSet result = statement.executeQuery();
 
         while (result.next()) {
-            int id = result.getInt("id");
-            table_cell = new PdfPCell(new Phrase(String.valueOf(id)));
-            table.addCell(table_cell);
-
             String product_type = result.getString("product_type");
             table_cell = new PdfPCell(new Phrase(product_type));
             table.addCell(table_cell);
@@ -100,28 +101,13 @@ public class PrintOrderedReportController {
             table_cell = new PdfPCell(new Phrase(type_name));
             table.addCell(table_cell);
 
-            String customer_name = result.getString("customer_name");
-            table_cell = new PdfPCell(new Phrase(customer_name));
-            table.addCell(table_cell);
-
-            String customer_email = result.getString("customer_email");
-            table_cell = new PdfPCell(new Phrase(customer_email));
-            table.addCell(table_cell);
-
-            String customer_phone = result.getString("customer_phone");
-            table_cell = new PdfPCell(new Phrase(customer_phone));
-            table.addCell(table_cell);
-
-            String delivery_method = result.getString("delivery_method");
-            table_cell = new PdfPCell(new Phrase(delivery_method));
-            table.addCell(table_cell);
         }
         document.add(table);
 
         Paragraph paragraph2 = new Paragraph();
         Font totalFont = new Font(Font.FontFamily.TIMES_ROMAN, 16.0f, Font.BOLDITALIC, BaseColor.BLACK);
         paragraph2.setFont(totalFont);
-        paragraph2.add("Total revenues  - ");
+        paragraph2.add("Total revenue of the day  - ");
         paragraph2.add(String.valueOf(showTotalReport()));
         paragraph2.add(" Eur");
         document.add(paragraph2);
@@ -130,14 +116,6 @@ public class PrintOrderedReportController {
 
         document.close();
         writer.close();
-    }
-
-    public double showTotalReport() throws SQLException {
-        double total = 0 ;
-        for (Order order : reportDBService.getOrderedItems()) {
-            total = total + (order.getCount()* (order.getPrice()));
-        }
-        return total;
     }
 
     public void openReport() throws IOException {
@@ -151,7 +129,16 @@ public class PrintOrderedReportController {
     }
 
 
+    public double showTotalReport() throws SQLException {
+        double total = 0 ;
+        for (Item soldItemsDay : reportDBService.getSoldItemsByDate(AppData.getInstance().getSoldDate())) {
+            total = total + (soldItemsDay.getCount()* soldItemsDay.getPrice());
+
+        }
+        return total;
+    }
 
 
 
 }
+
