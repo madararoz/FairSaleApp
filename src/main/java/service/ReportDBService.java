@@ -19,7 +19,7 @@ import java.sql.*;
 import java.util.ArrayList;
 
 
-public class ReportDBService extends StartController {
+public class ReportDBService {
 
     public Connection connection = DBHandler.getConnection();
 
@@ -74,7 +74,7 @@ public class ReportDBService extends StartController {
         return orderedItems;
     }
 
-    public ObservableList<Order> getOrderedItemsByDate() throws SQLException {
+    public ObservableList<Order> getOrderedItemsByDate(String orderDate) throws SQLException {
 
         ObservableList<Order> orderedItemsByDate = FXCollections.observableArrayList();
         PreparedStatement statement = connection.prepareStatement(Queries.SEARCH_ORDERS_BY_DATE);
@@ -100,30 +100,22 @@ public class ReportDBService extends StartController {
         }
         return orderedItemsByDate;
     }
+//
+//    public DatePicker getDate() throws Exception {
+//        String query = "SELECT created_at FROM orders WHERE date(created_at) = ?";
+//        PreparedStatement statement = connection.prepareStatement(query);
+//        statement.setDate(1, java.sql.Date.valueOf(orderDate.getValue()));
+//        ResultSet result = statement.executeQuery();
+//
+//        DatePicker orderDate = null;
+//        if (result.next()) orderDate = (DatePicker) result.getObject("created_at");
+//
+//        DBHandler.close(result, statement, connection);
+//
+//        if (orderDate == null) throw new Exception("No orders on " + orderDate + " date!");
+//
+//        return orderDate;
+//    }
 
-    public DatePicker getDate() throws Exception {
-        String query = "SELECT created_at FROM orders WHERE date(created_at) = ?";
-        PreparedStatement statement = connection.prepareStatement(query);
-        statement.setDate(1, java.sql.Date.valueOf(orderDate.getValue()));
-        ResultSet result = statement.executeQuery();
-
-        DatePicker orderDate = null;
-        if (result.next()) orderDate = (DatePicker) result.getObject("created_at");
-
-        DBHandler.close(result, statement, connection);
-
-        if (orderDate == null) throw new Exception("No orders on " + orderDate + " date!");
-
-        return orderDate;
-    }
-
-
-    public void handleBack(ActionEvent actionEvent) {
-        try {
-            changeScene(actionEvent, "start", 600, 600);
-        } catch (IOException ex) {
-            showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
-        }
-    }
 
 }

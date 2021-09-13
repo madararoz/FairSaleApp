@@ -6,7 +6,7 @@ public class AppData {
 
         private static model.AppData appData_instance;
         private String comboBoxValue = null;
-        private DatePicker orderDate;
+        private String orderDate = null;
 
     AppData(){
         }
@@ -18,6 +18,7 @@ public class AppData {
 
 
     public String getComboBoxValue() {
+
         return comboBoxValue;
     }
 
@@ -25,7 +26,12 @@ public class AppData {
        this.comboBoxValue= comboBoxValue;
     }
 
-        public void setOrderDate(DatePicker orderDate) {
-            this.orderDate = orderDate;
+    public void setOrderDate(String orderDate) {
+        this.orderDate = orderDate;
     }
+
+    public String getOrderDate() {
+        return orderDate;
+    }
+
 }

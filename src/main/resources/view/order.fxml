@@ -95,9 +95,9 @@
 
 <HBox spacing="95.0"  GridPane.rowIndex="14" GridPane.columnSpan="2">
 
-    <Button onAction="#handleAddOrder" style="-fx-font-size: 14px; -fx-text-fill: grey;" text="Add" />
-    <Button onAction="#handleBack" style="-fx-font-size: 14px; -fx-text-fill: grey;" text="Back" />
-    <Button onAction="#handleExit" style="-fx-font-size: 14px; -fx-text-fill: grey;" text="Exit" />
+    <Button onAction="#handleAddOrder" style="-fx-font-size: 14px; " text="Add" />
+    <Button onAction="#handleBack" style="-fx-font-size: 14px; " text="Back" />
+    <Button onAction="#handleExit" style="-fx-font-size: 14px; " text="Exit" />
 </HBox>
 </GridPane>
 

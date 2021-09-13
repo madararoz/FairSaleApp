@@ -61,10 +61,8 @@ public class StartController extends ViewController {
 
     public void viewOrderItemDayReport(ActionEvent actionEvent) throws Exception {
         try {
-            DatePicker orderDate = dateService.getDate();
-            AppData.getInstance().setOrderDate(orderDate);
-            notificationLabel.setText("Login successful");
-            changeScene(actionEvent, "dayOrderReport", 1000, 600);
+           AppData.getInstance().setOrderDate(orderDate.getValue().toString());
+           changeScene(actionEvent, "dayOrderReport", 1000, 600);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }

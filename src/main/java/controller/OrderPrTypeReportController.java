@@ -25,7 +25,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.stream.Stream;
 
-public class OrderPrTypeReportController {
+public class OrderPrTypeReportController extends ViewController {
 
         private Connection connection = DBHandler.getConnection();
 

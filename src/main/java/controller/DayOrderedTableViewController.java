@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.AppData;
 import model.Item;
 import model.Order;
 import service.ReportDBService;
@@ -16,7 +17,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class DayOrderedTableViewController extends StartController implements Initializable {
+public class DayOrderedTableViewController extends ViewController implements Initializable {
 
 
     public Label sumTotalLabel;
@@ -58,7 +59,7 @@ public class DayOrderedTableViewController extends StartController implements In
 
 
         try {
-            tableView.setItems(reportDBService.getOrderedItemsByDate());
+            tableView.setItems(reportDBService.getOrderedItemsByDate(AppData.getInstance().getOrderDate()));
         } catch (SQLException e) {
             e.printStackTrace();
         }
