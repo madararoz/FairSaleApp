@@ -28,6 +28,7 @@ public class ProductTypeReportController {
     private Connection connection = DBHandler.getConnection();
 
     ItemDBService itemDBService = new ItemDBService();
+
 ProductTypeController productTypeController = new ProductTypeController();
 ReportDBService reportDBService = new ReportDBService();
 
@@ -37,11 +38,6 @@ ReportDBService reportDBService = new ReportDBService();
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("Report.pdf"));
         document.setPageSize(PageSize.A4.rotate());
         document.open();
-
-//        Image image1 = Image.getInstance("logo.png");
-//        image1.setAlignment(Element.ALIGN_LEFT);
-//        image1.scaleAbsolute(40, 40);
-//        document.add(image1);
 
 
 

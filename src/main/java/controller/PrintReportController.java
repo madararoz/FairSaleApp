@@ -33,12 +33,6 @@ public class PrintReportController {
         document.setPageSize(PageSize.A4.rotate());
         document.open();
 
-//        Image image1 = Image.getInstance("logo.png");
-//        image1.setAlignment(Element.ALIGN_LEFT);
-//        image1.scaleAbsolute(40, 40);
-//        document.add(image1);
-
-
 
         Paragraph paragraph = new Paragraph();
         Font f = new Font(Font.FontFamily.TIMES_ROMAN, 25.0f, Font.BOLD, BaseColor.BLACK);
