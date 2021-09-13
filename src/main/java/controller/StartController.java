@@ -54,7 +54,7 @@ public class StartController extends ViewController {
     public void viewSoldItemDayReport(ActionEvent actionEvent) {
         try {
             AppData.getInstance().setSoldDate(soldDate.getValue().toString());
-            changeScene(actionEvent, "daySoldReport", 1000, 600);
+            changeScene(actionEvent, "daySoldReport", 1000, 500);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }
@@ -63,7 +63,7 @@ public class StartController extends ViewController {
     public void viewOrderItemDayReport(ActionEvent actionEvent) {
         try {
            AppData.getInstance().setOrderDate(orderDate.getValue().toString());
-           changeScene(actionEvent, "dayOrderReport", 1000, 600);
+           changeScene(actionEvent, "dayOrderReport", 1000, 500);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }

@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderedTableViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderedTableViewController">
     <children>
         <Label layoutX="7.0" layoutY="30.0" prefHeight="26.0" prefWidth="224.0" text="Ordered item total report">
             <font>
@@ -37,16 +37,16 @@
         <Button layoutX="22.0" layoutY="296.0" mnemonicParsing="false" onAction="#showTable" text="Print report" />
         <Button layoutX="873.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
 
-        <Label fx:id="sumTotalLabel" layoutX="503.0" layoutY="295.0" prefHeight="26.0" prefWidth="77.0">
+        <Label fx:id="sumTotalLabel" layoutX="573.0" layoutY="296.0" prefHeight="26.0" prefWidth="77.0">
             <font>
                 <Font size="16.0" />
             </font></Label>
-        <Label fx:id="Eurlabel" layoutX="591.0" layoutY="293.0" prefHeight="26.0" prefWidth="41.0" textAlignment="RIGHT">
+        <Label fx:id="Eurlabel" layoutX="651.0" layoutY="296.0" prefHeight="26.0" prefWidth="41.0" textAlignment="RIGHT">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
-        <Button layoutX="342.0" layoutY="295.0" mnemonicParsing="false" onAction="#showTotal" prefHeight="26.0" prefWidth="150.0" text="Calculate total" textOverrun="CLIP" />
+        <Button layoutX="418.0" layoutY="296.0" mnemonicParsing="false" onAction="#showTotal" prefHeight="26.0" prefWidth="150.0" text="Calculate total" textOverrun="CLIP" />
         <Button layoutX="287.0" layoutY="339.0" mnemonicParsing="false" onAction="#deleteOrder" text="Remove" />
         <Label layoutX="23.0" layoutY="339.0" prefHeight="26.0" prefWidth="176.0" text="Enter item id to remove:">
             <font>
@@ -74,7 +74,7 @@
             </items>
         </ComboBox>
         <TextField fx:id="idFieldUpdate" layoutX="287.0" layoutY="382.0" prefHeight="26.0" prefWidth="77.0" promptText="Id" />
-        <ComboBox fx:id="searchProductTypeComboBox" layoutX="124.0" layoutY="296.0" onAction="#handleSearchByProductType" prefHeight="26.0" prefWidth="203.0" promptText="Filter by product type" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <ComboBox fx:id="searchProductTypeComboBox" layoutX="137.0" layoutY="296.0" onAction="#handleSearchByProductType" prefHeight="26.0" prefWidth="224.0" promptText="Filter by product type" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="Mittens" />

@@ -167,7 +167,7 @@ public class OrderedTableViewController extends ViewController implements Initia
                 showAlert("Back failed", "Updating failed", Alert.AlertType.ERROR);
         }
         showAlert("Success", "Updating successful", Alert.AlertType.CONFIRMATION);
-        changeScene(actionEvent, "allOrderReport", 1100, 600);
+        changeScene(actionEvent, "allOrderReport", 1000, 500);
     }
 }
 

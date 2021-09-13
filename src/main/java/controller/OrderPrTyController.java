@@ -70,7 +70,7 @@ public class OrderPrTyController extends ViewController implements Initializable
 
         public void handleBack(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "allOrderReport", 1100, 600);
+            changeScene(actionEvent, "allOrderReport", 1000, 500);
         } catch (IOException ex) {
             showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
         }
