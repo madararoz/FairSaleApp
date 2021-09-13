@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TableViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1006.0"  xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.TableViewController">
     <children>
         <Label layoutX="7.0" layoutY="30.0" prefHeight="26.0" prefWidth="224.0" text="Sold item total report">
             <font>
@@ -31,7 +31,7 @@
         </TableView>
 
       <Button layoutX="22.0" layoutY="296.0" mnemonicParsing="false" onAction="#showTable" text="Print report" />
-      <ComboBox fx:id="searchProductTypeComboBox" onAction="#handleSearchByProductType" layoutX="133.0" layoutY="296.0" prefWidth="150.0" promptText="Choose product type to show" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <ComboBox fx:id="searchProductTypeComboBox" layoutX="133.0" layoutY="296.0" onAction="#handleSearchByProductType" prefHeight="26.0" prefWidth="259.0" promptText="Filter data by product type" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="Mittens" />
@@ -52,16 +52,16 @@
 
       <Button layoutX="873.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
 
-        <Label fx:id="sumTotalLabel" layoutX="503.0" layoutY="295.0" prefHeight="26.0" prefWidth="78.0">
+        <Label fx:id="sumTotalLabel" layoutX="536.0" layoutY="296.0" prefHeight="26.0" prefWidth="78.0">
             <font>
                 <Font size="16.0" />
             </font></Label>
-        <Label fx:id="Eurlabel" layoutX="584.0" layoutY="295.0" prefHeight="26.0" prefWidth="41.0" textAlignment="RIGHT">
+        <Label fx:id="Eurlabel" layoutX="636.0" layoutY="296.0" prefHeight="26.0" prefWidth="41.0" textAlignment="RIGHT">
             <font>
                 <Font size="16.0" />
             </font>
         </Label>
-        <Button layoutX="342.0" layoutY="295.0" mnemonicParsing="false" onAction="#showTotal" prefHeight="26.0" prefWidth="150.0" text="Calculate total" textOverrun="CLIP" />
+        <Button layoutX="410.0" layoutY="296.0" mnemonicParsing="false" onAction="#showTotal" prefHeight="26.0" prefWidth="150.0" text="Calculate total" textOverrun="CLIP" />
 <!--        <Button layoutX="130.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleSearchByProductType" text="Filter data by product type" />-->
       <Button layoutX="268.0" layoutY="339.0" mnemonicParsing="false" onAction="#deleteItem" text="Remove" />
       <Label layoutX="23.0" layoutY="339.0" prefHeight="26.0" prefWidth="185.0" text="Enter item id to remove:">

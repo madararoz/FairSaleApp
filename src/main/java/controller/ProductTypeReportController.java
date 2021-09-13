@@ -58,7 +58,7 @@ ReportDBService reportDBService = new ReportDBService();
         Font f20 = new Font(Font.FontFamily.TIMES_ROMAN, 20.0f, Font.NORMAL, BaseColor.BLACK);
         paragraph3.setFont(f20);
         paragraph3.setSpacingBefore(20f);
-        paragraph3.add("Product type - "+ AppData.getInstance().getComboBoxValue());
+        paragraph3.add("Product type - "+ AppData.getInstance().getProductTypeComboBox());
         document.add(paragraph3);
 
         Paragraph paragraph1 = new Paragraph(new Date().toString());
@@ -83,7 +83,7 @@ ReportDBService reportDBService = new ReportDBService();
 
         PdfPCell table_cell;
         PreparedStatement statement = connection.prepareStatement(Queries.SEARCH_BY_PRODUCT_TYPE);
-        statement.setString(1, AppData.getInstance().getComboBoxValue());
+        statement.setString(1, AppData.getInstance().getProductTypeComboBox());
 
         ResultSet result = statement.executeQuery();
 
@@ -129,7 +129,7 @@ ReportDBService reportDBService = new ReportDBService();
         Paragraph paragraph2 = new Paragraph();
         Font totalFont = new Font(Font.FontFamily.TIMES_ROMAN, 16.0f, Font.BOLDITALIC, BaseColor.BLACK);
         paragraph2.setFont(totalFont);
-        paragraph2.add("Total revenue of this product (" + AppData.getInstance().getComboBoxValue() + ") is ");
+        paragraph2.add("Total revenue of this product (" + AppData.getInstance().getProductTypeComboBox() + ") is ");
         paragraph2.add(String.valueOf(showTotalReport()));
         paragraph2.add(" Eur");
         document.add(paragraph2);
@@ -154,7 +154,7 @@ ReportDBService reportDBService = new ReportDBService();
     public double showTotalReport() throws SQLException {
         double total = 0 ;
 
-        for (Item item : itemDBService.getByProductType(AppData.getInstance().getComboBoxValue())) {
+        for (Item item : itemDBService.getByProductType(AppData.getInstance().getProductTypeComboBox())) {
             total = total + (item.getCount()* item.getPrice());
 
         }
