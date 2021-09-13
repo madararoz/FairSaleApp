@@ -56,7 +56,7 @@ public class OrderPrTypeReportController extends ViewController {
             Font f20 = new Font(Font.FontFamily.TIMES_ROMAN, 20.0f, Font.NORMAL, BaseColor.BLACK);
             paragraph3.setFont(f20);
             paragraph3.setSpacingBefore(20f);
-            paragraph3.add("Product type - "+ AppData.getInstance().getComboBoxValue());
+            paragraph3.add("Product type - "+ AppData.getInstance().getProductTypeComboBox());
 
            document.add(paragraph);
            document.add(paragraph3);
@@ -72,10 +72,10 @@ public class OrderPrTypeReportController extends ViewController {
 
 
 
-
             PdfPTable table = new PdfPTable(13);
             Stream.of("Id", "Product Type", "Price", "Count", "Gender", "Produce Type", "Size", "Colour", "Type name", "Customer Name",
                     "Customer Email", "Customer Phone", "Delivery Method").forEach(table::addCell);
+
             table.setWidthPercentage(100);
             table.setSpacingBefore(10f);
             table.setSpacingAfter(10f);
@@ -85,7 +85,7 @@ public class OrderPrTypeReportController extends ViewController {
 
             PdfPCell table_cell;
             PreparedStatement statement = connection.prepareStatement(Queries.SEARCH_ORDERS_BY_PRODUCT_TYPE);
-            statement.setString(1, AppData.getInstance().getComboBoxValue());
+            statement.setString(1, AppData.getInstance().getProductTypeComboBox());
             ResultSet result = statement.executeQuery();
 
             while (result.next()) {
@@ -146,7 +146,7 @@ public class OrderPrTypeReportController extends ViewController {
             Paragraph paragraph2 = new Paragraph();
             Font totalFont = new Font(Font.FontFamily.TIMES_ROMAN, 16.0f, Font.BOLDITALIC, BaseColor.BLACK);
             paragraph2.setFont(totalFont);
-            paragraph2.add("Total revenue of this product (" + AppData.getInstance().getComboBoxValue() + ") is ");
+            paragraph2.add("Total revenue of this product (" + AppData.getInstance().getProductTypeComboBox() + ") is ");
             paragraph2.add(String.valueOf(showTotalReport()));
             paragraph2.add(" Eur");
             document.add(paragraph2);
@@ -170,7 +170,7 @@ public class OrderPrTypeReportController extends ViewController {
     public double showTotalReport() throws SQLException {
         double total = 0 ;
 
-        for (Item item : itemDBService.getOrderByProductType(AppData.getInstance().getComboBoxValue())) {
+        for (Item item : itemDBService.getOrderByProductType(AppData.getInstance().getProductTypeComboBox())) {
             total = total + (item.getCount()* item.getPrice());
 
         }

@@ -28,7 +28,8 @@ public class Queries {
     public static final String UPDATE_GENDER = "UPDATE items SET gender = ? WHERE id = ?;";
     public static final String UPDATE_PRODUCE_TYPE = "UPDATE items SET produce_type = ? WHERE id = ?;";
     public static final String UPDATE_SIZE = "UPDATE items SET size = ? WHERE id = ?;";
-    public static final String UPDATE_TYPE_NAME = "UPDATE items SET size = ? WHERE id = ?;";
+    public static final String UPDATE_COLOUR = "UPDATE items SET colour = ? WHERE id = ?;";
+    public static final String UPDATE_TYPE_NAME = "UPDATE items SET type_name = ? WHERE id = ?;";
 
     public static final String UPDATE_ORDER_PRODUCT_TYPE = "UPDATE orders SET product_type = ? WHERE id = ?;";
     public static final String UPDATE_ORDER_PRICE = "UPDATE orders SET price = ? WHERE id = ?;";
@@ -36,9 +37,11 @@ public class Queries {
     public static final String UPDATE_ORDER_GENDER = "UPDATE orders SET gender = ? WHERE id = ?;";
     public static final String UPDATE_ORDER_PRODUCE_TYPE = "UPDATE orders SET produce_type = ? WHERE id = ?;";
     public static final String UPDATE_ORDER_SIZE = "UPDATE orders SET size = ? WHERE id = ?;";
-    public static final String UPDATE_ORDER_TYPE_NAME = "UPDATE orders SET size = ? WHERE id = ?;";
+    public static final String UPDATE_ORDER_COLOUR = "UPDATE orders SET colour = ? WHERE id = ?;";
+    public static final String UPDATE_ORDER_TYPE_NAME = "UPDATE orders SET type_name = ? WHERE id = ?;";
     public static final String UPDATE_ORDER_CUSTOMER_NAME = "UPDATE orders SET customer_name = ? WHERE id = ?;";
     public static final String UPDATE_ORDER_CUSTOMER_EMAIL = "UPDATE orders SET customer_email = ? WHERE id = ?;";
     public static final String UPDATE_ORDER_CUSTOMER_PHONE = "UPDATE orders SET customer_phone WHERE id = ?;";
     public static final String UPDATE_ORDER_DELIVERY_METHOD = "UPDATE orders SET delivery_method = ? WHERE id = ?;";
+
 }

@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.AppData;
 import model.Item;
 import model.Order;
 import service.ItemDBService;
@@ -26,6 +27,7 @@ public class OrderedTableViewController extends ViewController implements Initia
     public TextField idFieldUpdate;
     public TextField idField;
     public Label Eurlabel;
+    public ComboBox searchProductTypeComboBox;
 
     ItemDBService itemDBService = new ItemDBService();
     ReportDBService reportDBService = new ReportDBService();
@@ -65,6 +67,7 @@ public class OrderedTableViewController extends ViewController implements Initia
 
         try {
             tableView.setItems(reportDBService.getOrderedItems());
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -99,6 +102,7 @@ public class OrderedTableViewController extends ViewController implements Initia
 
     public void handleSearchByProductType(ActionEvent actionEvent) {
         try {
+            AppData.getInstance().setProductTypeComboBox(searchProductTypeComboBox.getValue().toString());
             changeScene(actionEvent, "orderPrTypeReport", 1100, 600);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
@@ -139,6 +143,12 @@ public class OrderedTableViewController extends ViewController implements Initia
                 break;
             case "Size":
                 itemDBService.updateOrderSize(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));
+                break;
+            case "Colour":
+                itemDBService.updateOrderColour(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));
+                break;
+            case "Type name":
+                itemDBService.updateOrderTypeName(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));
                 break;
             case "Customer name":
                 itemDBService.updateOrderCustomerName(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));

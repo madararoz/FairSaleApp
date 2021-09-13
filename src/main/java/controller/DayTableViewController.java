@@ -61,13 +61,7 @@ public class DayTableViewController extends ViewController implements Initializa
         PrintDayReportController printDayReportController = new PrintDayReportController();
         try {
             printDayReportController.printDocument();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (DocumentException e) {
+        } catch (SQLException | IOException | DocumentException e) {
             e.printStackTrace();
         }
     }

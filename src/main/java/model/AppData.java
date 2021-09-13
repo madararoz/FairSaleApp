@@ -8,6 +8,7 @@ public class AppData {
         private String comboBoxValue = null;
         private String orderDate = null;
         private String soldDate = null;
+        private String productTypeComboBox = null;
 
     AppData(){
         }
@@ -42,6 +43,17 @@ public class AppData {
     public String getSoldDate() {
             return soldDate;
         }
+
+    public String getProductTypeComboBox() {
+
+        return productTypeComboBox;
+    }
+
+    public void setProductTypeComboBox(String productTypeComboBox) {
+        this.productTypeComboBox= productTypeComboBox;
+    }
+
+
 
 }
 

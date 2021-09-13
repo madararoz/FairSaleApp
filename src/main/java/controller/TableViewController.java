@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import model.AppData;
 import model.Item;
 import service.ItemDBService;
 import service.ReportDBService;
@@ -24,12 +25,12 @@ public class TableViewController extends ViewController implements Initializable
     public ComboBox editDataType;
     public TextField idFieldUpdate;
     public TextField newValue;
+    public ComboBox searchProductTypeComboBox;
 
     ItemDBService itemDBService = new ItemDBService();
 
    public Label sumTotalLabel;
     public Label Eurlabel;
-    public ComboBox<Item> searchProductTypeComboBox;
     ReportDBService reportDBService = new ReportDBService();
     @FXML public TableView<Item> tableView;
 
@@ -97,6 +98,7 @@ public class TableViewController extends ViewController implements Initializable
 
     public void handleSearchByProductType(ActionEvent actionEvent) {
         try {
+            AppData.getInstance().setProductTypeComboBox(searchProductTypeComboBox.getValue().toString());
             changeScene(actionEvent, "productTypeReport", 1000, 500);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
@@ -140,6 +142,9 @@ public class TableViewController extends ViewController implements Initializable
             case "Size":
                 itemDBService.updateSize(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));
                 break;
+            case "Colour":
+                itemDBService.updateColour(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));
+                break;
             case "Type name":
                 itemDBService.updateTypeName(newValue.getText(), Integer.parseInt(idFieldUpdate.getText()));
                 break;
@@ -151,6 +156,5 @@ public class TableViewController extends ViewController implements Initializable
     }
 
 
-
-    }
+}
 

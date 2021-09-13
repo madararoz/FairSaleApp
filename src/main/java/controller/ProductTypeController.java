@@ -1,6 +1,7 @@
 package controller;
 
 import com.itextpdf.text.DocumentException;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -18,7 +19,6 @@ import java.util.ResourceBundle;
 public class ProductTypeController extends ViewController implements Initializable {
 
     public TableView<Item> tableView;
-    public ComboBox searchProductTypeComboBox;
     ItemDBService itemDBService = new ItemDBService();
     TableViewController tableViewController = new TableViewController();
 
@@ -36,28 +36,24 @@ public class ProductTypeController extends ViewController implements Initializab
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        productTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("productType"));
+        priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
+        countTableColumn.setCellValueFactory(new PropertyValueFactory<>("count"));
+        genderTableColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        produceTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("produceType"));
+        sizeTableColumn.setCellValueFactory(new PropertyValueFactory<>("size"));
+        colourTableColumn.setCellValueFactory(new PropertyValueFactory<>("colour"));
+        typeNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("typeName"));
 
+
+        try {
+            tableView.setItems(itemDBService.getByProductType(AppData.getInstance().getProductTypeComboBox()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
    }
 
-   public void showProductTable(){
-       idTableColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
-       productTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("productType"));
-       priceTableColumn.setCellValueFactory(new PropertyValueFactory<>("price"));
-       countTableColumn.setCellValueFactory(new PropertyValueFactory<>("count"));
-       genderTableColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
-       produceTypeTableColumn.setCellValueFactory(new PropertyValueFactory<>("produceType"));
-       sizeTableColumn.setCellValueFactory(new PropertyValueFactory<>("size"));
-       colourTableColumn.setCellValueFactory(new PropertyValueFactory<>("colour"));
-       typeNameTableColumn.setCellValueFactory(new PropertyValueFactory<>("typeName"));
-
-
-       try {
-           tableView.setItems(itemDBService.getByProductType(searchProductTypeComboBox.getValue().toString()));
-           AppData.getInstance().setComboBoxValue(searchProductTypeComboBox.getValue().toString());
-       } catch (SQLException e) {
-           e.printStackTrace();
-       }
-   }
 
         public void handleBack(ActionEvent actionEvent) {
             try {
@@ -76,6 +72,9 @@ public class ProductTypeController extends ViewController implements Initializab
             }
         }
 
+    public void handleExit(ActionEvent actionEvent) {
+        Platform.exit();
+    }
 
 
 //        public void showTotal(){

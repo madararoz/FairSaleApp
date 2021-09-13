@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="987.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.2" fx:controller="controller.OrderPrTyController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderPrTyController">
     <children>
         <Label layoutX="7.0" layoutY="30.0" prefHeight="26.0" prefWidth="224.0" text="Product type report">
             <font>
@@ -34,27 +32,10 @@
             </columnResizePolicy>
         </TableView>
 
-        <ComboBox fx:id="searchProductTypeComboBox" layoutX="21.0" layoutY="295.0" prefHeight="26.0" prefWidth="258.0" promptText="Choose product type to show" GridPane.columnIndex="1" GridPane.rowIndex="1">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Mittens" />
-                    <String fx:value="Gloves" />
-                    <String fx:value="Mauchi" />
-                    <String fx:value="Socks" />
-                    <String fx:value="Caps" />
-                    <String fx:value="Scarves" />
-                    <String fx:value="Sweaters" />
-                    <String fx:value="Jackets" />
-                    <String fx:value="Vests" />
-                    <String fx:value="Cardigans" />
-                </FXCollections>
-            </items>
-        </ComboBox>
-
-
-        <Button layoutX="21.0" layoutY="340.0" mnemonicParsing="false" onAction="#showTable" text="Print report" />
-        <Button layoutX="362.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
-        <Button layoutX="288.0" layoutY="295.0" mnemonicParsing="false" onAction="#showProductTable" text="Show" />
+        <Button layoutX="14.0" layoutY="282.0" mnemonicParsing="false" onAction="#showTable" text="Print report" />
+        <Button layoutX="177.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+        <Button layoutX="240.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+<!--        <Button layoutX="288.0" layoutY="295.0" mnemonicParsing="false" onAction="#showProductTable" text="Show" />-->
 
 
     </children>

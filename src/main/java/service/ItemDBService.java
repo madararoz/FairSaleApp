@@ -176,6 +176,14 @@ public class ItemDBService {
         statement.close();
     }
 
+    public void updateColour(String newValue, int id) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement(Queries.UPDATE_COLOUR);
+        statement.setString(1, newValue);
+        statement.setInt(2, id);
+        statement.executeUpdate();
+        statement.close();
+    }
+
     public void updateTypeName(String newValue, int id) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(Queries.UPDATE_TYPE_NAME);
         statement.setString(1, newValue);
@@ -242,6 +250,14 @@ public class ItemDBService {
         statement.close();
     }
 
+    public void updateOrderColour(String newValue, int id) throws SQLException {
+        PreparedStatement statement = connection.prepareStatement(Queries.UPDATE_ORDER_COLOUR);
+        statement.setString(1, newValue);
+        statement.setInt(2, id);
+        statement.executeUpdate();
+        statement.close();
+    }
+
     public void updateOrderTypeName(String newValue, int id) throws SQLException {
         PreparedStatement statement = connection.prepareStatement(Queries.UPDATE_ORDER_TYPE_NAME);
         statement.setString(1, newValue);
@@ -282,6 +298,8 @@ public class ItemDBService {
         statement.executeUpdate();
         statement.close();
     }
+
+
 }
 
 
