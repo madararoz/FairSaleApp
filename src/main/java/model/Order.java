@@ -1,5 +1,7 @@
 package model;
 
+import javafx.scene.control.DatePicker;
+
 import java.util.Date;
 
 public class Order extends Item {
@@ -59,4 +61,6 @@ public class Order extends Item {
     public void setDeliveryMethod(String deliveryMethod) {
         this.deliveryMethod = deliveryMethod;
     }
+
+
 }

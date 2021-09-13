@@ -4,10 +4,7 @@ import com.itextpdf.text.DocumentException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Item;
 import model.Order;
@@ -19,9 +16,11 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class DayOrderedTableViewController extends ViewController implements Initializable {
+public class DayOrderedTableViewController extends StartController implements Initializable {
+
 
     public Label sumTotalLabel;
+
 
     ReportDBService reportDBService = new ReportDBService();
 
@@ -40,7 +39,6 @@ public class DayOrderedTableViewController extends ViewController implements Ini
     @FXML public TableColumn<Item, String> customerEmailTableColumn;
     @FXML public TableColumn<Item, String> customerPhoneTableColumn;
     @FXML public TableColumn<Item, String> deliveryMethodTableColumn;
-    @FXML private Object Date;
 
 
     @Override
@@ -66,9 +64,6 @@ public class DayOrderedTableViewController extends ViewController implements Ini
         }
 
     }
-
-//      public static Object getDate(){
-//        return Date;}
 
 
     public void handleBack(ActionEvent actionEvent) {

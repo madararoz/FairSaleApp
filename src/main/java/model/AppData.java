@@ -1,11 +1,14 @@
 package model;
 
+import javafx.scene.control.DatePicker;
+
 public class AppData {
 
         private static model.AppData appData_instance;
         private String comboBoxValue = null;
+        private DatePicker orderDate;
 
-        AppData(){
+    AppData(){
         }
 
         public static AppData getInstance() {
@@ -20,5 +23,9 @@ public class AppData {
 
     public void setComboBoxValue(String comboBoxValue) {
        this.comboBoxValue= comboBoxValue;
+    }
+
+        public void setOrderDate(DatePicker orderDate) {
+            this.orderDate = orderDate;
     }
 }
