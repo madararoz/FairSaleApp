@@ -73,7 +73,7 @@
 
   <Button onAction="#handleSoldItems" style="-fx-font-size: 14px; " text="Add" />
   <Button onAction="#handleBack" style="-fx-font-size: 14px; " text="Back" />
-  <Button onAction="#handleExit" style="-fx-font-size: 14px; " text="Exit" />
+  <Button onAction="#handleExit" style="-fx-font-size: 14px; -fx-text-fill: red; " text="Exit" />
  </HBox>
 
 

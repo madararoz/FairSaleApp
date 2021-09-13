@@ -70,7 +70,7 @@ public class TableViewController extends ViewController implements Initializable
 
     public void handleBack(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "start", 600,600);
+            changeScene(actionEvent, "start", 600,700);
         } catch (IOException ex) {
             showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
         }

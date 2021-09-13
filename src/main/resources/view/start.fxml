@@ -5,29 +5,35 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StartController">
    <children>
-      <ImageView layoutX="223.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+      <Label layoutX="54.0" layoutY="472.0" prefHeight="18.0" prefWidth="290.0" text="Please choose date to see day report:" underline="true" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="254.0" layoutY="301.0" prefHeight="18.0" prefWidth="110.0" text="REPORTS" textAlignment="CENTER" textFill="#c71010">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <ImageView layoutX="224.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
            <image>
                <Image url="@../img/logo.png" />
            </image>
        </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="111.0" prefHeight="26.0" prefWidth="390.0" style="-fx-alignment: center;" text="Welcome to SIA TINES Fair Sale Application" textAlignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="119.0" layoutY="150.0" prefHeight="26.0" prefWidth="390.0" style="-fx-alignment: center;" text="Welcome to SIA TINES Fair Sale Application" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="16.0" />
          </font></Label>
-      <Button layoutX="171.0" layoutY="154.0" mnemonicParsing="false" onAction="#registerSoldItem" prefHeight="31.0" prefWidth="109.0" style="-fx-font-size: 15px; " text="ADD SOLD" />
-      <Button layoutX="314.0" layoutY="154.0" mnemonicParsing="false" onAction="#registerOrderedItem" prefHeight="31.0" prefWidth="133.0" style="-fx-font-size: 15px;  " text="ADD ORDERED" />
-      <Button layoutX="174.0" layoutY="221.0" mnemonicParsing="false" onAction="#viewSoldItemAllReport" prefHeight="40" prefWidth="260" style="-fx-font-size: 15px;  " text="Sold item Total Report" />
-      <Button layoutX="174.0" layoutY="284.0" mnemonicParsing="false" onAction="#viewOrderItemAllReport" prefHeight="40" prefWidth="260" style="-fx-font-size: 15px;  " text="Ordered item Total Report" />
+      <Button layoutX="168.0" layoutY="233.0" mnemonicParsing="false" onAction="#registerSoldItem" prefHeight="31.0" prefWidth="109.0" style="-fx-font-size: 15px; " text="ADD SOLD" />
+      <Button layoutX="314.0" layoutY="233.0" mnemonicParsing="false" onAction="#registerOrderedItem" prefHeight="31.0" prefWidth="133.0" style="-fx-font-size: 15px;  " text="ADD ORDERED" />
+      <Button layoutX="170.0" layoutY="347.0" mnemonicParsing="false" onAction="#viewSoldItemAllReport" prefHeight="40" prefWidth="260" style="-fx-font-size: 15px;  " text="Sold item Total Report" />
+      <Button layoutX="170.0" layoutY="403.0" mnemonicParsing="false" onAction="#viewOrderItemAllReport" prefHeight="40" prefWidth="260" style="-fx-font-size: 15px;  " text="Ordered item Total Report" />
 
-      <Button layoutX="32.0" layoutY="389.0" mnemonicParsing="false" onAction="#viewSoldItemDayReport" prefHeight="42.0" prefWidth="272.0" style="-fx-font-size: 15px; " text="Sold item Day Report" textAlignment="RIGHT" />
-       <DatePicker fx:id="soldDate" layoutX="330.0" layoutY="394.0" prefHeight="31.0" prefWidth="155.0" />
+      <Button layoutX="245.0" layoutY="508.0" mnemonicParsing="false" onAction="#viewSoldItemDayReport" prefHeight="42.0" prefWidth="272.0" style="-fx-font-size: 15px; " text="Sold item Day Report" textAlignment="RIGHT" />
+       <DatePicker fx:id="soldDate" layoutX="54.0" layoutY="513.0" prefHeight="31.0" prefWidth="155.0" />
 
-       <Button layoutX="32.0" layoutY="443.0" mnemonicParsing="false" onAction="#viewOrderItemDayReport" prefHeight="42.0" prefWidth="272.0" style="-fx-font-size: 15px; " text="Ordered item Day Report" />
-       <DatePicker fx:id="orderDate" layoutX="330.0" layoutY="448.0" prefHeight="31.0" prefWidth="155.0" />
+       <Button layoutX="245.0" layoutY="560.0" mnemonicParsing="false" onAction="#viewOrderItemDayReport" prefHeight="42.0" prefWidth="272.0" style="-fx-font-size: 15px; " text="Ordered item Day Report" />
+       <DatePicker fx:id="orderDate" layoutX="54.0" layoutY="565.0" prefHeight="31.0" prefWidth="155.0" />
 
-       <Button layoutX="520.0" layoutY="511.0" mnemonicParsing="false" onAction="#handleExit" style="-fx-font-size: 14px; -fx-text-fill: red; " text="Exit" />
+       <Button layoutX="543.0" layoutY="633.0" mnemonicParsing="false" onAction="#handleExit" style="-fx-font-size: 14px; -fx-text-fill: red; " text="Exit" />
 
    </children>
 </AnchorPane>

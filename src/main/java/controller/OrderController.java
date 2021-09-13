@@ -50,7 +50,7 @@ public class OrderController extends ViewController {
 
             itemDBService.addOrderedItemToDBService(order);
             showAlert("Success", "Adding successful", Alert.AlertType.CONFIRMATION);
-            changeScene(actionEvent, "start",600,600);
+            changeScene(actionEvent, "start",600,700);
         } catch (Exception e) {
             showAlert("Adding Ordered Items Failed", e.getMessage(), Alert.AlertType.ERROR);
             e.printStackTrace();
@@ -61,7 +61,7 @@ public class OrderController extends ViewController {
 
     public void handleBack(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "start", 600, 600);
+            changeScene(actionEvent, "start", 600, 700);
         } catch (IOException ex) {
             showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
         }

@@ -70,7 +70,7 @@ public class DayOrderedTableViewController extends ViewController implements Ini
 
     public void handleBack(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "start", 600,600);
+            changeScene(actionEvent, "start", 600,700);
         } catch (IOException ex) {
             showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
         }

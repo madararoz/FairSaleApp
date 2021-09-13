@@ -48,7 +48,7 @@ public class ItemController extends ViewController {
             soldItemDBService.addSoldItemToDB(item);
 
             showAlert("Success", "Adding successful", Alert.AlertType.CONFIRMATION);
-            changeScene(actionEvent, "start", 600,600);
+            changeScene(actionEvent, "start", 600,700);
         } catch (Exception e) {
             showAlert("Adding Sold Items Failed", e.getMessage(), Alert.AlertType.ERROR);
             e.printStackTrace();
@@ -61,7 +61,7 @@ public class ItemController extends ViewController {
 
     public void handleBack(ActionEvent actionEvent) {
         try {
-            changeScene(actionEvent, "start", 600,600);
+            changeScene(actionEvent, "start", 600,700);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }
