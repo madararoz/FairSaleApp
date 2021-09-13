@@ -17,7 +17,7 @@ public class StartController extends ViewController {
     @FXML
     public DatePicker orderDate;
     public Label notificationLabel;
-    ReportDBService dateService = new ReportDBService();
+    public DatePicker soldDate;
 
     public void registerSoldItem(ActionEvent actionEvent) {
             try {
@@ -53,13 +53,14 @@ public class StartController extends ViewController {
 
     public void viewSoldItemDayReport(ActionEvent actionEvent) {
         try {
+            AppData.getInstance().setSoldDate(soldDate.getValue().toString());
             changeScene(actionEvent, "daySoldReport", 1000, 600);
         } catch (IOException e) {
             showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
         }
     }
 
-    public void viewOrderItemDayReport(ActionEvent actionEvent) throws Exception {
+    public void viewOrderItemDayReport(ActionEvent actionEvent) {
         try {
            AppData.getInstance().setOrderDate(orderDate.getValue().toString());
            changeScene(actionEvent, "dayOrderReport", 1000, 600);

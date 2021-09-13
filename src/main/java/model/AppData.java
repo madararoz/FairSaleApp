@@ -7,6 +7,7 @@ public class AppData {
         private static model.AppData appData_instance;
         private String comboBoxValue = null;
         private String orderDate = null;
+        private String soldDate = null;
 
     AppData(){
         }
@@ -34,4 +35,13 @@ public class AppData {
         return orderDate;
     }
 
+    public void setSoldDate(String soldDate) {
+        this.soldDate = soldDate;
+    }
+
+    public String getSoldDate() {
+            return soldDate;
+        }
+
 }
+

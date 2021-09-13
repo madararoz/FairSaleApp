@@ -100,6 +100,30 @@ public class ReportDBService {
         }
         return orderedItemsByDate;
     }
+
+    public ObservableList<Item> getSoldItemsByDate(String soldDate) throws SQLException {
+        ObservableList<Item> soldItemsByDate = FXCollections.observableArrayList();
+        PreparedStatement statement = connection.prepareStatement(Queries.SEARCH_SOLD_ITEMS_BY_DATE);
+        statement.setObject(1, soldDate);
+        ResultSet result = statement.executeQuery();
+
+        while (result.next()) {
+            Item soldItemsDay = new Item(
+                    result.getString("product_type"),
+                    result.getDouble("price"),
+                    result.getInt("count"),
+                    result.getString("gender"),
+                    result.getString("produce_type"),
+                    result.getString("size"),
+                    result.getString("colour"),
+                    result.getString("type_name"));
+
+
+            soldItemsByDate.add(soldItemsDay);
+        }
+        return soldItemsByDate;
+
+    }
 //
 //    public DatePicker getDate() throws Exception {
 //        String query = "SELECT created_at FROM orders WHERE date(created_at) = ?";

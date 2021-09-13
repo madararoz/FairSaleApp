@@ -24,7 +24,7 @@
 
       <Button layoutX="32.0" layoutY="443.0" mnemonicParsing="false" onAction="#viewOrderItemDayReport" prefHeight="42.0" prefWidth="272.0" style="-fx-font-size: 15px; " text="Ordered item Day Report" />
       <Button layoutX="520.0" layoutY="511.0" mnemonicParsing="false" onAction="#handleExit" style="-fx-font-size: 14px; -fx-text-fill: red; " text="Exit" />
-      <DatePicker layoutX="330.0" layoutY="394.0" prefHeight="31.0" prefWidth="155.0" />
+      <DatePicker fx:id="soldDate" layoutX="330.0" layoutY="394.0" prefHeight="31.0" prefWidth="155.0" />
             <DatePicker fx:id="orderDate" layoutX="330.0" layoutY="448.0" prefHeight="31.0" prefWidth="155.0" />
    </children>
 </AnchorPane>
