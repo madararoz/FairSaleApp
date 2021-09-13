@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1006.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controller.OrderedTableViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderedTableViewController">
     <children>
         <Label layoutX="7.0" layoutY="30.0" prefHeight="26.0" prefWidth="224.0" text="Ordered item total report">
             <font>
@@ -48,20 +48,20 @@
         </Label>
         <Button layoutX="342.0" layoutY="295.0" mnemonicParsing="false" onAction="#showTotal" prefHeight="26.0" prefWidth="150.0" text="Calculate total" textOverrun="CLIP" />
         <Button layoutX="130.0" layoutY="296.0" mnemonicParsing="false" onAction="#handleSearchByProductType" text="Filter data by product type" />
-        <Button layoutX="248.0" layoutY="338.0" mnemonicParsing="false" onAction="#deleteOrder" text="Remove" />
-        <Label layoutX="23.0" layoutY="339.0" prefHeight="18.0" prefWidth="150.0" text="Enter item id to remove:">
+        <Button layoutX="287.0" layoutY="339.0" mnemonicParsing="false" onAction="#deleteOrder" text="Remove" />
+        <Label layoutX="23.0" layoutY="339.0" prefHeight="26.0" prefWidth="176.0" text="Enter item id to remove:">
             <font>
                 <Font size="16.0" />
             </font></Label>
-        <TextField fx:id="idField" layoutX="179.0" layoutY="338.0" prefHeight="26.0" prefWidth="59.0" promptText="Id" />
+        <TextField fx:id="idField" layoutX="208.0" layoutY="338.0" prefHeight="26.0" prefWidth="59.0" promptText="Id" />
         <Button layoutX="931.0" layoutY="294.0" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
-        <Label layoutX="22.0" layoutY="386.0" prefHeight="18.0" prefWidth="224.0" text="EDIT report - enter item id to edit">
+        <Label layoutX="22.0" layoutY="386.0" prefHeight="26.0" prefWidth="251.0" text="EDIT report - enter item id to edit">
             <font>
                 <Font size="16.0" />
             </font></Label>
-        <Button layoutX="818.0" layoutY="383.0" mnemonicParsing="false" onAction="#updateOrder" text="Update" />
+        <Button layoutX="845.0" layoutY="383.0" mnemonicParsing="false" onAction="#updateOrder" text="Update" />
         <TextField fx:id="newValue" layoutX="633.0" layoutY="383.0" promptText="New value" />
-        <ComboBox fx:id="editDataType" layoutX="357.0" layoutY="383.0" prefWidth="240" promptText="Choose" GridPane.columnIndex="1" GridPane.rowIndex="1">
+        <ComboBox fx:id="editDataType" layoutX="383.0" layoutY="383.0" prefWidth="240" promptText="Choose" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="Product type" />
@@ -74,7 +74,7 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <TextField fx:id="idFieldUpdate" layoutX="250.0" layoutY="383.0" prefHeight="26.0" prefWidth="77.0" promptText="Id" />
+        <TextField fx:id="idFieldUpdate" layoutX="287.0" layoutY="382.0" prefHeight="26.0" prefWidth="77.0" promptText="Id" />
         <!--      <TextField fx:id="editDataTypeField" layoutX="351.0" layoutY="382.0" prefHeight="26.0" prefWidth="177.0" promptText="Data type to edit" />-->
     </children>
 </AnchorPane>
