@@ -6,6 +6,7 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import model.Item;
+import model.Order;
 import repository.DBHandler;
 import repository.Queries;
 import service.ReportDBService;
@@ -48,14 +49,14 @@ public class PrintOrderedReportController {
 
 
 
-        PdfPTable table = new PdfPTable(12);
-        Stream.of("Product Type", "Price", "Count", "Gender", "Produce Type", "Size", "Colour", "Type name", "Customer Name",
+        PdfPTable table = new PdfPTable(13);
+        Stream.of("Id","Product Type", "Price", "Count", "Gender", "Produce Type", "Size", "Colour", "Type name", "Customer Name",
                 "Customer Email", "Customer Phone", "Delivery Method").forEach(table::addCell);
         table.setWidthPercentage(100);
         table.setSpacingBefore(10f);
         table.setSpacingAfter(10f);
 
-        float[] columnwidths = {1.2f, 1f, 1f, 1f, 2f, 0.7f, 1f, 1f, 1f, 1f, 1f, 1f};
+        float[] columnwidths = {0.5f, 1.2f, 1f, 1f, 1f, 2f, 0.7f, 1f, 1f, 1f, 1f, 1f, 1f};
         table.setWidths(columnwidths);
 
         PdfPCell table_cell;
@@ -63,6 +64,10 @@ public class PrintOrderedReportController {
         ResultSet result = statement.executeQuery();
 
         while (result.next()) {
+            int id = result.getInt("id");
+            table_cell = new PdfPCell(new Phrase(String.valueOf(id)));
+            table.addCell(table_cell);
+
             String product_type = result.getString("product_type");
             table_cell = new PdfPCell(new Phrase(product_type));
             table.addCell(table_cell);
@@ -129,8 +134,8 @@ public class PrintOrderedReportController {
 
     public double showTotalReport() throws SQLException {
         double total = 0 ;
-        for (Item item : reportDBService.getOrderedItems()) {
-            total = total + (item.getCount()* item.getPrice());
+        for (Order order : reportDBService.getOrderedItems()) {
+            total = total + (order.getCount()* (order.getPrice()));
         }
         return total;
     }

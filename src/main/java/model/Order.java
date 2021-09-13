@@ -9,6 +9,7 @@ public class Order extends Item {
     String customerPhone;
     String deliveryMethod;
 
+
     public Order(String productType, double price, int count, String gender, String produceType, String size, String colour, String typeName, String customerName, String customerEmail, String customerPhone, String deliveryMethod) {
         super(productType, price, count, gender, produceType, size, colour, typeName);
         this.customerName = customerName;
@@ -16,6 +17,16 @@ public class Order extends Item {
         this.customerPhone = customerPhone;
         this.deliveryMethod = deliveryMethod;
     }
+
+
+    public Order(int id, String productType, double price, int count, String gender, String produceType, String size, String colour, String typeName, String customerName, String customerEmail, String customerPhone, String deliveryMethod) {
+        super(id, productType, price, count, gender, produceType, size, colour, typeName);
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
+        this.customerPhone = customerPhone;
+        this.deliveryMethod = deliveryMethod;
+    }
+
 
     public String getCustomerName() {
         return customerName;

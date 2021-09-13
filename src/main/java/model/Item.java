@@ -22,8 +22,21 @@ public class Item {
 
 
 
-
     public Item(String productType, double price, int count, String gender, String produceType, String size, String colour, String typeName) {
+        this.productType = productType;
+        this.price = price;
+        this.count = count;
+        this.gender = gender;
+        this.produceType = produceType;
+        this.size = size;
+        this.colour = colour;
+        this.typeName = typeName;
+    }
+
+
+
+    public Item(int id, String productType, double price, int count, String gender, String produceType, String size, String colour, String typeName) {
+        this.id = id;
         this.productType = productType;
         this.price = price;
         this.count = count;
