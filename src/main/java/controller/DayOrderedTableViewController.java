@@ -40,6 +40,7 @@ public class DayOrderedTableViewController extends ViewController implements Ini
     @FXML public TableColumn<Item, String> customerEmailTableColumn;
     @FXML public TableColumn<Item, String> customerPhoneTableColumn;
     @FXML public TableColumn<Item, String> deliveryMethodTableColumn;
+    @FXML private Object Date;
 
 
     @Override
@@ -59,12 +60,16 @@ public class DayOrderedTableViewController extends ViewController implements Ini
 
 
         try {
-            tableView.setItems(reportDBService.getOrderedItems());
+            tableView.setItems(reportDBService.getOrderedItemsByDate());
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
     }
+
+//      public static Object getDate(){
+//        return Date;}
+
 
     public void handleBack(ActionEvent actionEvent) {
         try {
