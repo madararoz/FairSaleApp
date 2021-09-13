@@ -59,6 +59,7 @@ public class PrintDayOrderedReportController {
 
         PdfPCell table_cell;
         PreparedStatement statement = connection.prepareStatement(Queries.SEARCH_ORDERS_BY_DATE);
+        statement.setString(1, AppData.getInstance().getSoldDate());
         ResultSet result = statement.executeQuery();
 
         while (result.next()) {
@@ -128,8 +129,8 @@ public class PrintDayOrderedReportController {
 
     public double showTotalReport() throws SQLException {
         double total = 0;
-        for (Order orderDay : reportDBService.getOrderedItemsByDate(AppData.getInstance().getSoldDate()))  {
-            total = total + (orderDay.getCount() * (orderDay.getPrice()));
+        for (Order order : reportDBService.getOrderedItemsByDate(AppData.getInstance().getSoldDate()))  {
+            total = total + (order.getCount() * (order.getPrice()));
         }
         return total;
     }
