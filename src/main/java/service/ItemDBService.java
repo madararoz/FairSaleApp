@@ -56,7 +56,7 @@ public class ItemDBService {
         statement.setString(9, order.getCustomerName());
         statement.setString(10, order.getCustomerEmail());
         statement.setString(11, order.getCustomerPhone());
-        statement.setString(11, order.getDeliveryMethod());
+        statement.setString(12, order.getDeliveryMethod());
 
 
         statement.executeUpdate();
