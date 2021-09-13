@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StartController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.StartController">
    <children>
       <Label layoutX="54.0" layoutY="472.0" prefHeight="18.0" prefWidth="290.0" text="Please choose date to see day report:" underline="true" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="254.0" layoutY="301.0" prefHeight="18.0" prefWidth="110.0" text="REPORTS" textAlignment="CENTER" textFill="#c71010">

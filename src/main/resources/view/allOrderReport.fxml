@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1006.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderedTableViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="1006.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderedTableViewController">
     <children>
         <Label layoutX="7.0" layoutY="30.0" prefHeight="26.0" prefWidth="224.0" text="Ordered item total report">
             <font>
