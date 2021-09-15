@@ -37,7 +37,7 @@ public class PrintDayReportController {
         Paragraph paragraph = new Paragraph();
         Font f = new Font(Font.FontFamily.TIMES_ROMAN, 25.0f, Font.BOLD, BaseColor.BLACK);
         paragraph.setFont(f);
-        paragraph.add("Report of sold items of selected day ");
+        paragraph.add("Report of sold items of selected day (" + AppData.getInstance().getSoldDate() + ")");
 
 
         document.add(paragraph);

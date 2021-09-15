@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderPrTyController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="987.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderPrTyController">
     <children>
         <Label layoutX="7.0" layoutY="30.0" prefHeight="26.0" prefWidth="224.0" text="Product type report">
             <font>
@@ -31,6 +31,18 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
             </columnResizePolicy>
         </TableView>
+
+
+        <Label fx:id="sumTotalLabel" layoutX="566.0" layoutY="284.0" prefHeight="26.0" prefWidth="55.0">
+            <font>
+                <Font size="16.0" />
+            </font></Label>
+        <Label fx:id="Eurlabel" layoutX="634.0" layoutY="284.0" prefHeight="26.0" prefWidth="41.0" textAlignment="RIGHT">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <Button layoutX="409.0" layoutY="283.0" mnemonicParsing="false" onAction="#showTotal" prefHeight="26.0" prefWidth="150.0" text="Calculate total" textOverrun="CLIP" />
 
         <Button layoutX="14.0" layoutY="282.0" mnemonicParsing="false" onAction="#showTable" text="Print report" />
         <Button layoutX="177.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />

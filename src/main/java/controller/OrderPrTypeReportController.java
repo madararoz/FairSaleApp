@@ -170,8 +170,8 @@ public class OrderPrTypeReportController extends ViewController {
     public double showTotalReport() throws SQLException {
         double total = 0 ;
 
-        for (Item item : itemDBService.getOrderByProductType(AppData.getInstance().getProductTypeComboBox())) {
-            total = total + (item.getCount()* item.getPrice());
+        for (Order order : itemDBService.getOrderByProductType(AppData.getInstance().getProductTypeComboBox())) {
+            total = total + (order.getCount()* order.getPrice());
 
         }
         return total;

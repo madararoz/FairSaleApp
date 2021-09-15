@@ -33,19 +33,19 @@ public class OrderedTableViewController extends ViewController implements Initia
     ReportDBService reportDBService = new ReportDBService();
 
     @FXML public TableView<Order> tableView;
-    @FXML private TableColumn<Item, Integer> idTableColumn;
-    @FXML public TableColumn<Item, String> productTypeTableColumn;
-    @FXML public TableColumn<Item, Double> priceTableColumn;
-    @FXML public TableColumn<Item, Integer> countTableColumn;
-    @FXML public TableColumn<Item, String> genderTableColumn;
-    @FXML public TableColumn<Item, String> produceTypeTableColumn;
-    @FXML public TableColumn<Item, String> sizeTableColumn;
-    @FXML public TableColumn<Item, String> colourTableColumn;
-    @FXML public TableColumn<Item, String> typeNameTableColumn;
-    @FXML public TableColumn<Item, String> customerNameTableColumn;
-    @FXML public TableColumn<Item, String> customerEmailTableColumn;
-    @FXML public TableColumn<Item, String> customerPhoneTableColumn;
-    @FXML public TableColumn<Item, String> deliveryMethodTableColumn;
+    @FXML private TableColumn<Order, Integer> idTableColumn;
+    @FXML public TableColumn<Order, String> productTypeTableColumn;
+    @FXML public TableColumn<Order, Double> priceTableColumn;
+    @FXML public TableColumn<Order, Integer> countTableColumn;
+    @FXML public TableColumn<Order, String> genderTableColumn;
+    @FXML public TableColumn<Order, String> produceTypeTableColumn;
+    @FXML public TableColumn<Order, String> sizeTableColumn;
+    @FXML public TableColumn<Order, String> colourTableColumn;
+    @FXML public TableColumn<Order, String> typeNameTableColumn;
+    @FXML public TableColumn<Order, String> customerNameTableColumn;
+    @FXML public TableColumn<Order, String> customerEmailTableColumn;
+    @FXML public TableColumn<Order, String> customerPhoneTableColumn;
+    @FXML public TableColumn<Order, String> deliveryMethodTableColumn;
 
 
     @Override
@@ -93,8 +93,8 @@ public class OrderedTableViewController extends ViewController implements Initia
 
     public void showTotal(){
         double total = 0 ;
-        for (Item item : tableView.getItems()) {
-            total = total + (item.getCount()* item.getPrice());
+        for (Order order : tableView.getItems()) {
+            total = total + (order.getCount()* order.getPrice());
         }
         sumTotalLabel.setText(String.valueOf(total));
         Eurlabel.setText("Eur");

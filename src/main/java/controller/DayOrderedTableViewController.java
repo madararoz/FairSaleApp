@@ -29,18 +29,18 @@ public class DayOrderedTableViewController extends ViewController implements Ini
     @FXML
     public TableView<Order> tableView;
 
-    @FXML public TableColumn<Item, String> productTypeTableColumn;
-    @FXML public TableColumn<Item, Double> priceTableColumn;
-    @FXML public TableColumn<Item, Integer> countTableColumn;
-    @FXML public TableColumn<Item, String> genderTableColumn;
-    @FXML public TableColumn<Item, String> produceTypeTableColumn;
-    @FXML public TableColumn<Item, String> sizeTableColumn;
-    @FXML public TableColumn<Item, String> colourTableColumn;
-    @FXML public TableColumn<Item, String> typeNameTableColumn;
-    @FXML public TableColumn<Item, String> customerNameTableColumn;
-    @FXML public TableColumn<Item, String> customerEmailTableColumn;
-    @FXML public TableColumn<Item, String> customerPhoneTableColumn;
-    @FXML public TableColumn<Item, String> deliveryMethodTableColumn;
+    @FXML public TableColumn<Order, String> productTypeTableColumn;
+    @FXML public TableColumn<Order, Double> priceTableColumn;
+    @FXML public TableColumn<Order, Integer> countTableColumn;
+    @FXML public TableColumn<Order, String> genderTableColumn;
+    @FXML public TableColumn<Order, String> produceTypeTableColumn;
+    @FXML public TableColumn<Order, String> sizeTableColumn;
+    @FXML public TableColumn<Order, String> colourTableColumn;
+    @FXML public TableColumn<Order, String> typeNameTableColumn;
+    @FXML public TableColumn<Order, String> customerNameTableColumn;
+    @FXML public TableColumn<Order, String> customerEmailTableColumn;
+    @FXML public TableColumn<Order, String> customerPhoneTableColumn;
+    @FXML public TableColumn<Order, String> deliveryMethodTableColumn;
 
 
     @Override
@@ -80,21 +80,15 @@ public class DayOrderedTableViewController extends ViewController implements Ini
         PrintDayOrderedReportController printDayOrderedReportController = new PrintDayOrderedReportController();
         try {
             printDayOrderedReportController.printDocument();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (DocumentException e) {
+        } catch (SQLException | IOException | DocumentException e) {
             e.printStackTrace();
         }
     }
 
     public void showTotal(){
         int total = 0 ;
-        for (Item item : tableView.getItems()) {
-            total = (int) (total + (item.getCount()* item.getPrice()));
+        for (Order order : tableView.getItems()) {
+            total = (int) (total + (order.getCount()* order.getPrice()));
         }
         sumTotalLabel.setText(String.valueOf(total));
         Eurlabel.setText("Eur");

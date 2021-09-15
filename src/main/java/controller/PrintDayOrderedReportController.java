@@ -37,7 +37,8 @@ public class PrintDayOrderedReportController {
         Paragraph paragraph = new Paragraph();
         Font f = new Font(Font.FontFamily.TIMES_ROMAN, 25.0f, Font.BOLD, BaseColor.BLACK);
         paragraph.setFont(f);
-        paragraph.add("Report of ordered items of selected day");
+        paragraph.add("Report of ordered items of selected day (" + AppData.getInstance().getOrderDate() + ")");
+
 
 
         document.add(paragraph);
@@ -59,7 +60,7 @@ public class PrintDayOrderedReportController {
 
         PdfPCell table_cell;
         PreparedStatement statement = connection.prepareStatement(Queries.SEARCH_ORDERS_BY_DATE);
-        statement.setString(1, AppData.getInstance().getSoldDate());
+        statement.setString(1, AppData.getInstance().getOrderDate());
         ResultSet result = statement.executeQuery();
 
         while (result.next()) {
@@ -129,7 +130,7 @@ public class PrintDayOrderedReportController {
 
     public double showTotalReport() throws SQLException {
         double total = 0;
-        for (Order order : reportDBService.getOrderedItemsByDate(AppData.getInstance().getSoldDate()))  {
+        for (Order order : reportDBService.getOrderedItemsByDate(AppData.getInstance().getOrderDate()))  {
             total = total + (order.getCount() * (order.getPrice()));
         }
         return total;

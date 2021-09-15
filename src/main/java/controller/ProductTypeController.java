@@ -19,6 +19,8 @@ import java.util.ResourceBundle;
 public class ProductTypeController extends ViewController implements Initializable {
 
     public TableView<Item> tableView;
+    public Label Eurlabel;
+    public Label sumTotalLabel;
     ItemDBService itemDBService = new ItemDBService();
     TableViewController tableViewController = new TableViewController();
 
@@ -74,6 +76,17 @@ public class ProductTypeController extends ViewController implements Initializab
 
     public void handleExit(ActionEvent actionEvent) {
         Platform.exit();
+    }
+
+    public void showTotal(ActionEvent actionEvent) {
+        double total = 0 ;
+        for (Item item : tableView.getItems()) {
+            total = total + (item.getCount()* item.getPrice());
+
+        }
+        sumTotalLabel.setText(String.valueOf(total));
+        Eurlabel.setText("Eur");
+        
     }
 
 

@@ -4,39 +4,55 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="987.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderPrTyController">
-    <children>
-        <Label layoutX="7.0" layoutY="30.0" prefHeight="26.0" prefWidth="224.0" text="Product type report">
-            <font>
-                <Font size="15.0" />
-            </font></Label>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0"
+            prefWidth="987.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrderPrTyController">
+    <Label layoutX="7.0" layoutY="30.0" prefHeight="26.0" prefWidth="224.0" text="Product type report">
+        <font>
+            <Font size="15.0"/>
+        </font>
+    </Label>
 
-        <TableView fx:id="tableView" layoutX="7.0" layoutY="71.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="972.0" style="-fx-border-color: grey;">
-            <columns>
-                <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="Id" />
-                <TableColumn fx:id="productTypeTableColumn" prefWidth="75.0" text="Product type" />
-                <TableColumn fx:id="priceTableColumn" prefWidth="75.0" resizable="false" text="Price" />
-                <TableColumn fx:id="countTableColumn" prefWidth="52.199981689453125" text="Count" />
-                <TableColumn fx:id="genderTableColumn" prefWidth="50.20001220703125" text="Gender" />
-                <TableColumn fx:id="produceTypeTableColumn" prefWidth="48.800018310546875" text="Produce Type" />
-                <TableColumn fx:id="sizeTableColumn" prefWidth="48.800018310546875" text="Size" />
-                <TableColumn fx:id="colourTableColumn" prefWidth="48.800018310546875" text="Colour" />
-                <TableColumn fx:id="typeNameTableColumn" prefWidth="48.800018310546875" text="Type name" />
-                <TableColumn fx:id="customerNameTableColumn" prefWidth="48.800018310546875" text="Customer name" />
-                <TableColumn fx:id="customerEmailTableColumn" prefWidth="48.800018310546875" text="Customer email" />
-                <TableColumn fx:id="customerPhoneTableColumn" prefWidth="48.800018310546875" text="Customer phone" />
-                <TableColumn fx:id="deliveryMethodTableColumn" prefWidth="48.800018310546875" text="Delivery method" />
-            </columns>
-            <columnResizePolicy>
-                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-            </columnResizePolicy>
-        </TableView>
-
-        <Button layoutX="14.0" layoutY="282.0" mnemonicParsing="false" onAction="#showTable" text="Print report" />
-        <Button layoutX="177.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
-        <Button layoutX="240.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleExit" style="-fx-font-size: 14px; -fx-text-fill: red; " text="Exit" />
-<!--        <Button layoutX="288.0" layoutY="295.0" mnemonicParsing="false" onAction="#showProductTable" text="Show" />-->
+    <TableView fx:id="tableView" layoutX="7.0" layoutY="71.0" minHeight="-Infinity" minWidth="-Infinity"
+               prefHeight="200.0" prefWidth="972.0" style="-fx-border-color: grey;">
+        <columns>
+            <TableColumn fx:id="idTableColumn" prefWidth="75.0" text="Id"/>
+            <TableColumn fx:id="productTypeTableColumn" prefWidth="75.0" text="Product type"/>
+            <TableColumn fx:id="priceTableColumn" prefWidth="75.0" resizable="false" text="Price"/>
+            <TableColumn fx:id="countTableColumn" prefWidth="52.199981689453125" text="Count"/>
+            <TableColumn fx:id="genderTableColumn" prefWidth="50.20001220703125" text="Gender"/>
+            <TableColumn fx:id="produceTypeTableColumn" prefWidth="48.800018310546875" text="Produce Type"/>
+            <TableColumn fx:id="sizeTableColumn" prefWidth="48.800018310546875" text="Size"/>
+            <TableColumn fx:id="colourTableColumn" prefWidth="48.800018310546875" text="Colour"/>
+            <TableColumn fx:id="typeNameTableColumn" prefWidth="48.800018310546875" text="Type name"/>
+            <TableColumn fx:id="customerNameTableColumn" prefWidth="48.800018310546875" text="Customer name"/>
+            <TableColumn fx:id="customerEmailTableColumn" prefWidth="48.800018310546875" text="Customer email"/>
+            <TableColumn fx:id="customerPhoneTableColumn" prefWidth="48.800018310546875" text="Customer phone"/>
+            <TableColumn fx:id="deliveryMethodTableColumn" prefWidth="48.800018310546875" text="Delivery method"/>
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+    </TableView>
 
 
-    </children>
+    <Label fx:id="sumTotalLabel" layoutX="566.0" layoutY="284.0" prefHeight="26.0" prefWidth="55.0">
+        <font>
+            <Font size="16.0"/>
+        </font>
+    </Label>
+    <Label fx:id="Eurlabel" layoutX="634.0" layoutY="284.0" prefHeight="26.0" prefWidth="41.0" textAlignment="RIGHT">
+        <font>
+            <Font size="16.0"/>
+        </font>
+    </Label>
+    <Button layoutX="409.0" layoutY="283.0" mnemonicParsing="false" onAction="#showTotal" prefHeight="26.0"
+            prefWidth="150.0" text="Calculate total" textOverrun="CLIP"/>
+
+    <Button layoutX="14.0" layoutY="282.0" mnemonicParsing="false" onAction="#showTable" text="Print report"/>
+    <Button layoutX="177.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleBack" text="Back"/>
+    <Button layoutX="240.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleExit"
+            style="-fx-font-size: 14px; -fx-text-fill: red; " text="Exit"/>
+    <!--        <Button layoutX="288.0" layoutY="295.0" mnemonicParsing="false" onAction="#showProductTable" text="Show" />-->
+
+
 </AnchorPane>
