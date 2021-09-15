@@ -52,20 +52,30 @@ public class StartController extends ViewController {
     }
 
     public void viewSoldItemDayReport(ActionEvent actionEvent) {
-        try {
+        if (soldDate.getValue() == null) {
+            showAlert("Problem loading report", "Please enter the date", Alert.AlertType.ERROR);
+        } else {
             AppData.getInstance().setSoldDate(soldDate.getValue().toString());
-            changeScene(actionEvent, "daySoldReport", 1000, 500);
-        } catch (IOException e) {
-            showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
+            try {
+                changeScene(actionEvent, "daySoldReport", 1000, 500);
+            } catch (IOException e) {
+                showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
+            }
+
         }
     }
 
     public void viewOrderItemDayReport(ActionEvent actionEvent) {
-        try {
-           AppData.getInstance().setOrderDate(orderDate.getValue().toString());
-           changeScene(actionEvent, "dayOrderReport", 1000, 500);
-        } catch (IOException e) {
-            showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
+        if (orderDate.getValue() == null) {
+            showAlert("Problem loading report", "Please enter the date", Alert.AlertType.ERROR);
+        } else {
+            AppData.getInstance().setOrderDate(orderDate.getValue().toString());
+            try {
+                changeScene(actionEvent, "dayOrderReport", 1000, 500);
+            } catch (IOException e) {
+                showAlert("Problem loading scene", e.getMessage(), Alert.AlertType.ERROR);
+            }
+
         }
     }
 
