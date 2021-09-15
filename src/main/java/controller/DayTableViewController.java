@@ -1,6 +1,7 @@
 package controller;
 
 import com.itextpdf.text.DocumentException;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -81,5 +82,10 @@ public class DayTableViewController extends ViewController implements Initializa
         } catch (IOException ex) {
             showAlert("Back failed", ex.getMessage(), Alert.AlertType.ERROR);
         }
+    }
+
+    public void handleExit(ActionEvent actionEvent) {
+        Platform.exit();
+
     }
 }

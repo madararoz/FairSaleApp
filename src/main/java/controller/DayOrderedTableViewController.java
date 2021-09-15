@@ -1,6 +1,7 @@
 package controller;
 
 import com.itextpdf.text.DocumentException;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -92,5 +93,10 @@ public class DayOrderedTableViewController extends ViewController implements Ini
         }
         sumTotalLabel.setText(String.valueOf(total));
         Eurlabel.setText("Eur");
+    }
+
+    public void handleExit(ActionEvent actionEvent) {
+        Platform.exit();
+
     }
 }
